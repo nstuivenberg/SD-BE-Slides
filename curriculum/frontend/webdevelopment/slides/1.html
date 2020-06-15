@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <title>Web Development - Les 1 HTML</title>
@@ -19,11 +19,19 @@
     <!-- Theme used for syntax highlighting of code -->
     <link href="../../../../plugin/highlight/monokai.css" id="highlight-theme" rel="stylesheet">
 
+    <style>
+        .container{
+            display: flex;
+        }
+        .col{
+            flex: 1;
+        }
+    </style>
 </head>
 <body>
 
-<div class="reveal">
-    <div class="slides">
+<article class="reveal">
+    <section class="slides">
         <section>
             <h1>Web Development</h1>
             <p>Les 1 - HTML</p>
@@ -41,6 +49,27 @@
                     <li>Javascript advanced</li>
                 </ol>
             </section>
+            <section data-background-iframe="https://hakim.se" data-background-interactive>
+                <div style="position: absolute; width: 40%; right: 0; box-shadow: 0 1px 4px rgba(0,0,0,0.5), 0 5px 25px rgba(0,0,0,0.2); background-color: rgba(0, 0, 0, 0.9); color: #fff; padding: 20px; font-size: 20px; text-align: left;">
+                    <p>Om uiteindelijk websites zoals dit te maken.</p>
+                </div>
+            </section>
+            <section data-background-iframe="https://www.nos.nl/" data-background-interactive>
+                <div style="position: absolute; width: 40%; right: 0; box-shadow: 0 1px 4px rgba(0,0,0,0.5), 0 5px 25px rgba(0,0,0,0.2); background-color: rgba(0, 0, 0, 0.9); color: #fff; padding: 20px; font-size: 20px; text-align: left;">
+                    <p>Of dit.</p>
+                </div>
+            </section>
+            <section data-background-iframe="http://lifeactionrevival.org/" data-background-interactive>
+                <div style="position: absolute; width: 40%; right: 0; box-shadow: 0 1px 4px rgba(0,0,0,0.5), 0 5px 25px rgba(0,0,0,0.2); background-color: rgba(0, 0, 0, 0.9); color: #fff; padding: 20px; font-size: 20px; text-align: left;">
+                    <p>Maar niet dit.</p>
+                </div>
+            </section>
+            <section data-background-iframe="https://www.zillow.com/" data-background-interactive>
+                <div style="position: absolute; width: 40%; right: 0; box-shadow: 0 1px 4px rgba(0,0,0,0.5), 0 5px 25px rgba(0,0,0,0.2); background-color: rgba(0, 0, 0, 0.9); color: #fff; padding: 20px; font-size: 20px; text-align: left;">
+                    <p>Maar wel dit.</p>
+                </div>
+            </section>
+
             <section>
                 <h2>Vandaag - HTML</h2>
                 <ul>
@@ -48,7 +77,8 @@
                     <li>Tips</li>
                     <li>Voorbeelden</li>
                     <li>Opdrachten</li>
-                    <li>Inleiding CSS</li>
+                    <li>HTML-semantics</li>
+                    <li>Uitloop: Inleiding CSS</li>
                 </ul>
             </section>
         </section>
@@ -155,14 +185,7 @@
             </section>
             <section>
                 <h2>Attributen voorbeelden</h2>
-                <style>
-                    .container{
-                        display: flex;
-                    }
-                    .col{
-                        flex: 1;
-                    }
-                </style>
+
 
                 <div class="container">
 
@@ -294,21 +317,124 @@
                 </code></pre>
 
             </section>
-            <section></section>
+            <section>
+                <h2>HTML - List</h2>
+                <div class="container">
+
+                    <div class="col">
+                <pre><code class="html" data-line-numbers="">&lt;html&gt;&lt;body&gt;
+&lt;ul&gt;
+    &lt;li&gt;Item #1 &lt;/li&gt;
+    &lt;li&gt;Item #2 &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ol&gt;
+    &lt;li&gt;Item #1 &lt;/li&gt;
+    &lt;li&gt;Item #2 &lt;/li&gt;
+&lt;/ol&gt;
+&lt;/body&gt;&lt;/html&gt;</code></pre>
+                    </div>
+                    <div class="col">
+                        <img src="img/list.png" alt="List example">
+                    </div>
+                </div>
+            </section>
+            <section>
+
+                <h2>HTML - Formulier</h2>
+                <div class="container">
+
+                    <div class="col">
+                        <pre><code class="html" data-line-numbers="">&lt;form action=&quot;#&quot;&gt;
+&lt;label for=&quot;firstName&quot;&gt;
+First name:&lt;/label&gt;&lt;br&gt;
+&lt;input type=&quot;text&quot; id=&quot;firstName&quot;
+    name=&quot;firstName&quot; value=&quot;Nick&quot;&gt;
+&lt;br&gt;
+&lt;label for=&quot;lastName&quot;&gt;Last name:
+&lt;/label&gt;
+&lt;br&gt;
+&lt;input type=&quot;text&quot; id=&quot;lastName&quot;
+    name=&quot;lastName&quot;&gt;&lt;br&gt;&lt;br&gt;
+&lt;input type=&quot;submit&quot;
+    value=&quot;Add person&quot;&gt;
+&lt;/form&gt;</code></pre>
+                    </div>
+                    <div class="col">
+                        <img src="img/form.png" alt="Form example">
+                    </div>
+                </div>
+            </section>
         </section>
 
 
         <section>
             <h2>Opdrachten</h2>
             <ol>
-                <li>Maak een formulier</li>
-                <li>Maak deze list na</li>
+                <li>Ga naar:</li>
+                <li><a  style="font-size: small" href="https://github.com/nstuivenbergnovi/sd_opdrachten/blob/master/webdevelopment/les1.md">
+                    https://github.com/nstuivenbergnovi/sd_opdrachten/blob/master/webdevelopment/les1.md
+                </a></li>
+                <li>Probeer de opdrachten te maken.</li>
+                <li>Terug om 10.30 uur</li>
             </ol>
         </section>
 
-    </div>
+        <section>
+            <section>
+                <h2>Semantics</h2>
+                <ol>
+                <li>Een semantisch element omschrijft de betekenis aan zowel de ontwikkelaar, de browser als de zoekmachine.</li>
+                    <li><em>Div</em> en <em>span</em> zijn voorbeelden van niet semantische elementen.</li>
+                    <li><em>Form</em>, <em>table</em> en <em>article</em> zijn voorbeelden van semantische elementen.</li>
+                </ol>
+            </section>
+            <section>
+                <h2>Semantics - praktijkvoorbeeld (1)</h2>
+                <img src="https://www.w3schools.com/html/img_sem_elements.gif" alt="Semantics example">
+            </section>
+            <section>
+                <h2>Semantics - praktijkvoorbeeld (2)</h2>
+                <div class="container">
+                    <div class="col">
+                        <pre><code class="html" data-line-numbers="">&lt;div id=&quot;header&quot;&gt;&lt;/div&gt;
+&lt;div id=&quot;nav&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;section&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;article&quot;&gt;&lt;/div&gt;
+&lt;div id=&quot;footer&quot;&gt;&lt;/div&gt;
+                        </code></pre>
 
-</div>
+                    </div>
+                    <div class="col">
+                        <pre><code class="html" data-line-numbers="">&lt;header&gt;&lt;/header&gt;
+&lt;nav&gt;&lt;/nav&gt;
+&lt;section&gt;&lt;/section&gt;
+&lt;article&gt;&lt;/article&gt;
+&lt;footer&gt;&lt;/footer&gt;
+                        </code></pre>
+                    </div>
+                </div>
+            </section>
+        </section>
+        <section>
+            <h2>Vragen?</h2>
+            <h3>Tijd over?</h3>
+        </section>
+        <section data-background-iframe="https://jspring.nl/" data-background-interactive>
+            <div style="position: absolute; width: 40%; right: 0; box-shadow: 0 1px 4px rgba(0,0,0,0.5), 0 5px 25px rgba(0,0,0,0.2); background-color: rgba(0, 0, 0, 0.9); color: #fff; padding: 20px; font-size: 20px; text-align: left;">
+                <p>Vergeet je niet aan te melden!</p>
+            </div>
+        </section>
+        <section>
+            <h2>Huiswerk</h2>
+            <ul>
+                <li>Doorlezen hoofdstuk 8 t/m 14</li>
+                <li>Opdrachten uit het boek zijn zelfstude.</li>
+                <li>Uiterlijk morgenmiddag <em>leukere</em> opdrachten online. Deze behandel ik in de les.</li>
+            </ul>
+        </section>
+    </section>
+</article>
 
 <script src="../../../../dist/reveal.js"></script>
 <script src="../../../../plugin/zoom/zoom.js"></script>
