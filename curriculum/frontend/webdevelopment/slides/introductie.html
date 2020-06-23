@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Presentatie aan de Novi's</title>
+
+    <meta name="description" content="Slides voor het vak webdevelopment. Gegeven op Novi Hogeschool">
+    <meta name="author" content="Nick Stuivenberg">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../../../../dist/reset.css">
+    <link rel="stylesheet" href="../../../../dist/reveal.css">
+    <link rel="stylesheet" href="../../../../dist/theme/black.css" id="theme">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="../../../../plugin/highlight/monokai.css" id="highlight-theme">
+
+    <style>
+        .container{
+            display: flex;
+        }
+        .col{
+            flex: 1;
+        }
+    </style>
+</head>
+<body>
+
+<div class="reveal">
+    <div class="slides">
+        <section data-background="#002b36">
+            <h1>Frontend</h1>
+            <p>Wat leren ze?</p>
+            <aside class="notes">
+                Notes can be added here
+            </aside>
+        </section>
+        <section>
+            <section>
+                <h2>Frontend</h2>
+                <ul>
+                    <li>HTML</li>
+                    <li>Css</li>
+                    <li>Javascript</li>
+                    <li>React framework</li>
+                    <li>UI/UX</li>
+                </ul>
+            </section>
+            <section>
+                <h3>Wat is nou frontend?</h3>
+                <ul>
+                    <li>Alles wat op de pc van de eindgebruiker getoond wordt</li>
+                    <li>Alle code is  ook te zien door de eindgebruiker</li>
+                    <li>Vaak in een (omhulsel van) een webbrowser</li>
+                    <li>Moet kunnen communiceren met back-end</li>
+                </ul>
+            </section>
+            <section>
+                <h3>Frontend vs backend</h3>
+                <img src="img/frontendbackend.jpg" alt="fe vs be">
+            </section>
+
+        </section>
+        <section data-background="#4d7e65">
+            <section>
+                <h3>HTML, CSS & Javascript</h3>
+                <div class="container">
+                    <div class="col">
+                        <ul>
+                            <li>Omlijning</li>
+                            <li>Opmaak</li>
+                            <li>Interactie & responsiviteit</li>
+                        </ul>
+                    </div>
+                    <div class="col">
+                        <div style="width:100%;height:0;padding-bottom:100%;position:relative;"><iframe src="https://giphy.com/embed/fuJPZBIIqzbt1kAYVc" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div>
+                    </div>
+                </div>
+            </section>
+            <section data-background-iframe="https://www.nos.nl/" data-background-interactive>
+                <div style="position: absolute; width: 40%; right: 0; box-shadow: 0 1px 4px rgba(0,0,0,0.5), 0 5px 25px rgba(0,0,0,0.2); background-color: rgba(0, 0, 0, 0.9); color: #fff; padding: 20px; font-size: 20px; text-align: left;">
+                    <p>Dan maken ze zoiets als dit</p>
+                </div>
+            </section>
+            <section data-background-iframe="https://userinyerface.com/game.html" data-background-interactive>
+                <div style="position: absolute; width: 40%; right: 0; box-shadow: 0 1px 4px rgba(0,0,0,0.5), 0 5px 25px rgba(0,0,0,0.2); background-color: rgba(0, 0, 0, 0.9); color: #fff; padding: 20px; font-size: 20px; text-align: left;">
+                    <p>Vooral niet dit</p>
+                </div>
+            </section>
+            <section data-background-iframe="assignments/responsive/index.html" data-background-interactive>
+                <div style="position: absolute; width: 40%; right: 0; box-shadow: 0 1px 4px rgba(0,0,0,0.5), 0 5px 25px rgba(0,0,0,0.2); background-color: rgba(0, 0, 0, 0.9); color: #fff; padding: 20px; font-size: 20px; text-align: left;">
+                    <p>Of moeten ze dit fixen</p>
+                </div>
+            </section>
+            <section>
+                <h3>Nakijken?</h3>
+                <a href="https://classroom.github.com" target="_blank">Github classroom</a>
+            </section>
+        </section>
+    </div>
+</div>
+
+<script src="../../../../dist/reveal.js"></script>
+<script src="../../../../plugin/zoom/zoom.js"></script>
+<script src="../../../../plugin/notes/notes.js"></script>
+<script src="../../../../plugin/search/search.js"></script>
+<script src="../../../../plugin/markdown/markdown.js"></script>
+<script src="../../../../plugin/highlight/highlight.js"></script>
+<script>
+
+    // Also available as an ES module, see:
+    // https://revealjs.com/initialization/
+    Reveal.initialize({
+        controls: true,
+        progress: true,
+        center: true,
+        hash: true,
+
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight ]
+    });
+
+</script>
+</body>
+</html>
