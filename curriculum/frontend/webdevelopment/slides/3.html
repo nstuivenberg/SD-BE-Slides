@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Web Development - Les 3</title>
+
+    <meta name="description" content="Slides voor het vak webdevelopment. Gegeven op Novi Hogeschool">
+    <meta name="author" content="Nick Stuivenberg">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../../../../dist/reset.css">
+    <link rel="stylesheet" href="../../../../dist/reveal.css">
+    <link rel="stylesheet" href="../../../../dist/theme/black.css" id="theme">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="../../../../plugin/highlight/monokai.css" id="highlight-theme">
+
+</head>
+<body>
+
+<div class="reveal">
+    <div class="slides">
+        <section>
+            <section>
+            <h1>Web Development</h1>
+            <p>Les 3 - CSS & Javascript</p>
+            <aside class="notes">
+                Notes can be added here
+            </aside>
+            </section>
+            <section>
+                <h2>Inhoud</h2>
+                <ul>
+                    <li>Html & css terugkijken (15m)</li>
+                    <li>CSS huiswerk bespreken</li>
+                    <li>JavaScript & DOM</li>
+                    <li>Opdrachten</li>
+                </ul>
+
+            </section>
+        </section>
+        <section data-background="#b5533c">
+            <section>
+                <h2>Terugblik HTML & CSS</h2>
+                <ul>
+                    <li>Waar kun je CSS plaatsen</li>
+                    <li>Gewicht van selectors</li>
+                    <li>Parent->child (nested)</li>
+                </ul>
+            </section>
+            <section>
+                <h3>Waar kun je CSS plaatsen?</h3>
+                <ul>
+                    <li>In een style attribute</li>
+                    <li>Style-tag</li>
+                    <li>External stylesheet</li>
+                </ul>
+            </section>
+            <section>
+                <h3>Waar kun je CSS plaatsen?</h3>
+                <p>Als attribuut van het HTML-element. Dit heet Inline CSS</p>
+                <pre><code class="html" data-trim data-line-numbers="">
+                    <p style="color:#000; font-family: 'Lato', sans-serif;">
+                        Hallo, hallo, hallo
+                    </p>
+                </code></pre>
+            </section>
+            <section>
+                <h3>Waar kun je CSS plaatsen?</h3>
+                <p>Binnen de style tags. Dit heet Internal CSS</p>
+                <pre><code class="html" data-trim data-line-numbers="3-9|2-10">
+                    &lt;html&gt;
+                    &lt;head&gt;
+                        &lt;style&gt;
+                            p {
+                                font-weight: bold;
+                                font-family: &quot;Lato&quot;, sans-serif;
+                                color:#f00;
+                            }
+                        &lt;/style&gt;
+                    &lt;/head&gt;
+                    &lt;body&gt;
+                    &lt;p&gt;Hello&lt;/p&gt;
+                    &lt;/body&gt;
+                    &lt;/html&gt;
+                </code></pre>
+            </section>
+            <section>
+                <h3>Waar kun je CSS plaatsen?</h3>
+                <p>In een apart CSS-bestand. Dit External CSS</p>
+                <pre><code class="html" data-trim data-line-numbers="">
+                    &lt;html&gt;
+                    &lt;head&gt;
+                        &lt;title&gt;Externe CSS&lt;/title&gt;
+                        &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;mystyle.css&quot;&gt;
+                    &lt;/head&gt;
+                    &lt;body&gt;
+                    &lt;h1&gt;Fancy Website&lt;/h1&gt;
+                    &lt;/body&gt;
+                    &lt;/html&gt;
+                </code></pre>
+                <aside class="notes">
+                    <strong>Wat komt eerder?</strong><br>
+                    Inline CSS heeft altijd de hoogste prioriteit.<br>
+                    Internal en external CSS overschrijven elkaar.<br>
+                    Dat betekent dat de degene die als laatst wordt aangeroepen of geladen wordt de voorkeur krijgt.
+                </aside>
+            </section>
+            <section>
+                <h3>Gewicht van Selectors</h3>
+                <p>Het uiterlijk wordt op de volgende manier bepaald:</p>
+                <ul>
+                    <li>Inline CSS</li>
+                    <li><a href="examples/css-examples/internalVsExternal.html" target="_blank">Internal</a> / <a href="examples/css-examples/externalVsInternal.html" target="_blank">External</a> CSS</li>
+                    <li>Standaardopmaak</li>
+                </ul>
+            </section>
+            <section>
+                <h3>Gewicht van selectors</h3>
+                <ul>
+                    <li>0: Universal selector</li>
+                    <li>1: Element selector</li>
+                    <li>10: Class selector</li>
+                    <li>100: Id selector</li>
+                    <li>1000: Inline-style</li>
+                    <li>10000: !important</li>
+                </ul>
+            </section>
+
+
+
+        </section>
+        <section>
+            <h2>Huiswerk bespreken</h2>
+            <ul>
+                <li>Opdracht 3</li>
+                <li>Opdracht 4</li>
+                <li>Responsive maken</li>
+            </ul>
+        </section>
+        <section>
+            <section>
+                <h3>Javascript</h3>
+                <ul>
+                    <li>Verschil Java & Javascript</li>
+                    <li>Javascript</li>
+                    <li>JavaScript - DOM</li>
+                </ul>
+            </section>
+        </section>
+        <section>
+            <h2>Opdrachten</h2>
+            <ul>
+                <li>HTML-DOM: Lamp opdracht</li>
+                <li>HTML Form opdracht</li>
+            </ul>
+        </section>
+    </div>
+</div>
+
+<script src="../../../../dist/reveal.js"></script>
+<script src="../../../../plugin/zoom/zoom.js"></script>
+<script src="../../../../plugin/notes/notes.js"></script>
+<script src="../../../../plugin/search/search.js"></script>
+<script src="../../../../plugin/markdown/markdown.js"></script>
+<script src="../../../../plugin/highlight/highlight.js"></script>
+<script>
+
+    // Also available as an ES module, see:
+    // https://revealjs.com/initialization/
+    Reveal.initialize({
+        controls: true,
+        progress: true,
+        center: true,
+        hash: true,
+
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight ]
+    });
+
+</script>
+</body>
+</html>
