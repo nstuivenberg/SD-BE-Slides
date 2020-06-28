@@ -72,9 +72,9 @@
                 <h3>Waar kun je CSS plaatsen?</h3>
                 <p>Als attribuut van het HTML-element. Dit heet Inline CSS</p>
                 <pre><code class="html" data-trim data-line-numbers="">
-                    <p style="color:#000; font-family: 'Lato', sans-serif;">
+                    &lt;p style="color:#000; font-family: 'Lato', sans-serif;">
                         Hallo, hallo, hallo
-                    </p>
+                    &lt;/p>
                 </code></pre>
             </section>
             <section>
@@ -210,22 +210,22 @@
                 <h3>What about var?</h3>
                 <div class="container"><div class="col">
                 <pre><code class="js" data-trim data-line-numbers="" style="font-size: smaller; line-height: normal;">
-                    var x = 22; // waarde var is 22
+                    var x = 22; // waarde x is 22
                     {
-                        var x = 10; // waarde var is 10
+                        var x = 10; // waarde x is 10
                     }
                     console.log(x);
-                    // waarde van var is: hierbuiten 10
+                    // waarde van variabele x is:  10
                 </code></pre>
                 </div>
                 <div class="col">
                     <pre><code class="js" data-trim data-line-numbers="" style="font-size: smaller; line-height: normal;">
-                    let x = 22; // waarde var is 22
+                    let x = 22; // waarde x is 22
                     {
-                        let x = 10; // waarde var is 10
+                        let x = 10; // waarde x is 10
                     }
                     console.log(x);
-                    // waarde van var is: hierbuiten 22
+                    // waarde van variabele x is: 22
                 </code></pre>
                 </div></div>
                 <p class="fragment fade-up"><strong>Tip</strong>: gebruik geen var.</p>
@@ -252,6 +252,79 @@
                 </code></pre>
                 </div>
                 </div>
+            </section>
+            <section>
+                <h3>Functies</h3>
+                <pre><code class="js" data-trim data-line-numbers="">
+                function functionName(parameter1, parameter2) {
+                    let uitkomst = parameter1 * parameter2;
+                    return uitkomst;
+                }
+                </code></pre>
+            </section>
+            <section>
+                <h3>Array</h3>
+                <pre><code class="js" data-trim data-line-numbers="1-2|3|4|5">
+                    let biersoorten = ["Malt","Blond","Herfstbock",
+                        "Lentebock","Pilsener"];
+                    console.log(biersoorten[0]);
+                    biersoorten[0] = "witbier";
+                    biersoorten.push("Radler");
+                </code>
+                </pre>
+            </section>
+        </section>
+        <section>
+            <section><h2>Werken met de DOM</h2>
+            <ul>
+                <li>Elementen selecteren</li>
+                <li>Elementen aanpassen</li>
+            </ul>
+            </section>
+            <section>
+                <h3>Elementen selecteren (1)</h3>
+                <pre><code class="js" data-trim data-line-numbers="1-2|4-6">
+                    // HTML element met id="voorbeeld"
+                    let element = document.getElementById("voorbeeld");
+
+                    //Pas de inhoud (tussen de elementen aan)
+                    //&lt;p>Dit is inhoud&lt;/p>
+                    element.innerHTML = "Hello World";
+                </code></pre>
+            </section>
+            <section>
+                <h3>Elementen selecteren (2)</h3>
+                <pre><code class="js" data-trim data-line-numbers="1-2|4-5">
+                    // Selecteer ALLE span elementen
+                    let spanElements = document.getElementsByTagName("span");
+
+                    //Selecteer alle elementen met class="box"
+                    let elements = document.getElementsByClassName("box");
+                </code></pre>
+            </section>
+            <section>
+                <h3>Elementen aanpassen</h3>
+                <pre><code class="js" data-trim data-line-numbers="1-3|5-7|9-11">
+                    // Deze hebben wel al gezien
+                    let element = document.getElementById("voorbeeld");
+                    element.innerHTML = "Hello World";
+
+                    //Attribute toevoegen of aanpassen
+                    let image = document.getElementById("topImg");
+                    img.setAttribute("src", "anotherImage.jpg");
+
+                    // CSS aanpassen op Inline niveau
+                    image.style.border = "10px solid blue";
+                    image.style.display = "none";
+                </code></pre>
+
+            </section>
+            <section>
+                <h3>Voorbeelden</h3>
+                <ul>
+                    <li><a href="#" target="_blank"></a></li>
+                    <li><a href="#" target="_blank"></a></li>
+                </ul>
             </section>
         </section>
         <section>
