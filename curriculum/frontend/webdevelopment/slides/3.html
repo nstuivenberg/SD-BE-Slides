@@ -19,6 +19,15 @@
     <!-- Theme used for syntax highlighting of code -->
     <link rel="stylesheet" href="../../../../plugin/highlight/monokai.css" id="highlight-theme">
 
+    <style>
+        .container{
+            display: flex;
+        }
+        .col{
+            flex: 1;
+        }
+    </style>
+
 </head>
 <body>
 
@@ -49,7 +58,6 @@
                 <ul>
                     <li>Waar kun je CSS plaatsen</li>
                     <li>Gewicht van selectors</li>
-                    <li>Parent->child (nested)</li>
                 </ul>
             </section>
             <section>
@@ -165,7 +173,7 @@
         </section>
         <section>
             <section>
-                <h3>Javascript</h3>
+                <h2>Javascript</h2>
                 <ul>
                     <li>Verschil Java & Javascript
                     <ul><li>Teams -> Algemeen -> Kladblok</li></ul></li>
@@ -173,6 +181,77 @@
                     <ul><li>Variabelen, functies & ===</li></ul></li>
                     <li>JavaScript - DOM</li>
                 </ul>
+            </section>
+            <section>
+                <h3>Variabelen</h3>
+                <p>Javascript is loosely typed and dynamic</p>
+                <pre><code class="js" data-trim data-line-numbers="1 | 2 | 3">
+                    let name = "Nick";
+                    name = 22;
+                    name = true;
+
+                </code></pre>
+
+                <aside class="notes">
+                    Dynamically typed betekent dat de datatype tijdens het uitvoeren van de code wordt bepaald.
+                    Een variabele kan dus ook van datatype veranderen.
+                    je declareert je variabele dus niet, op het moment dat je de variabele maakt.
+                </aside>
+            </section>
+            <section>
+                <h3>Variabele maken</h3>
+                <p>Je kunt op twee manieren een variabele maken:</p>
+                <pre><code class="js" data-trim data-line-numbers="1 | 2 ">
+                    let student = "Rogier Pettendrager";
+                    const isMale = true;
+                </code></pre>
+            </section>
+            <section>
+                <h3>What about var?</h3>
+                <div class="container"><div class="col">
+                <pre><code class="js" data-trim data-line-numbers="" style="font-size: smaller; line-height: normal;">
+                    var x = 22; // waarde var is 22
+                    {
+                        var x = 10; // waarde var is 10
+                    }
+                    console.log(x);
+                    // waarde van var is: hierbuiten 10
+                </code></pre>
+                </div>
+                <div class="col">
+                    <pre><code class="js" data-trim data-line-numbers="" style="font-size: smaller; line-height: normal;">
+                    let x = 22; // waarde var is 22
+                    {
+                        let x = 10; // waarde var is 10
+                    }
+                    console.log(x);
+                    // waarde van var is: hierbuiten 22
+                </code></pre>
+                </div></div>
+                <p class="fragment fade-up"><strong>Tip</strong>: gebruik geen var.</p>
+            </section>
+            <section>
+                <h3>=, == of ===</h3>
+                <div class="container"><div class="col">
+                <pre><code class="js" data-trim data-line-numbers="" style="font-size: smaller; line-height: normal;">
+                    let age = 22;
+                    if (age == 22) {
+                        console.log("This is true");
+                    } else {
+                        console.log("This is not true");
+                    }
+                </code></pre>
+                </div><div class="col">
+                <pre><code class="js" data-trim data-line-numbers="" style="font-size: smaller; line-height: normal;">
+                    let age = "22";
+                    if (age === 22) {
+                        console.log("This is true");
+                    } else {
+                        console.log("This is not true");
+                    }
+                </code></pre>
+                </div>
+                </div>
             </section>
         </section>
         <section>
