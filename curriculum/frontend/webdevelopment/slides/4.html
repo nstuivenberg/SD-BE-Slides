@@ -39,11 +39,158 @@
 <div class="reveal">
     <div class="slides">
         <section>
-            <h1>Web Development</h1>
-            <p>Les 4 - JSON en Ajax</p>
-            <aside class="notes">
-                Notes can be added here
-            </aside>
+            <section>
+                <h1>Web Development</h1>
+                <p>Les 4 - JSON en Ajax</p>
+                <aside class="notes">
+                    Notes can be added here
+                </aside>
+            </section>
+            <section>
+                <h3>Vandaag</h3>
+                <ul>
+                    <li>Javascript Objecten</li>
+                    <li>JSON</li>
+                    <li>Cookies</li>
+                    <li>Ajax</li>
+                    <li>Oefenen met Axios</li>
+                </ul>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>JS - objecten</h2>
+                <ul>
+                    <li>JS-objecten</li>
+                    <li>Simpel voorbeeld</li>
+                    <li>Voorbeeld met constructor</li>
+                    <li>Prototypes</li>
+                </ul>
+            </section>
+            <section>
+                <h3>JS-objecten (1)</h3>
+                <ul><li>Dit zijn altijd objecten:
+                    <ul style="list-style-type: circle;">
+                    <li>Date</li>
+                    <li>Math</li>
+                    <li>Regular expression</li>
+                    <li>Array</li>
+                    <li>Function</li>
+                    <li>Object</li>
+                    </ul>
+                </li></ul>
+            </section>
+            <section>
+                <h3>JS-Objecten (2)</h3>
+                <ul><li>Dit zijn <em>soms</em> objecten:
+                <ul style="list-style-type: circle;">
+                    <li>Boolean (met new gedefinieerd)</li>
+                    <li>Number (met new gedefinieerd)</li>
+                    <li>String (met new gedefinieerd)</li>
+                </ul></li>
+                <li>Dit zijn nooit objecten:
+                <ul style="list-style-type: circle;">
+                    <li>Primitieve datatypes</li>
+                    <li>string, number, boolean, null en undefined</li>
+                </ul></li></ul>
+                <aside class="notes">
+                    <p>Definieer de waardes <strong>NIET</strong> met <em>new</em>. Dit zorgt voor extra overhead.</p>
+                    <p>De values (waardes) zijn immutable. Je kunt de waarde van de variabele wel veranderen, maar niet
+                        de waarde van de waarde.</p>
+                </aside>
+            </section>
+            <section>
+                <h3>Simpel JS-object</h3>
+                <pre><code class="js" data-trim data-line-numbers="1|1-8|6-7|1-9">
+                    let student = {
+                        firstname : "Nick",
+                        lastname : "Stuivenberg",
+                        birthYear: 1990,
+                        isRegistered : false
+                        fullname : function() {
+                            return this.firstname + " " + this.lastname;
+                    }
+                    console.log(student.fullname());
+                </code></pre>
+            </section>
+            <section>
+                <h3>JS-Object met constructor & functies</h3>
+                <pre><code class="js" data-trim data-line-numbers="1|1-6|7-8">
+                    function Book(author, title, isbn, year) {
+                        this.author = author;
+                        this.title = title;
+                        this.isbn = isbn;
+                        this.year = year;
+                        this.text = function() {
+                            return "this book was published in " + this.year;
+                        };
+                    }
+                    let favouriteBook = new Book("JK Rowling", "Harry Potter",
+                        "isbn-2-222", 1995);
+                </code></pre>
+            </section>
+            <section>
+                <h3>JS prototypes (1)</h3>
+                <p>Check onderstaande code</p>
+                <pre><code class="js" data-trim data-line-numbers="1-13">
+                function Example(txt) {
+                    this.data = txt;
+                    this.foo = function () {
+                        return "bar"
+                    }
+                    this.foo = function () {
+                        return "bar"
+                    }
+                    this.foo = function () {
+                        return "bar"
+                    }
+                }
+                let foo = new Example("bar");
+                </code></pre>
+                <p>Hoeveel objecten worden er op regel 13 aangemaakt?</p>
+            </section>
+            <section>
+                <h3>JS Prototypes (2)</h3>
+                <p>Daarom hebben we prototypes</p>
+                <pre><code class="js" data-trim data-line-numbers="1-13">
+                    function Teacher(fn, ln) {
+                        this.firstname = fn;
+                        this.lastname = ln;
+                    }
+                    // Voeg property toe.
+                    Teacher.prototype.subject = "Java";
+
+                    // Voeg functies toe
+                    Teacher.prototype.name = function () {
+                        return this.firstname + " " + this.lastname;
+                    };
+                </code></pre>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>JSON</h2>
+                <ul>
+                    <li>Info</li>
+                    <li>Van JS object naar JSON</li>
+                    <li>Voorbeelden</li>
+                </ul>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>Cookies</h2>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>Ajax</h2>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>Oefenen met Axios</h2>
+            </section>
         </section>
     </div>
 </div>
