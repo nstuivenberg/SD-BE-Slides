@@ -17,15 +17,40 @@ We hebben de volgende gegevens van het persoon-object:
 <script>
     /**
      * Het is de bedoeling dat je zelf het object maakt. De DOM wordt al gevuld!
+     * Je kunt uit de code hieronder halen hoe het object en de functies moeten heten.
+     * Voeg minimaal twee interesses toe!
      */
 
 
     /**
      * Code om de DOM te vullen.
      */
-    let volledigeNaam = document.getElementsByTagName("ul");
-    console.log(volledigeNaam);
-    volledigeNaam.innerHTML = "YOLO SWAG!!!";
+    let naamElement = document.getElementsByTagName("li")[0];
+    let leeftijdElement = document.getElementsByTagName("li")[1];
+    let beroepElement = document.getElementsByTagName("li")[2];
+    let intereseElement = document.getElementsByTagName("li")[3];
+
+    // JS stopt met code uitvoeren wanneer er een error wordt gegooid. Het is handig om de regels die errors gooien
+    // uit te commentariëren.
+    naamElement.innerText += " " + persoon.fullName();
+    leeftijdElement.innerText += " " + persoon.age;
+    beroepElement.innerText += " " + persoon.beroep;
+    intereseElement.innerHTML += createInteresseElementList(persoon.interests);
+
+
+    function createInteresseElementList(interesses) {
+        let interesseSubElement = "<ul>";
+
+        for (let i = 0; i < interesses.length; i++) {
+            interesseSubElement += "<li>" + interesses[i] +"</li>"
+        }
+
+        interesseSubElement += "</ul>";
+
+        return interesseSubElement;
+    }
+
+
 </script>
 
 </body>
