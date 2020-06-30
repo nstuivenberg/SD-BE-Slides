@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Web Development: oefenen met JSON - Novi Hogeschool</title>
+</head>
+<body>
+<h1>Werken met JSON</h1>
+<h2>Voor als we tijd over hebben</h2>
+<p>In deze opdracht wordt met de Axios library een <em>get</em>-call gedaan naar de ergast api. Deze API bevat zeer veel
+    informatie over formule 1. In dit geval worden alle coureurs van het jaar 2019 opgehaald (2020 staat er nog niet in).
+</p>
+<p>Het is aan jou om de volgende punten te proberen.</p>
+<ul>
+    <li>Print de namen van alle genoemde coureurs uit.</li>
+    <li>Print het hoogste permanente nummer uit.</li>
+    <li>Print de naam van de oudste coureur uit.</li>
+    <li>Tel de nationaliteiten en laat zien hoe vaak deze voorkomen.</li>
+    <li><a href="https://www.w3schools.com/js/js_object_properties.asp" target="_blank">Hoe kom je bij properties?</a></li>
+</ul>
+
+<h4>Tips</h4>
+<ul>
+    <li>Zet de JSON-string eerst om naar een JS-object</li>
+    <li>Je kunt de JSON-string in Intellij/Webstorm gooien en deze met <em>ctrl</em>+<em>alt</em>+<em>shift</em>
+        +<em>L</em> formateren</li>
+
+</ul>
+<h4>Meer weten?</h4>
+<ul>
+    <li><a href="https://github.com/axios/axios" target="_blank">https://github.com/axios/axios</a></li>
+</ul>
+<hr>
+<p id="drivers"></p>
+
+
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script>
+    /**
+     * Met de AXIOS-library kun je versimpelde HTTP requests maken. Daarnaast maakt Axios het makkelijker om errors
+     * af te vangen en deze te 'verwerken.'
+     */
+    axios.get('http://ergast.com/api/f1/2019/drivers.json')
+        .then((response) => {
+            // `data` is the response that was provided by the server
+            console.log(response.data);
+            // `status` is the HTTP status code from the server response
+            console.log(response.status);
+            // `statusText` is the HTTP status message from the server response
+            console.log(response.statusText);
+            // `headers` the headers that the server responded with
+            // All header names are lower cased
+            console.log(response.headers);
+            // `config` is the config that was provided to `axios` for the request
+            console.log(response.config);
+
+            // Je kunt dit uitcommentariëren om het hele JSON-String te zien.
+            //document.getElementById("drivers").innerHTML = JSON.stringify(response.data);
+        })
+        .catch(function(error) {
+            console.log("Dit is de error:");
+            console.log(error);
+        })
+        .then(function() {
+            //Stel dat je iets wilt doen wanneer alles geladen is, dan doe je dat hier.
+        });
+
+</script>
+</body>
+</html>
