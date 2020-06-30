@@ -49,11 +49,14 @@
             <section>
                 <h3>Vandaag</h3>
                 <ul>
-                    <li>Javascript Objecten</li>
+                    <li>JS-opdrachten</li>
+                    <li>Javascript Objecten<ul style="list-style-type: circle">
+                        <li>Twee oefeningen</li>
+                    </ul></li>
                     <li>JSON</li>
                     <li>Cookies</li>
                     <li>Ajax</li>
-                    <li>Oefenen met Axios</li>
+                    <li><del>Oefenen met Axios</del></li>
                 </ul>
             </section>
         </section>
@@ -115,7 +118,7 @@
             </section>
             <section>
                 <h3>JS-Object met constructor & functies</h3>
-                <pre><code class="js" data-trim data-line-numbers="1|1-6|7-8">
+                <pre><code class="js" data-trim data-line-numbers="1|6-8|1-9|10-11|1-11">
                     function Book(author, title, isbn, year) {
                         this.author = author;
                         this.title = title;
@@ -176,10 +179,179 @@
                     <li>Voorbeelden</li>
                 </ul>
             </section>
+            <section>
+                <h3>JSON info</h3>
+                <ul>
+                    <li>Over het web wordt onderling gecommuniceerd met tekst;</li>
+                    <li>JSON is in het leven geroepen om data uit te wisselen;</li>
+                    <li>Gebaseerd op het JS object. Staat voor Javascript Object Notation</li>
+                    <li>Meerdere (bijna alle) talen kunnen overweg met JSON</li>
+                    <li>JSON is makkelijk te lezen en zelf beschrijvend</li>
+                </ul>
+            </section>
+            <section>
+                <h3>JSON Syntax</h3>
+                <div class="container">
+                    <div class="col" style="font-size: smaller">
+                        <ul>
+                            <li>Data is name/value pairs</li>
+                            <li>Data is gescheiden door komma's</li>
+                            <li>Curly braces {} voor objecten</li>
+                            <li>Blokhaken voor arrays</li>
+                        </ul>
+                    </div>
+                    <div class="col">
+                        <pre><code class="js" data-trim data-line-numbers
+                                   style="font-size: small; line-height: normal">
+                        repairmen = {
+                            "name":"John",
+                            "age":30,
+                            "cars": [
+                            { "name":"Ford", "models":
+                                ["Fiesta", "Focus", "Mustang" ]},
+                            { "name":"BMW", "models":
+                                ["320", "X3", "X5" ]},
+                            { "name":"Fiat", "models":
+                                ["500", "Panda" ] }
+                            ]
+                        }
+                        </code></pre>
+                    </div>
+                </div>
+            </section>
+            <section>
+                <h3>JSON <-> JS-object</h3>
+                <div class="container">
+                    <div class="col">
+                        <h4>JS naar JSON</h4>
+                        <pre><code class="js" data-trim data-line-numbers>
+                            let jsonString =
+                                JSON.stringify(fifaSpeler);
+                        </code></pre>
+                    </div>
+                    <div class="col">
+                        <h4>JSON naar JS</h4>
+                        <pre><code class="js" data-trim data-line-numbers>
+                            let jsonObject =
+                                JSON.parse(jsonString);
+                        </code></pre>
+                    </div>
+                </div>
+            </section>
+            <section>
+                <h3>Het verschil tussen de twee</h3>
+                <div class="container">
+                    <div class="col">
+                        <h4>JS object</h4>
+                        <pre><code class="js" data-trim data-line-numbers>
+                        let fifaSpeler = {
+                            firstName : "Lionel",
+                            lastName : "Messi",
+                            length: 1.56,
+                            salary : 10000000,
+                            scoreRating: 94,
+                            scorePotential: 96
+                        }
+                        </code></pre>
+                    </div>
+                    <div class="col">
+                        <h4>Json</h4>
+                        <pre><code class="json" data-trim data-line-numbers>
+                        {
+                            "firstName":"Lionel",
+                            "lastName":"Messi",
+                            "length":1.56,
+                            "salary":10000000,
+                            "scoreRating":94,
+                            "scorePotential":96
+                        }
+                        </code></pre>
+                    </div>
+                </div>
+            </section>
+            <section>
+                <h3>Verschil JSON en JS</h3>
+                <ul>
+                    <li>JSON heeft geen functies*</li>
+                    <li>JSON heeft geen date object</li>
+                    <li>JSON kent geen undefined</li>
+                    <li>In JS mag je single-quotes gebruiken in JSON niet</li>
+                </ul>
+            </section>
         </section>
         <section>
             <section>
                 <h2>Cookies</h2>
+                <ul>
+                    <li>Wat zijn cookies?</li>
+                    <li>
+                        Voorbeeldcode
+                    </li>
+                </ul>
+            </section>
+            <section>
+                <h3>Cookies</h3>
+                <ul>
+                    <li>Cookies zijn data als kleine tekstbestanden opgeslagen;</li>
+                    <li>Cookies zijn uitgevonden om data te onthouden over de bezoeker;</li>
+                    <li>Cookies maken ook weer gebruik van een name-value pair.</li>
+                </ul>
+            </section>
+            <section>
+                <h3>Cookie maken</h3>
+                <pre><code class="js" data-trim data-line-numbers>
+                    document.cookie = "teacher=Nick Stuivenberg";
+                </code></pre>
+                <p>Cookie maken met verwijder datum</p>
+                <pre><code class="js" data-trim data-line-numbers>
+                    document.cookie = "teacher=Nick Stuivenberg;
+                        expires=Thu, 18 Dec 2025 12:00:00 UTC";
+                </code></pre>
+                <p>Cookie maken met path parameter</p>
+                <pre><code class="js" data-trim data-line-numbers>
+                    document.cookie = "teacher=Nick Stuivenberg;
+                        expires=Thu, 18 Dec 2025 12:00:00 UTC;
+                        path=/";
+                </code></pre>
+            </section>
+            <section>
+                <h3>Cookie lezen</h3>
+                <pre><code class="js" data-trim data-line-numbers>
+                    let allCookies = document.cookie;
+                </code></pre>
+                <p>Cookie aanpassen</p>
+                <pre><code class="js" data-trim data-line-numbers>
+                    document.cookie = "teacher=Dennis the Menace;
+                        expires=Thu, 18 Dec 2025 12:00:00 UTC";
+                </code></pre>
+                <p>Cookie verwijderen</p>
+                <pre><code class="js" data-trim data-line-numbers>
+                    document.cookie = "username=;
+                        expires=Thu, 01 Jan 1970 00:00:00 UTC;
+                        path=/;";
+                </code></pre>
+                <aside class="notes">
+                    <p>document.cookie will return all cookies in one string much like:
+                        cookie1=value; cookie2=value; cookie3=value;</p>
+                    <p>
+                        You should define the cookie path to ensure that you delete the right cookie.
+                        Some browsers will not let you delete a cookie if you don't specify the path.
+                    </p>
+                </aside>
+            </section>
+            <section>
+                <h3>Cookie voorbeeld</h3>
+                <pre><code class="js" data-trim data-line-numbers>
+                    document.cookie = "teacher=Nick Stuivenberg";
+                    document.cookie = "TA=Fred Flatbeklimmer";
+                    document.cookie = "TA=Henny Heetijzer";
+                    alert(document.cookie);
+                </code></pre>
+                <img src="img/cookie_alert.png" alt="cookie alert">
+            </section>
+            <section>
+                <h3>Cookie opdracht</h3>
+
             </section>
         </section>
         <section>
