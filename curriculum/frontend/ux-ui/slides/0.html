@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>UI/UX - Les 1</title>
+
+    <meta name="description" content="Slides voor het vak webdevelopment. Gegeven op Novi Hogeschool">
+    <meta name="author" content="Nick Stuivenberg">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../../../../dist/reset.css">
+    <link rel="stylesheet" href="../../../../dist/reveal.css">
+    <link rel="stylesheet" href="../../../../dist/theme/white.css" id="theme">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="../../../../plugin/highlight/monokai.css" id="highlight-theme">
+
+    <!-- kleuren:
+    #f5f1b5
+    #b5533c
+    #4d7e65
+    #002b36 -->
+    <!--
+    pdf
+    decktape -s 1920x1080  automatic http://localhost:8000/curriculum/frontend/webdevelopment/slides/4.html#/ 4.pdf
+    -->
+    <style>
+        .container{
+            display: flex;
+        }
+        .col{
+            flex: 1;
+        }
+    </style>
+
+</head>
+<body>
+
+<div class="reveal">
+    <div class="slides">
+        <section>
+        <section>
+            <h1>UX/UI</h1>
+            <p>Les 1 - UX/UI</p>
+            <aside class="notes">
+                Notes can be added here
+            </aside>
+        </section>
+            <section>
+                <h3>Inhoud</h3>
+                <ul>
+                    <li>Slechte UI/UX voorbeelden</li>
+                    <li>Schermontwerp maken</li>
+                    <li>Javascript</li>
+                </ul>
+            </section>
+        </section>
+        <section>
+            <section><h2>Wat UI-voorbeelden</h2></section>
+            <section data-background-iframe="https://web.archive.org/web/20090918230216/http://www.nos.nl/nos/voorpagina">
+                <div style="position: absolute; width: 40%; right: 0; box-shadow: 0 1px 4px rgba(0,0,0,0.5), 0 5px 25px rgba(0,0,0,0.2); background-color: rgba(0, 0, 0, 0.9); color: #fff; padding: 20px; font-size: 20px; text-align: left;">
+                    <p>NOS design uit 2009</p>
+                </div>
+            </section>
+            <section data-background-iframe="https://www.nos.nl">
+                <div style="position: absolute; width: 40%; right: 0; box-shadow: 0 1px 4px rgba(0,0,0,0.5), 0 5px 25px rgba(0,0,0,0.2); background-color: rgba(0, 0, 0, 0.9); color: #fff; padding: 20px; font-size: 20px; text-align: left;">
+                    <p>NOS nu</p>
+                </div>
+                <aside class="notes">
+                    Mobile friendly, maar qua gebruik bijna hetzelfde.
+                </aside>
+            </section>
+            <section data-background="img/japanese_ui.png">
+                <div style="position: absolute; width: 40%; right: 0; box-shadow: 0 1px 4px rgba(0,0,0,0.5), 0 5px 25px rgba(0,0,0,0.2); background-color: rgba(0, 0, 0, 0.9); color: #fff; padding: 20px; font-size: 20px; text-align: left;">
+                    <p>Wat vinden we hiervan?</p>
+                </div>
+            </section>
+            <section>
+                <h3>Frameworks</h3>
+                <ul>
+                    <li>Vroeger: bootstrap</li>
+                    <li>React heeft material.UI</li>
+                    <li>Metro UI (lijkt op windows 10)</li>
+                    <li><a href="https://classpert.com/blog/top-bootstrap-alternatives" target="_blank">
+                        https://classpert.com/blog/top-bootstrap-alternatives</a>
+                    </li>
+                </ul>
+            </section>
+        </section>
+        <section>
+            <section>
+            <h2>UX</h2>
+            <blockquote>User experience (UX) design is the process design teams use to create products that provide meaningful and relevant experiences to users. </blockquote>
+            </section>
+            <section data-background-video="videos/7-key-factors-of-ux-720p.webm"></section>
+            <section>
+                <ul>
+                    <li>Welke tips konden jullie hieruit halen voor jullie eindopdracht?</li>
+                    <li><a href="https://www.youtube.com/watch?v=RFv53AxxQAo" target="_blank">10 Tips (youtube)</a></li>
+                </ul>
+            </section>
+            <section data-background="img/bg-spar.png">
+                <div style="position: absolute; width: 40%; right: 0; box-shadow: 0 1px 4px rgba(0,0,0,0.5), 0 5px 25px rgba(0,0,0,0.2); background-color: rgba(0, 0, 0, 0.9); color: #fff; padding: 20px; font-size: 20px; text-align: left;">
+                    <p>Op welke knop zou jij onbewust drukken?</p>
+                </div>
+            </section>
+            <section data-background="img/bg-spar-filled.png">
+
+            </section>
+            <section>
+                <h3>Opdracht</h3>
+                <h6>Ga aan de slag met het schermontwerp van je eindopdracht.</h6>
+                <ul>
+                    <li>Gebruik hiervoor draw.io of AdobeXD</li>
+                    <li>Focus vooral op de plek en grootte van dingen. Nog niet op kleuren.</li>
+                    <li>Moet je app ook goed werken op een mobiel, begin dan mobile first.</li>
+                    <li>Ik pik er een paar uit om te showcasen.</li>
+                </ul>
+            </section>
+        </section>
+        <section>
+            <h1>Javascript!!</h1>
+        </section>
+
+
+    </div>
+</div>
+
+<script src="../../../../dist/reveal.js"></script>
+<script src="../../../../plugin/zoom/zoom.js"></script>
+<script src="../../../../plugin/notes/notes.js"></script>
+<script src="../../../../plugin/search/search.js"></script>
+<script src="../../../../plugin/markdown/markdown.js"></script>
+<script src="../../../../plugin/highlight/highlight.js"></script>
+<script>
+
+    // Also available as an ES module, see:
+    // https://revealjs.com/initialization/
+    Reveal.initialize({
+        controls: true,
+        progress: true,
+        center: true,
+        hash: true,
+
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight ]
+    });
+
+</script>
+</body>
+</html>
