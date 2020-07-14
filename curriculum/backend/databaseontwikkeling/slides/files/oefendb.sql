@@ -75,5 +75,5 @@ insert into tblKlant values ('HASD','HAS Den Bosch','Dieze 23', '5241KN', 'Den B
 insert into tblFactuur (klantnr, factuurdatum, facturist, afrekenmethode) values ('kw1c','1-1-2009','P. Overbeek','B');
 insert into tblFactuur (klantnr, factuurdatum, facturist, afrekenmethode) values ('kw1c','1-2-2009','R. Meijerink','B');
 insert into tblFactuur (klantnr, factuurdatum, facturist, afrekenmethode) values ('kw1c','1-3-2009','R. Meijerink','P');
-insert into tblFactuur (klantnr, factuurdatum, facturist, afrekenmethode) values ('Avans','4-1-2009','P. Overbeek','C');
+insert into tblFactuur (klantnr, factuurdatum, facturist, afrekenmethode) values ('AVANS','4-1-2009','P. Overbeek','C');
  
