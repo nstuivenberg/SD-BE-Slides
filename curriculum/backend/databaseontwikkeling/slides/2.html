@@ -55,20 +55,16 @@
                 <ul>
                     <li>Huiswerk bespreken - 1</li>
                     <li>Constraints</li>
+                    <li>Lesopdracht</li>
                     <li>Huiswerk bespreken - 2</li>
                     <li>Insert, Update, Delete</li>
                     <li>Huiswerk bespreken - 3</li>
-                    <li>Opdracht</li>
                     <li>Select - vervolg</li>
                 </ul>
             </section>
             <section>
                 <h3>Huiswerk bespreken - 1</h3>
                 <h5>Select opdrachten</h5>
-            </section>
-            <section>
-                <h3>Huiswerk bespreken - 3</h3>
-                <h5>Edhub: H7</h5>
             </section>
         </section>
 
@@ -198,19 +194,131 @@
                 </code></pre>
             </section>
             <section>
-                <h3>Huiswerk bespreken - 2</h3>
-                <h5>Edhub H3.4: 1</h5>
+                <h2>Lesopdrachtje</h2>
+                <img src="img/UML-class.png" alt="UML">
             </section>
         </section>
         <section>
-            <h2>Lesopdrachtje</h2>
-            <img src="img/UML-class.png" alt="UML">
+            <h3>Huiswerk bespreken - 2</h3>
+            <h5>Edhub H3.4: 1</h5>
         </section>
         <section>
-            <h2>Insert, Update, Delete</h2>
+            <section>
+                <h2>Insert, Update, Delete</h2>
+            </section>
+            <section>
+                <h3>Insert</h3>
+                <p>Voeg aan tabel toe</p>
+                <pre><code class="sql" data-trim data-line-numbers>
+                INSERT INTO films (code, title, did, date_prod, kind)
+                VALUES ('T_601', 'Yojimbo', 106, '1961-06-16', 'Drama');
+                </code></pre>
+                <pre><code class="sql" data-trim data-line-numbers>
+                INSERT INTO films
+                VALUES ('T_601', 'Yojimbo', 106, '1961-06-16', 'Drama');
+                </code></pre>
+                <pre><code class="sql" data-trim data-line-numbers>
+                INSERT INTO films (code, title, did, date_prod, kind)
+                VALUES ('T_601', 'Yojimbo', 106, DEFAULT, 'Drama');
+                </code></pre>
+            </section>
+            <section>
+                <h3>Update</h3>
+                <p>Update rij(en) in tabel</p>
+                <pre><code class="sql" data-trim data-line-numbers>
+                UPDATE films SET kind = 'Dramatic' WHERE kind = 'Drama';
+                </code></pre>
+                <pre><code class="sql" data-trim data-line-numbers>
+                UPDATE films SET kind = 'Dramatic';
+                </code></pre>
+                <pre><code class="sql" data-trim data-line-numbers>
+                UPDATE films SET kind = 'Fantasy'
+                WHERE code = 'T_601';
+                </code></pre>
+            </section>
+            <section>
+                <h3>Delete</h3>
+                <p>Verwijder rij(en) in tabel</p>
+                <pre><code class="sql" data-trim data-line-numbers>
+                DELETE FROM films;
+                </code></pre>
+                <pre><code class="sql" data-trim data-line-numbers>
+                DELETE FROM films
+                WHERE code = 'T_601';
+                </code></pre>
+            </section>
         </section>
         <section>
-            <h2>Select - vervolg</h2>
+            <section>
+                <h2>Select - vervolg</h2>
+                <ul>
+                    <li>DISTINCT</li>
+                    <li>ORDER BY</li>
+                    <li>GROUP BY</li>
+                </ul>
+            </section>
+            <section>
+                <h3>DISTINCT</h3>
+                <p>Geeft alleen unieke (distinct) waardes terug.</p>
+                <div class="container">
+                    <div class="col">
+                    <pre><code class="sql" data-trim data-line-numbers style="font-size: small; line-height: normal">
+                        SELECT Country FROM Customers;
+                    </code></pre>
+                    </div>
+                    <div class="col">
+                        <img src="img/country_not_distinct.png" alt="not distinct example">
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="col">
+                    <pre><code class="sql" data-trim data-line-numbers style="font-size: small; line-height: normal">
+                        SELECT DISTINCT Country FROM Customers;
+                    </code></pre>
+                    </div>
+                    <div class="col">
+                        <img src="img/countryu_distinct.png" alt="Country distinct example">
+                    </div>
+                </div>
+            </section>
+            <section>
+                <h3>Distinct</h3>
+                <p>Unieke waardes tellen</p>
+                <pre><code class="sql" data-trim data-line-numbers>
+                        SELECT COUNT(DISTINCT Country) FROM Customers;
+                    </code></pre>
+            </section>
+            <section>
+                <h3>ORDER BY</h3>
+                <pre><code class="sql" data-trim data-line-numbers>
+                SELECT * FROM Customers
+                ORDER BY Country;
+                </code></pre>
+                <pre><code class="sql" data-trim data-line-numbers>
+                SELECT * FROM Customers
+                ORDER BY Country DESC;
+                </code></pre>
+            </section>
+            <section>
+                <h3>GROUP BY</h3>
+                <p>Groepeert waardes in zogenaamde samenvattende rijen. Bijvoorbeeld het aantal gebruikers per land.</p>
+                <p>Wordt vaak gebruikt samen met COUNT, MAX, MIN, SUM en AVG.</p>
+                <pre><code class="sql" data-trim data-line-numbers>
+                SELECT COUNT(CustomerID), Country
+                FROM Customers
+                GROUP BY Country;
+                </code></pre>
+                <pre><code class="sql" data-trim data-line-numbers>
+                SELECT COUNT(CustomerID), Country
+                FROM Customers
+                GROUP BY Country
+                ORDER BY COUNT(CustomerID) DESC;
+                </code></pre>
+            </section>
+            <section>
+                <h3>Huiswerk bespreken - 3</h3>
+                <h5>Edhub: H7</h5>
+            </section>
         </section>
 
 
