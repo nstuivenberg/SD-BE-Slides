@@ -64,6 +64,152 @@
                 <p>Is het iedereen gelukt met het huiswerk?</p>
                 <p>Weten we wat bi-directioneel is?</p>
             </section>
+            <section>
+                <h3>Bi-directioneel</h3>
+                <img src="img/bi-directional_example.png" alt="bi example">
+            </section>
+        </section>
+            <section>
+                <section>
+                    <h2>JPA</h2>
+                    <h5>Jakarta Persitence API</h5>
+                </section>
+                <section>
+                    <h3>JPA - code</h3>
+                    <pre><code class="java" data-trim data-line-numbers>
+                    import javax.persistence.Entity;
+                    import javax.persistence.FetchType;
+                    import javax.persistence.GeneratedValue;
+                    import javax.persistence.GenerationType;
+                    import javax.persistence.Id;
+                    import javax.persistence.JoinColumn;
+                    import javax.persistence.ManyToOne;
+                    </code></pre>
+                </section>
+                <section>
+                    <h3>JPA - code (2)</h3>
+                    <pre><code class="java" data-trim data-line-numbers>
+                    @Entity
+                    public class Dog {
+                    }
+                    </code></pre>
+                </section>
+                <section>
+                    <h3>JPA - code (2)</h3>
+                    <pre><code class="java" data-trim data-line-numbers>
+                    @Entity
+                    public class Dog {
+                    }
+                    </code></pre>
+                    <ul>
+                        <li>Moet een publieke lege constructor hebben.</li>
+                        <li>Attributen moeten package(-private) of protected zijn.</li>
+                        <li>Attributen moeten publieke getters en setters krijgen</li>
+                        <li><a href="https://docs.oracle.com/javaee/6/tutorial/doc/bnbqa.html" target="_blank">
+                            https://docs.oracle.com/javaee/6/tutorial/doc/bnbqa.html</a></li>
+                    </ul>
+                    <aside class="notes">
+                        <p>Een entiteit is een <strong>lichtgewicht</strong> domein-object dat opgeslagen kan worden.
+                            Zo'n entiteit representeert een tabel in een relationele database. Elke instantie is een rij
+                            in een tabel . </p>
+                    </aside>
+                </section>
+                <section>
+                    <h3>JPA - code (3)</h3>
+                    <pre><code class="java" data-trim data-line-numbers>
+                    @Id
+                    @GeneratedValue(strategy = GenerationType.AUTO)
+                    private long id;
+                    </code></pre>
+                    <pre><code class="java" data-trim data-line-numbers>
+                    @ManyToOne(fetch=FetchType.LAZY)
+                    @JoinColumn(name = "OWNER_ID")
+                    private ApplicationUser owner;
+                    </code></pre>
+                    <pre><code class="java" data-trim data-line-numbers>
+                    @OneToMany
+                    @JoinColumn(name="OWNER_ID", referencedColumnName = "USER_ID")
+                    private List&lt;Dog&gt; dogs;
+                    </code></pre>
+                </section>
+                <section>
+                    <h3>JPA - code (4)</h3>
+                    <pre><code class="java" data-trim data-line-numbers>
+                        @OneToMany(fetch = FetchType.EAGER, mappedBy = "owner")
+                        private List&lt;Dog&gt; dogs;
+                    </code></pre>
+                    <pre><code class="java" data-trim data-line-numbers>
+                        @ManyToOne
+                        private ApplicationUser owner;
+                    </code></pre>
+                </section>
+                <section>
+                    <h3>Opdracht</h3>
+                    <ul>
+                        <li>Start een nieuwe project met Spring Initializr
+                        <ul><li><a href="https://start.spring.io/" target="_blank">https://start.spring.io/</a> </li>
+                        </ul></li>
+                        <li>Bedenk zelf minimaal twee domeinklasse voor je eindopdracht</li>
+                        <li>Programmeer deze met behulp van JPA en zorg dat de tabellen in je database komen.
+                        <ul><li>Gebruik de voorbeelden van Nick</li>
+                        <li>Maak een extra database aan voor je eindopdracht.</li>
+                            <li><em>Initializr:</em> Spring Web, Spring Data JPA, PostgreSQL Driver
+                            </li></ul></li>
+                    </ul>
+                </section>
+            </section>
+        <section>
+            <section>
+                <h2>Spring Architectuur</h2>
+            </section>
+            <section>
+                <img src="img/spring_architecture.png" alt="spring architecture">
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>Controller - laag</h2>
+                <ul>
+                    <li>Zorgt voor de rest-endpoints</li>
+                    <li>Op basis van link en soort request wordt code uitgevoerd.</li>
+                </ul>
+            </section>
+            <section>
+                <h3>HTTP Requests</h3>
+                <ul>
+                    <li>GET</li>
+                    <li>POST</li>
+                    <li>PUT</li>
+                    <li>DELETE</li>
+                </ul>
+            </section>
+            <section>
+                <h3>JSON</h3>
+                <ul>
+                    <li>Het antwoord van de server wordt mbv. JSON gecommuniceerd</li>
+                    <li>POST & PUT requests verwachten input data.
+                    <ul><li>In dit geval: in de vorm van JSON.</li></ul></li>
+                </ul>
+            </section>
+        </section>
+        <section>
+            <h2>Service layer</h2>
+            <ul>
+                <li>Bevat authorisatie & authenticatie</li>
+                <li>Controleert de validiteit van de data</li>
+                <li>Doet crud operaties op de database</li>
+                <li>Gebruikt depency injection
+                <ul><li><a href="https://stackify.com/dependency-injection/" target="_blank">
+                    https://stackify.com/dependency-injection/</a></li></ul></li>
+            </ul>
+        </section>
+        <section>
+            <h2>Tijd om te programmeren</h2>
+            <ul>
+                <li>We gebruiken Postman of HTTP requests te sturen en uit te lezen.</li>
+                <li>Code staat hier op Github:
+                <ul><li>TODO</li></ul></li>
+            </ul>
         </section>
 
 
