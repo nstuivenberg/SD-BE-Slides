@@ -35,6 +35,30 @@
         .col{
             flex: 1;
         }
+
+        .custom-li-item:before {
+            margin-left: -20px;
+            margin-right: 10px;
+            font-size:larger;
+            font-weight: bolder;
+            color:brown;
+        }
+
+        #li-item-s:before {
+            content: 'S';
+        }
+        #li-item-o:before {
+            content: 'O';
+        }
+        #li-item-l:before {
+            content: 'L';
+        }
+        #li-item-i:before {
+            content: 'I';
+        }
+        #li-item-d:before {
+            content: 'D';
+        }
     </style>
 
 </head>
@@ -54,16 +78,286 @@
                 <h3>Inhoud</h3>
                 <ul>
                     <li>Servicelaag</li>
+                    <li>SOLID</li>
                     <li>Documentatie eindopdracht</li>
-                    <li>Elmar & AdobeXD</li>
                 </ul>
             </section>
         </section>
         <section>
-            <h2>Servicelaag</h2>
-            <h5>Wat is dat ook alweer?</h5>
+            <section>
+                <h2>Servicelaag</h2>
+                <h5>Wat is dat ook alweer?</h5>
+            </section>
+            <section>
+                <ul>
+                    <li>Software laag binnen het Spring Framework</li>
+                </ul>
+            </section>
+            <section>
+                <ul>
+                    <li>
+                        Software laag binnen het Spring Framework
+                        <ul>
+                            <li><em>Encapsulates</em> domeinklassen</li>
+                            <li>Valideert verzoeken van de controller-laag</li>
+                            <li>Controleert data</li>
+                            <li>Transformeert data</li>
+                            <li>Authoriseert verzoeken van de controller-laag</li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+            <section>
+                <blockquote>
+                    "Keep your controllers & repositories stupid, and your services smart, and you
+                    get a maintainable and well-testable solution."
+                </blockquote>
+            </section>
         </section>
+        <section>
+            <section>
+                <h1>SOLID</h1>
+                <h6>S - O - L - I - D</h6>
+            </section>
+            <section>
+                <ul style="list-style: none;">
+                    <li class="custom-li-item" id="li-item-s">ingle Responsibility Principle</li>
+                    <li class="custom-li-item" id="li-item-o">pen/Closed Principle</li>
+                    <li class="custom-li-item" id="li-item-l">iskov’s Substitution Principle</li>
+                    <li class="custom-li-item" id="li-item-i">nterface Segregation Principle</li>
+                    <li class="custom-li-item" id="li-item-d">ependency Inversion Principle</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Single Responsibility Principle</h2>
+                <blockquote>
+                    "A class should be having one and only one responsibility."
+                </blockquote>
+                <aside class="notes">
+                    <p>Class A:</p>
+                    <ul>
+                        <li>Open a database connection</li>
+                        <li>Fetch data from database</li>
+                        <li>Write the data in an external file</li>
+                    </ul>
+                    <p>Klasse zou veranderd moeten worden bij een nieuwe database, het invoegen van Spring of het
+                        veranderen van de output.</p>
+                </aside>
+            </section>
+            <section>
+                <h2>Open/Closed Principle</h2>
+                <blockquote>
+                    "Classes should be open for extension but closed for modification."
+                </blockquote>
+                <aside class="notes">
+                    <p>
+                    Als je een klasse hebt gemaakt en iemand anders wil deze gebruiken of aanpassen, dan moet dat kunnen
+                        zonder dat de klasse wordt aangepast. De klasse zou moeten kunnen worden extend en de methodes
+                        zouden overriden moeten kunnen worden.
+                    </p>
+                </aside>
+            </section>
+            <section>
+                <h2>Liskov’s Substitution Principle</h2>
+                <blockquote>
+                    "Parent classes should be easily substituted with their child classes without blowing up the
+                    application."
+                </blockquote>
+                <aside class="notes">
+                    Stel je voor je hebt een Animal class en die wordt extend door Dog en je wilt vervolgens een Cat
+                    toevoegen, dan mogen er geen methodes inzitten, dat als de parent class wordt aangeroepen dat de
+                    applicatie dan crasht.
+                </aside>
+            </section>
+            <section>
+                <h2>Interface Segregation Principle</h2>
+                <blockquote>
+                    "Many client specific interfaces are better than one general interface."
+                </blockquote>
+                <aside class="notes">
+                    Je wilt je interfaces zo klein mogelijk houden om te voorkomen dat je nutteloze methodes moet
+                    implementeren.
+                </aside>
+            </section>
+            <section>
+                <h2>Dependency Inversion Principle</h2>
+                <blockquote>
+                    "Classes should depend on abstraction but not on concretion."
+                </blockquote>
+                <aside class="notes">
+                    <p>Dit is de reden dat je me altijd tegen List ziet aan programmeren en niet tegen ArrayList.</p>
+                    <p>Dit zorgt ervoor dat de implementatie van Klasse A wordt 'verstopt' voor klasse B. Dit heeft als
+                    voordel dat als A verandert, dan hoeft B dat niet te weten of er rekening mee te houden.</p>
+                    <p>Dit hangt samen met loose- en tight coupling</p>
 
+                </aside>
+            </section>
+            <section>
+                <h2>Zelfstudie SOLID</h2>
+                <ul>
+                    <li><a href="https://medium.com/mindorks/solid-principles-explained-with-examples-79d1ce114ace" target="_blank">https://medium.com/mindorks/solid-principles-explained-with-examples-79d1ce114ace</a></li>
+                    <li><a href="https://howtodoinjava.com/best-practices/5-class-design-principles-solid-in-java/" target="_blank">https://howtodoinjava.com/best-practices/5-class-design-principles-solid-in-java/</a> </li>
+                </ul>
+            </section>
+        </section>
+        <section>
+            <h2>Extra & nieuw advies</h2>
+            <ul style="font-size: smaller">
+                <li>Zet de crud-repositories klassen in een eigen <em>package</em>.
+                    Goede namen hiervoor zijn: persistence of repository;</li>
+                <li>Klasse en packages zijn <em>zelfstandige naamwoorden;</em></li>
+                <li>Klasse-, tabel- en packagenamen zijn altijd enkelvoud;</li>
+                <li>Methode-namen zijn <em>werkwoorden</em> (+ lijdend voorwerp)</li>
+                <li>Alle namen moeten niet <em>ambigious</em> zijn;</li>
+                <li>Namen moeten uitleggen of verklaren wat de inhoud is.</li>
+
+            </ul>
+
+        </section>
+        <section>
+            <h3>Literatuur</h3>
+            <ul>
+                <li><a href="https://medium.com/mindorks/solid-principles-explained-with-examples-79d1ce114ace" target="_blank">https://medium.com/mindorks/solid-principles-explained-with-examples-79d1ce114ace</a></li>
+                <li>
+                    <a href="https://howtodoinjava.com/best-practices/5-class-design-principles-solid-in-java/"
+                       target="_blank">https://howtodoinjava.com/best-practices/5-class-design-principles-solid-in-java/
+                    </a>
+                </li>
+            </ul>
+        </section>
+        <section>
+            <h2>Huiswerk</h2>
+            <ul>
+                <li>Bestudeer code van Spring security voor maandag.
+                <ul><li>Deze code wordt donderdagavond of vrijdag gepubliceerd.</li></ul></li>
+            </ul>
+        </section>
+        <section>
+            <section>
+                <h1>Eindopdracht</h1>
+            </section>
+            <section>
+                <h2>Eisen</h2>
+                <ul>
+                    <li>Document: Analyse en onderzoek</li>
+                    <li>Document: Functioneel ontwerp</li>
+                    <li>Document: Technisch ontwerp</li>
+                    <li>Document: Verantwoordingsdocument <ul><li>(+ installatiehandleiding)</li></ul></li>
+                    <li>Applicatie: frontend  & backend</li>
+                    <li>Link: Naar github-repo</li>
+                </ul>
+            </section>
+            <section>
+                <h2>FO - Niet zo</h2>
+                <img src="img/huilen_fo.png" alt="huilen fo">
+            </section>
+            <section>
+                <h2>Dit is niet fijn</h2>
+                <img src="img/huilen_mapstructuur.png" alt="Geen fijne mapstructuur">
+            </section>
+            <section>
+                <h2>Dit is fijn</h2>
+                <img src="img/blij_klassendiagram.png" alt="Klassendiagram ok">
+            </section>
+            <section>
+                <h2>Ook goed</h2>
+                <img src="img/fijn_inleiding.png" alt="Kijk een inleiding">
+            </section>
+            <section>
+                <h2>Tips - Algemeen</h2>
+                <ul>
+                    <li>Houdt de mapstructuur van IntelliJ aan. Voeg daar in de hoofdmap een directory 000 -
+                        Documentatie aan toe.</li>
+                    <li>Lever niet je aantekening, krabbeltjes of andere onnodige dingen in.</li>
+                    <li>Schrijf minimaal en maximaal 1 readme die je folderstructuur uitlegt en waar ik alles kan vinden
+                    </li>
+                    <li>Lever de bestanden die je normaal in .gitignore zet niet in.</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Tips - documentatie</h2>
+                <ul>
+                    <li>Maak er een document van (inleiding, inhoudsopgave etc. etc.)</li>
+                    <li>Beschrijf de afbeeldingen en diagrammen die opgenomen worden.</li>
+                    <li>Zorg ervoor dat afbeeldingen leesbaar zijn zonder in te zoomen.
+                    <ul>
+                        <li>Misschien diagrammen opknippen</li>
+                        <li>Maak geen verwijzingen naar diagrammen buiten het document.</li>
+                    </ul></li>
+                </ul>
+            </section>
+            <section>
+                <h2>Tips - documentatie (2)</h2>
+                <ul>
+                    <li>
+                        Analyse en onderzoek bevat:
+                        <ul>
+                            <li>Rapportage vooronderzoek</li>
+                            <li>Product requirements</li>
+                            <li>Rapportage UX/UI onderzoek</li>
+                        </ul>
+                    </li>
+                    <li>Functioneel ontwerp bevat:
+                        <ul>
+                            <li>Prototype (schermontwerpen)</li>
+                            <li>Use cases</li>
+                            <li>Use case diagrammen</li>
+                            <li>Activiteitendiagrammen</li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+            <section>
+                <h2>Tips documentatie (3)</h2>
+                <ul>
+                    <li>
+                        Technisch ontwerp bevat:
+                        <ul>
+                            <li>Klassendiagram</li>
+                            <li>Sequentiediagram</li>
+                            <li>Verantwoording technische ontwerpkeuzes</li>
+                        </ul>
+                    </li>
+                    <li>
+                        Verantwoordingsdocument bevat:
+                        <ul>
+                            <li>Installatiehandleiding</li>
+                            <li>Verantwoording wat wel en niet af is.</li>
+                        </ul>
+                    </li>
+                </ul>
+
+            </section>
+            <section>
+                <h2>Tips git</h2>
+                <ul>
+                    <li>Vergeet de link naar je repo niet toe te voegen (in de readme bijvoorbeeld).</li>
+                    <li>Commit en push regelmatig. Per user story of per dag(deel)</li>
+                    <li>Gebruik (feature-)branches per user-story</li>
+                    <li>Merge de branch naar dev of master wanneer klaar</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Tips code</h2>
+                <ul>
+                    <li>Die target- &amp; .idea-folders en .iml bestanden hoef je echt niet in te leveren.</li>
+                    <li>Zorg voor goede package-, klassen-, methodes- en variabelenamen.</li>
+                    <li>Gebruik Java conventies.</li>
+                    <li>Unittest de belangrijke functies binnen je code.</li>
+                    <li>Gebruik Javadoc om verklarend en uitleggend commentaar te schrijven.</li>
+                    <li>Voorkom nutteloos en/of outdated commentaar</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Matrix</h2>
+                <img src="img/matrix.png" alt="Huidige Matrix">
+            </section>
+            <section>
+                <blockquote>
+                    Besteed zorg aan hoe je het inlevert, dan besteed de nakijkdocent zorg aan het ingeleverde werk.
+                </blockquote>
+            </section>
+        </section>
 
     </div>
 </div>
