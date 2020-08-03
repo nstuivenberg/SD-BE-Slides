@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Form example</title>
+    <style>
+        form.form-example {
+            display: table;
+        }
+
+        div.form-example {
+            display: table-row;
+        }
+
+        label, input {
+            display: table-cell;
+            margin: 10px;
+            font-size: large;
+        }
+
+        input:valid:focus {
+            background-color:darkseagreen;
+            border:2px solid darkgreen;
+        }
+
+        input:invalid:focus {
+            border: initial;
+            background-color: initial;
+        }
+
+        input:invalid {
+            border: 2px dotted darkred;
+            background-color: pink;
+        }
+
+        label {
+            padding-right: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<form action="" method="get" class="form-example">
+    <div class="form-example">
+        <label for="name">Enter your full name: </label>
+        <input type="text" name="name" id="name" required>
+    </div>
+
+    <div class="form-example">
+        <label for="email">Enter your email: </label>
+        <input type="email" name="email" id="email" required>
+    </div>
+
+    <div class="form-example">
+        <label for="password">Enter your password: </label>
+        <input type="password" name="password" id="password" required autocomplete="new-password"
+               pattern="[0-9a-fA-F]{4,8}"
+               title="Enter an ID consisting of 4-8 hexadecimal digits">
+    </div>
+
+
+    <div class="form-example">
+        <label for="passwordRepeated">Repeat your password: </label>
+        <input type="password" name="passwordRepeated" id="passwordRepeated" required
+               pattern="[0-9a-fA-F]{4,8}"
+               title="Enter an ID consisting of 4-8 hexadecimal digits"
+               autocomplete="new-password">
+    </div>
+
+    <div class="form-example">
+        <input type="submit" value="Register">
+    </div>
+</form>
+
+
+</body>
+</html>
