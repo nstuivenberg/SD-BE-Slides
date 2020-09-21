@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SDP Les 01 - Git</title>
+
+    <meta name="description" content="Slides voor het vak Software Development Process. Gegeven op Novi Hogeschool">
+    <meta name="author" content="Nick Stuivenberg">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../../../../dist/reset.css">
+    <link rel="stylesheet" href="../../../../dist/reveal.css">
+    <link rel="stylesheet" href="../../../../dist/theme/white.css" id="theme">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="../../../../plugin/highlight/monokai.css" id="highlight-theme">
+
+    <!-- kleuren:
+    #f5f1b5
+    #b5533c
+    #4d7e65
+    #002b36 -->
+    <!--
+    pdf
+    decktape -s 1920x1080  automatic http://localhost:8000/curriculum/frontend/webdevelopment/slides/4.html#/ 4.pdf
+    -->
+    <style>
+        .container{
+            display: flex;
+        }
+        .col{
+            flex: 1;
+        }
+    </style>
+
+</head>
+<body>
+
+<div class="reveal">
+    <div class="slides">
+        <section>
+        <section>
+            <h1>Werken met Git</h1>
+            <p>Les 1 - Werken met Git</p>
+            <aside class="notes">
+                Notes can be added here
+            </aside>
+        </section>
+            <section>
+                <h3>Inhoud</h3>
+                <ul>
+                    <li>Waarom git?</li>
+                    <li>Installatie</li>
+                    <li>Clonen</li>
+                    <li>Forken</li>
+                    <li>Committen & pushen</li>
+                    <li>Nieuw project starten</li>
+                    <li>Samenwerken via git</li>
+                    <li>.gitignore</li>
+                    <li>Herhaling in IntelliJ</li>
+                    <li>Cheatsheet</li>
+                    <li>Eindopdracht</li>
+                </ul>
+            </section>
+        </section>
+        <section>
+            <h2>Waarom git?</h2>
+            <ul>
+                <li>Voorkomt code-overschrijvingen</li>
+                <li>Het onthoudt alle aanpassingen die gedaan zijn</li>
+                <li>Meerdere mensen kunnen tegelijk aan hetzelfde project (en bestand) werken</li>
+                <li>Repositories staan op meerdere systemen.</li>
+                <li>Versiebeheer, dus makkelijke code-reviewen</li>
+                <li>Geeft de mogelijkheid om te werken met pull-requests.</li>
+            </ul>
+        </section>
+        <section>
+            <section>
+                <h3>Installatie (1)</h3>
+                <ul>
+                    <li>MacOS: Terminal: git --version</li>
+                    <li>Windows: <a href="https://git-scm.com/download/win">https://git-scm.com/download/win</a></li>
+                    <li>Een iemand deelt scherm, kijken allen mee.</li>
+                    <li>Controle na installatie: Powershell of cmd:
+                        <ul>
+                            <li> git --version</li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+            <section>
+                <h2>Installatie (2)</h2>
+                <ul>
+                    <li>Maak een GitHub-account: <a href="https://github.com/">github.com</a></li>
+                    <li>Gooi je gebruikersnaam in de chat.</li>
+                </ul>
+            </section>
+        </section>
+        <section>
+            <section>
+            <h2>Clonen</h2>
+                <blockquote>
+                    Het downloaden/clonen van je code uit de remote repository naar de local repository.
+                </blockquote>
+            </section>
+            <section>
+                <h2>Clonen</h2>
+                <ul>
+                    <li>Via Command Line Interface (CLI):
+                        <ul>
+                            <li><em><small>git clone https://github.com/hogeschoolnovi/git-example.git</small></em></li>
+                        </ul>
+                    </li>
+                    <li>Via IntelliJ</li>
+                </ul>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>Fork</h2>
+                <blockquote>
+                    Het downloaden/clonen van een remote repository naar een andere remote repository, zodat
+                    jij kunt comitten en pushen.
+                </blockquote>
+            </section>
+            <section>
+                <h3>Fork</h3>
+                <ul>
+                    <li>Fork is geen git-commando</li>
+                    <li>Wordt aangeboden door schillen (zoals GitHub, GitLab, BitBucket)</li>
+                    <li>De geforkte repo moet je uiteindelijk weer clonen naar je lokale repo</li>
+                </ul>
+            </section>
+            <section>
+                <h3>Forken in GitHub</h3>
+                <ul>
+                    <li><a href="https://github.com/hogeschoolnovi/git-example">
+                        https://github.com/hogeschoolnovi/git-example</a>
+                    </li>
+                </ul>
+            </section>
+            <section>
+                <h3>Forken - zelf</h3>
+                <ul>
+                    <li>Fork de gegeven repo en clone deze vervolgens naar je lokale machine.</li>
+                </ul>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>Comitten en pushen</h2>
+                <ul>
+                    <li>We gebruiken het commit-commando om dingen op te slaan in onze lokale repo.
+                        <ul>
+                            <li>Dit kan alleen nadat bestanden ge-add zijn!</li>
+                        </ul>
+                    </li>
+                    <li>
+                        We gebruiken de push-commando om jouw code te plaatsen op de remote repo.
+                    </li>
+                </ul>
+            </section>
+            <section>
+                <h2>C & P - CLI</h2>
+                <ul>
+                    <li>git add index.html</li>
+                    <li>git commit "Added index.html"</li>
+                    <li>git push origin master</li>
+                </ul>
+            </section>
+            <section>
+                <h2>C & P - IntelliJ</h2>
+            </section>
+            <section>
+                <h2>C & P - Zelf</h2>
+                <ul>
+                    <li>Voeg een bestand toe en commit & push deze met de CLI</li>
+                    <li>Voeg een bestand toe in Intellij, pas een bestand aan en C&P deze met de GUI</li>
+                    <li>Bekijk het resultaat in je remote repo.</li>
+                </ul>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>Nieuw project</h2>
+                <ul>
+                    <li>Docent doet het voor</li>
+                    <li>Studenten doen het na</li>
+                </ul>
+            </section>
+            <section>
+                <h3>Nieuw project - zelf</h3>
+                <ul>
+                    <li>Maak een nieuw project.</li>
+                    <li>Voeg een klasgenoot toe aan je project.</li>
+                    <li>Wordt toegevoegd aan een ander project.</li>
+                    <li>Clone & push op andermans project.</li>
+                </ul>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>Samenwerken</h2>
+            </section>
+            <section>
+                <h3>Samenwerken - regels</h3>
+                <ul>
+                    <li>Niet pushen op de master-branch</li>
+                    <li>Master-branch bevat productie-code</li>
+                    <li>Branchen altijd vanaf development-branch</li>
+                    <li>Werken in feature-branches.</li>
+                    <li>Er wordt alleen gemergd na een code review op een pull-request</li>
+                    <li>Maximaal 1 persoon pusht op een branch</li>
+                </ul>
+            </section>
+            <section>
+                <h3>Samenwerken - Jargon</h3>
+                <ul>
+                    <li>Branch: Aftakking van punt in de code waar 1 persoon op werkt</li>
+                    <li>Master-branch: Code die in productie draait.</li>
+                    <li>Development-branch: Gebrancht vanaf Master. Wordt de nieuwe master-branch</li>
+                    <li>Feature-branch: Aftakking van Development. Bevat specifieke implementatie van een feature.</li>
+                    <li>Mergen: Het samenvoegen van twee branches.</li>
+                    <li>Code review: Het controleren van (de werking en) de kwaliteit van andermans code.</li>
+                    <li>Pull request: Verzoek tot mergen van de branch en verzoek tot code-review</li>
+                </ul>
+            </section>
+            <section>
+                <h3>Samenwerken</h3>
+                <ul>
+                    <li>Uitgangspunt nieuwe project</li>
+                    <li>Belangrijk nieuw commando:
+                    <ul><li>git fetch</li></ul></li>
+                    <li>Nick doet het voor.</li>
+                </ul>
+            </section>
+            <section>
+                <h3>Samenwerken - zelf</h3>
+                <ul>
+                    <li>Maak een branch in github.</li>
+                    <li>Haal de branch naar de lokale repo.</li>
+                    <li>Pas iets aan, commit & push.</li>
+                    <li>Maak een pull request.</li>
+                    <li>Doe code review.</li>
+                    <li>Merge.</li>
+                    <li>Pull op lokale repo.</li>
+                </ul>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>.gitignore</h2>
+                <p>Er zijn dingen die je nooit wilt pushen</p>
+                <ul>
+                    <li>De .iml - bestanden (intellij)</li>
+                    <li>De .idea-folder (intellij)</li>
+                    <li>De out folder (java)</li>
+                    <li>Bestanden met wachtwoorden</li>
+                </ul>
+            </section>
+            <section>
+                <h2>.gitignore - Voorbeeld</h2>
+                <ul>
+                    <li>Voorbeeld patterns:
+                    <ul><li>
+                        <a href="https://www.atlassian.com/git/tutorials/saving-changes/gitignore">
+                            https://www.atlassian.com/git/tutorials/saving-changes/gitignore
+                        </a>
+                    </li></ul></li>
+                </ul>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>A - Z Intellij</h2>
+                <p>Nick doet het nog een keer voor</p>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>Cheatsheet</h2>
+                <a href="https://www.atlassian.com/git/tutorials/atlassian-git-cheatsheet">
+                    https://www.atlassian.com/git/tutorials/atlassian-git-cheatsheet
+                </a>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>Eindopdracht</h2>
+                <ul>
+                    <li>Ik heb een classroom-omgeving opgezet:
+                        <ul>
+                            <li>
+                                <a href="https://classroom.github.com/classrooms/41911381-novi-belastingdienst-2009-ervaring">
+                                    https://classroom.github.com/classrooms/41911381-novi-belastingdienst-2009-ervaring
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>Waar ook de eindopdracht te vinden is:
+                        <ul>
+                            <li>
+                                <a href="https://classroom.github.com/a/xhXjBQAf">
+                                    https://classroom.github.com/a/xhXjBQAf</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+            <section>
+                <h3>Opdracht</h3>
+                <ul>
+                    <li>Voeg je toe aan de classroom-omgeving</li>
+                    <li>Accepteer de opdracht.</li>
+                </ul>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>Herhaling</h2>
+                <ul>
+                    <li>git init</li>
+                    <li>git remote add origin https://link.to/repo.git</li>
+                    <li>git clone</li>
+                    <li>git commit -m "hello"</li>
+                    <li>git push origin/master</li>
+                    <li>git fetch</li>
+                </ul>
+            </section>
+            <section>
+                <blockquote>
+                    Zorg voor goede regels in je team en dat is git geweldig om mee te werken.
+                </blockquote>
+                <p><small>En anders word je heel snel git-meister</small></p>
+            </section>
+            <section>
+                <blockquote>
+                    Je kunt hiervoor master, development en feature-branches voor gebruiken, maar er zijn andere
+                    mogelijkheden. Git-flow bijvoorbeeld.
+                </blockquote>
+            </section>
+        </section>
+
+
+    </div>
+</div>
+
+<script src="../../../../dist/reveal.js"></script>
+<script src="../../../../plugin/zoom/zoom.js"></script>
+<script src="../../../../plugin/notes/notes.js"></script>
+<script src="../../../../plugin/search/search.js"></script>
+<script src="../../../../plugin/markdown/markdown.js"></script>
+<script src="../../../../plugin/highlight/highlight.js"></script>
+<script>
+
+    // Also available as an ES module, see:
+    // https://revealjs.com/initialization/
+    Reveal.initialize({
+        controls: true,
+        progress: true,
+        center: true,
+        hash: true,
+
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight ]
+    });
+
+</script>
+</body>
+</html>
