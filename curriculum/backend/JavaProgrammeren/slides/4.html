@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Java Programmeren - Les 4</title>
+
+    <meta name="description" content="Slides voor het vak Java Programmeren. Gegeven op Novi Hogeschool">
+    <meta name="author" content="Nick Stuivenberg">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../../../../dist/reset.css">
+    <link rel="stylesheet" href="../../../../dist/reveal.css">
+    <link rel="stylesheet" href="../../../../dist/theme/white.css" id="theme">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="../../../../plugin/highlight/monokai.css" id="highlight-theme">
+
+    <!-- kleuren:
+    #f5f1b5
+    #b5533c
+    #4d7e65
+    #002b36 -->
+    <!--
+    pdf
+    decktape -s 1920x1080  automatic http://localhost:8000/curriculum/frontend/webdevelopment/slides/4.html#/ 4.pdf
+    -->
+    <style>
+        .container{
+            display: flex;
+        }
+        .col{
+            flex: 1;
+        }
+    </style>
+
+</head>
+<body>
+
+<div class="reveal">
+    <div class="slides">
+        <section>
+        <section>
+            <h1>Java Programmeren</h1>
+            <p>Les 4 - Methodes</p>
+            <aside class="notes">
+                Notes can be added here
+            </aside>
+        </section>
+            <section>
+                <h3>Inhoud</h3>
+                <ul>
+                    <li>Polymorfisme</li>
+                    <li>Abstracte klassen</li>
+                    <li>Huiswerkopdrachten</li>
+                    <li>Scope</li>
+                    <li>Access Modifiers</li>
+                    <li>Keywords</li>
+                    <li>Static</li>
+                    <li>Overloading</li>
+                </ul>
+            </section>
+        </section>
+
+        <section>
+            <section>
+                <h2>Polymorfisme</h2>
+                <blockquote>
+                    Wanneer je een superklasse definieert, kan elke subklasse vervangen worden door zijn supertype
+                </blockquote>
+                <h3>Dit ga je zometeen snappen</h3>
+            </section>
+            <section>
+                <h3>Stel je voor, je hebt deze code</h3>
+                <pre><code class="java" data-trim data-line-numbers="1-99">
+                public class Person
+                </code></pre>
+                <pre><code class="java" data-trim data-line-numbers="1-99">
+                public class FamilyDoctor extends Person
+                </code></pre>
+                <pre><code class="java" data-trim data-line-numbers="1-99">
+                Person person = new Person();
+                FamilyDoctor familyDoctor = new FamilyDoctor();
+                </code></pre>
+
+            </section>
+            <section>
+                <h3>Maar FamilyDoctor extends Person</h3>
+                <pre><code class="java" data-trim data-line-numbers="1-99">
+                Person familyDoctor = new FamilyDoctor();
+                </code></pre>
+
+                <pre><code class="java" data-trim data-line-numbers="1-99">
+                List&lt;Person> persons = new ArrayList&lt;>();
+                persons.add(familyDoctor);
+                </code></pre>
+            </section>
+            <section>
+                <h3>Praktijkvoorbeeldje</h3>
+                <ul>
+                    <li>Constructors beide klassen</li>
+                    <li>Wanneer welke methodes?</li>
+                    <li>Oplossing hiervoor?</li>
+                </ul>
+            </section>
+            <section>
+                <h3>Opdracht nakijken</h3>
+                <h3>Polymorfisme Les 01</h3>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>Abstracte klassen</h2>
+            </section>
+            <section>
+                <h3>Abstracte klassen</h3>
+                <ul>
+                    <li>Abstracte klassen kunnen niet geinstantieerd worden</li>
+                    <li>Kunnen abstracte methodes bevatten</li>
+                    <li>Mag gewone methodes bevatten!</li>
+                </ul>
+                <pre><code class="java" data-trim data-line-numbers="1-99">
+                public abstract class Person
+                </code></pre>
+            </section>
+            <section>
+                <h3>Abstracte methodes</h3>
+                <ul>
+                    <li>Hebben geen body</li>
+                    <li>Moeten geïmplementeerd worden in concrete subklassen.</li>
+                    <li>Gebruik @Override annotatie</li>
+                </ul>
+            </section>
+            <section>
+                <h3>Abstracte methode - code</h3>
+                <pre><code class="java" data-trim data-line-numbers="1-99">
+                void work();
+                String encryptPassword(String password);
+                </code></pre>
+                <pre><code class="java" data-trim data-line-numbers="1-99">
+                @Override
+                public void work() {
+                    System.out.println("Ja");
+                }
+                @Override
+                String encryptPassword(String password) {
+                    return password + "encrypted";
+                }
+                </code></pre>
+            </section>
+            <section>
+                <h3>Opdracht bespreken</h3>
+                <ul>
+                    <li>Overerving les 02</li>
+                    <li>Overerving opdracht 01</li>
+                </ul>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>Scope</h2>
+                <blockquote>Met scope bedoelen we de toegankelijkheid en de levensvatbaarheid van een variabele.</blockquote>
+            </section>
+            <section>
+                <h3>Vier scopes</h3>
+                <ul>
+                    <li>Klasse scope</li>
+                    <li>Methode scope</li>
+                    <li>Loop scope</li>
+                    <li>Bracket scope</li>
+                </ul>
+            </section>
+            <section>
+                <h3>Klasse scope</h3>
+                <img src="img/klasse_scope.png" alt="klasse scope">
+            </section>
+            <section>
+                <h3>Methode scope</h3>
+                <img src="img/method_scope.png" alt="method scope">
+                <p style="color: darkred">Cannot resolve symbol 'decibel'</p>
+            </section>
+            <section>
+                <h3>Loop scope (1)</h3>
+                <img src="img/loop_scope-1.png" alt="loop scope one">
+                <p style="color: darkred">Cannot resolve symbol 'i'</p>
+            </section>
+            <section>
+                <h3>Loop scope (2.1)</h3>
+                <img src="img/loop_scope-2.png" alt="loop scope one">
+            </section>
+            <section>
+                <h3>Loop scope (2.2)</h3>
+                <img src="img/loop_scope-2b.png" alt="loop scope two">
+            </section>
+            <section>
+                <h3>Bracket scope</h3>
+                <p>Gebruik deze gewoon niet.</p>
+                <pre><code class="java" data-trim data-line-numbers="1-99">
+                    {
+                        // Gebruik mij niet
+                    }
+                </code></pre>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>Access modifiers</h2>
+            </section>
+            <section>
+                <h3>The four</h3>
+                <ul>
+                    <li>private</li>
+                    <li>package private</li>
+                    <li>protected</li>
+                    <li>public</li>
+                </ul>
+            </section>
+            <section>
+                <h3>Public & private</h3>
+                <ul>
+                    <li>Public: beschikbaar voor alle Java-code</li>
+                    <li>Private: beschikbaar binnen de klasse</li>
+                </ul>
+            </section>
+            <section>
+                <h3>Package private</h3>
+                <img src="img/access_pp.png" alt="access pp">
+            </section>
+            <section>
+                <h3>Package private</h3>
+                <img src="img/access_pp.png" alt="access pp">
+                <p style="color: darkgreen">Super handig voor encapsulatie</p>
+            </section>
+            <section>
+                <h3>Protected</h3>
+                <ul>
+                    <li>Toegang vanuit dezelfde package en de subklasse</li>
+                    <li>Subklasse mogen dus ook in een andere package staan!</li>
+                    <li>Super() werkt met protected.</li>
+                    <li>Beter dan public, want?</li>
+                </ul>
+            </section>
+            <section>
+                        <pre><code class="java" data-trim data-line-numbers="1-99">
+                            public abstract class Phone {
+                                protected List&lt;String> callTechnologies;
+                                public Phone() {
+                                    this.callTechnologies = new ArrayList<>();
+                                    callTechnologies.add("2g");
+                                }
+                                protected abstract void call();
+                            }
+                        </code></pre>
+                        <pre><code class="java" data-trim data-line-numbers="1-99">
+                            public class SmartPhone extends Phone {
+                                public SmartPhone() {
+                                    super();
+                                    this.callTechnologies.add("3g");
+                                }
+                                @Override
+                                protected void call() {
+                                    System.out.println("I call");
+                                }
+                            }
+                        </code></pre>
+            </section>
+            <section>
+                <h3>Ja?</h3>
+                <p>Even kijken in Intellij</p>
+                <ul>
+                    <li>Wat als we het private maken?</li>
+                    <li>En public?</li>
+                    <li>En package private?</li>
+                    <li>En de klasse verplaatsen?</li>
+                </ul>
+                <p>Overweeg je public access-modifiers op protected te zetten in de super-klasse</p>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>Keywords</h2>
+                <ul>
+                    <li>Meer dan vijftig</li>
+                    <li>Meeste heb je al gezien</li>
+                    <li>Final!</li>
+                </ul>
+            </section>
+            <section>
+                <h3>Final!</h3>
+                <p>Te gebruiken op drie niveau's</p>
+                <ul>
+                    <li>Klasse-niveau</li>
+                    <li>Methode-niveau</li>
+                    <li>Instantievariabele-niveau (instance variable)</li>
+                </ul>
+            </section>
+            <section>
+                <h3>Final - klasse niveau</h3>
+                <ul>
+                    <li>Voorkomt dat klasse extend kan worden.</li>
+                    <li>Dus de klasse kan niet als superklasse fungeren</li>
+                    <li>Wanneer je dit wel probeert, volgende foutmelding:</li>
+                </ul>
+                <p style="color: darkred">"Cannot inherit from final 'package.classname'".</p>
+            </section>
+            <section>
+                <h3>Final - Methode niveau</h3>
+                <ul>
+                    <li>Voorkomt dat een methode overriden kan worden.</li>
+                    <li>Zeer handig als je een zeer strict contract wilt opstellen</li>
+                    <li>De vraag is of je dat wilt. Maakt je code minder uitbreidbaar!</li>
+                    <li>Geeft de volgende foutmelding:</li>
+                </ul>
+                <p style="color: darkred">"'methodName()' cannot override 'methodName()' in 'packages.ClassName'; overridden method is final".</p>
+            </section>
+            <section>
+                <h3>Final - Instance variable</h3>
+                <p>Wil je dat een waarde niet meer aangepast kan worden na toekenning. Dan gebruik je final</p>
+                <ul>
+                    <li>Moet of direct een waarde gegeven worden</li>
+                    <li>of via (alle) constructor(s)</li>
+                </ul>
+            </section>
+            <section>
+                Final - Instance variable (2)
+                <pre><code class="java" data-trim data-line-numbers="1-99">
+                    public class Car {
+                        private final int amountOfWheels = 4;
+                    }
+                </code></pre>
+            </section>
+            <section>
+                Final - Instance variable (3)
+                <pre><code class="java" data-trim data-line-numbers="1-99|2|4-6|1-99">
+                    public class Car {
+                        private final int amountOfWheels;
+
+                        public Car(int amountOfWheels) {
+                            this.amountOfWheels = amountOfWheels;
+                        }
+                    }
+                </code></pre>
+            </section>
+            <section>
+                Final - Instance variable (4)
+                <pre><code class="java" data-trim data-line-numbers="1-99|3|9-12|1-99">
+                    public class Car {
+                        private final int amountOfWheels;
+                        private String engineType;
+
+                        public Car(int amountOfWheels) {
+                            this.amountOfWheels = amountOfWheels;
+                        }
+
+                        public Car(int amountOfWheels, String engineType) {
+                            this.amountOfWheels = amountOfWheels;
+                            this.engineType = engineType;
+                        }
+                    }
+                </code></pre>
+            </section>
+            <section>
+                Final - Instance variable (5)
+                <pre><code class="java" data-trim data-line-numbers="1-99|5|7|1-99">
+                    public class Car {
+                        private final int amountOfWheels;
+                        private String engineType;
+
+                        public Car(String engineType) {
+                            this.engineType = engineType;
+                            this.amountOfWheels = 4;
+                        }
+                    }
+                </code></pre>
+            </section>
+            <section>
+                <h3>Te gebruiken voor</h3>
+                <ul>
+                    <li>Waardes die uiteindelijk niet meer aangepast mogen worden</li>
+                    <li>Afdwingen dat instance variables een waarde krijgen</li>
+                </ul>
+            </section>
+            <section>
+                <h3>Errors veroorzaakt door final</h3>
+                <ul style="color:darkred;">
+                    <li>Cannot inherit from final 'packages.ClassName</li>
+                    <li>'methodName()' cannot override 'methodName()' in 'packages.ClassName'; overridden method is final</li>
+                    <li>Cannot assign a value to final variable 'Variabele-Naam'</li>
+                    <li>Variable 'Variabele-Naam' might not have been initialized</li>
+                    <li>Illegal combination of modifiers: 'final' and 'abstract'</li>
+                </ul>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>Static</h2>
+                <ul>
+                    <li>Static methods</li>
+                    <li>Static instance variables</li>
+                </ul>
+            </section>
+            <section>
+                <h3>Static Methods</h3>
+                <p>Is een methode die</p>
+                <ul>
+                    <li>je kunt aanroepen zonder een klasse te instantiëren.</li>
+                    <li>Staat het keywoordje <em>static</em> in.</li>
+                    <li>Werkt voor de rest hetzelfde als een normale methode</li>
+                    <li><strong>Maar</strong> kan geen non-static methodes en variabelen aanroepen</li>
+                </ul>
+            </section>
+            <section>
+                <h3>Codevoorbeeld</h3>
+                <img src="img/static_method.png" alt="static method">
+                <p>Geen new, geen instantiatie. Gebruik klassenaam+methodenaam. Methodenaam cursief.</p>
+            </section>
+            <section>
+                <h2>Static instance variable</h2>
+                <ul>
+                    <li>Gelijk voor alle instanties van de klasse</li>
+                    <li>Met <em>final</em> klasse-brede constante van te maken.</li>
+                </ul>
+            </section>
+            <section>
+                <h3>Voorbeeld in IntelliJ</h3>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>Overloading</h2>
+                <blockquote>Zelfde methode naam, andere parameters</blockquote>
+                <p style="color:darkred;">Volgorde & type is hier belangrijk.</p>
+            </section>
+            <section>
+                <h3>Voorbeeldje</h3>
+                <pre><code class="java" data-trim data-line-numbers="1-99">
+                public class Person {
+                    public void eat(String food) {
+                        System.out.println("I eat " + food);
+                    }
+                    public void eat(String food, int amountKg) {
+                        System.out.println("I eat " + amountKg + " of " + food);
+                    }
+                }
+                </code></pre>
+            </section>
+            <section>
+                <h3>Voorbeeldje dat niet mag</h3>
+                <pre><code class="java" data-trim data-line-numbers="1-99|1,4|1-99">
+                public void eat(String food) {
+                    System.out.println("I eat " + food);
+                }
+                public void eat(String ingredient) {
+                    System.out.println("I eat ingredient: " + ingredient);
+                }
+                </code></pre>
+                <p style="color:darkred;">eat(String)' is already defined in 'packages.Person</p>
+            </section>
+        </section>
+        <section>
+            <h2>H & H</h2>
+            <ul>
+                <li><strong>Geen</strong> fysiek koffiemoment morgen</li>
+                <li>Koffiemoment van 0900-1200 morgen</li>
+                <li>Maak overige lesopdrachten</li>
+                <li>Bedenk wat je nog niet helemaal snapt en geef dat aan</li>
+                <li>Overige lees-huis-werk komt uiterlijk morgenavond online.</li>
+            </ul>
+        </section>
+
+
+
+    </div>
+</div>
+
+<script src="../../../../dist/reveal.js"></script>
+<script src="../../../../plugin/zoom/zoom.js"></script>
+<script src="../../../../plugin/notes/notes.js"></script>
+<script src="../../../../plugin/search/search.js"></script>
+<script src="../../../../plugin/markdown/markdown.js"></script>
+<script src="../../../../plugin/highlight/highlight.js"></script>
+<script>
+
+    // Also available as an ES module, see:
+    // https://revealjs.com/initialization/
+    Reveal.initialize({
+        controls: true,
+        progress: true,
+        center: true,
+        hash: true,
+
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight ]
+    });
+
+</script>
+</body>
+</html>
