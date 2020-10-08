@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Java Programmeren - Les 5</title>
+
+    <meta name="description" content="Slides voor het vak Java Programmeren. Gegeven op Novi Hogeschool">
+    <meta name="author" content="Nick Stuivenberg">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../../../../dist/reset.css">
+    <link rel="stylesheet" href="../../../../dist/reveal.css">
+    <link rel="stylesheet" href="../../../../dist/theme/white.css" id="theme">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="../../../../plugin/highlight/monokai.css" id="highlight-theme">
+
+    <!-- kleuren:
+    #f5f1b5
+    #b5533c
+    #4d7e65
+    #002b36 -->
+    <!--
+    pdf
+    decktape -s 1920x1080  automatic http://localhost:8000/curriculum/frontend/webdevelopment/slides/4.html#/ 4.pdf
+    -->
+    <style>
+        .container{
+            display: flex;
+        }
+        .col{
+            flex: 1;
+        }
+    </style>
+
+</head>
+<body>
+
+<div class="reveal">
+    <div class="slides">
+        <section>
+            <section>
+                <h1>Java Programmeren</h1>
+                <p>Les 5 - Klassendiagram</p>
+                <aside class="notes">
+                    Notes can be added here
+                </aside>
+            </section>
+            <section>
+                <h3>Inhoud</h3>
+                <ul>
+                    <li>Java Huiswerk bespreken</li>
+                    <li>Documentatie huiswerk bespreken</li>
+                    <li>Vragen voor Nick</li>
+                    <li>Zelf aan de slag</li>
+                </ul>
+            </section>
+            <section>
+                <h3>Planning aankomende twee weken</h3>
+                <ul>
+                    <li>Donderdag 15 oktober
+                    <ul>
+                        <li>Lesvrij</li>
+                    </ul></li>
+                    <li>Vrijdag 16 oktober: WEL koffieuurtje</li>
+                    <li>Donderdag 22 oktober
+                    <ul><li>Begeleid werken</li>
+                        <li>Arjen is beschikbaar voor vragen</li>
+                        <li>Haal achterstallig werk in</li>
+                    <li>Tip: begin met je eindopdracht</li></ul>
+                    </li>
+                    <li>Vrijdag 23 oktober: Geen koffieuurtje</li>
+                </ul>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>Huiswerk bespreken</h2>
+                <ul>
+                    <li>Eerst Java</li>
+                    <li>Daarna UML</li>
+                </ul>
+            </section>
+            <section>
+                <h3>Java</h3>
+                <ul>
+                    <li>https://github.com/hogeschoolnovi/java-scope</li>
+                    <li>https://github.com/hogeschoolnovi/java-access-modifier</li>
+                    <li>https://github.com/hogeschoolnovi/java-keywords-static-overloading</li>
+                    <li>Vragen?</li>
+                    <li>Iets voordoen?</li>
+                </ul>
+            </section>
+            <section>
+                <h3>UML - tips</h3>
+                <ul>
+                    <li>Gebruik Appendix A.1</li>
+                    <li>Je kunt diagrammen maken in:
+                        <ul>
+                            <li>Draw.io</li>
+                            <li>Visual Paradigm</li>
+                            <li>Visio</li>
+                        </ul>
+                    </li>
+                    <li>Persoonlijk vind ik schetsen op papier fijner.</li>
+                    <li>Pak hoofdstuk 2.3 erbij als je niet weet waar je moet beginnen</li>
+                </ul>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h3>Waarom documenteren we?</h3>
+                <ul>
+                    <li>Functionele requirements en use cases zorgen voor afstemming met de klant.</li>
+                    <li>Klassen- en sequentiediagrammen zorgen voor communicatie onderling</li>
+                </ul>
+            </section>
+            <section>
+                <h3>Het zijn controle-momenten</h3>
+                <img src="img/v-model-novi.png" alt="v-model">
+            </section>
+            <section>
+                <h3>Voorkomt kosten</h3>
+                <img src="img/BugFix.jpg" alt="Cost of bugfixing">
+            </section>
+            <section>
+                <h3>In een wat hippere omgeving</h3>
+                <img src="img/modern_cost.jpg" style="height: 500px;" alt="Cost and introduction of bugs">
+            </section>
+            <section>
+                <h3>Transitie</h3>
+                <img src="img/costs_and_maturity_level.png" alt="cost and maturity level">
+            </section>
+            <section>
+                <h3>Opdracht</h3>
+                <ul>
+                    <li>Teams -> Algemeen -> Opdrachten</li>
+                    <li>Mag in tweetallen</li>
+                    <li>Zelf aan de slag. Begin met lezen en samenvatten</li>
+                    <li>16.30: Iedereen terug. Nick speelt product owner. Iedereen mag vragen stellen.</li>
+                    <li>1800-2030: Werken aan de opdracht.</li>
+                    <li>Inleveren: Woensdag 14-10 23.59</li>
+                </ul>
+            </section>
+        </section>
+        <section>
+            <h2>Huiswerk</h2>
+            <ul>
+                <li>14-10 23.59: PV Pleines opdracht</li>
+                <li>29-10: (Java Programmeren) Lezen & bekijken: Interfaces, Maven & Unit-testing.
+                <ul>
+                    <li>Staat 13-10 online</li>
+                </ul></li>
+            </ul>
+        </section>
+    </div>
+</div>
+
+<script src="../../../../dist/reveal.js"></script>
+<script src="../../../../plugin/zoom/zoom.js"></script>
+<script src="../../../../plugin/notes/notes.js"></script>
+<script src="../../../../plugin/search/search.js"></script>
+<script src="../../../../plugin/markdown/markdown.js"></script>
+<script src="../../../../plugin/highlight/highlight.js"></script>
+<script>
+
+    // Also available as an ES module, see:
+    // https://revealjs.com/initialization/
+    Reveal.initialize({
+        controls: true,
+        progress: true,
+        center: true,
+        hash: true,
+
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight ]
+    });
+
+</script>
+</body>
+</html>
