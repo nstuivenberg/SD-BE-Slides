@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Java Programmeren - Les X</title>
+
+    <meta name="description" content="Slides voor het vak Java Programmeren. Gegeven op Novi Hogeschool">
+    <meta name="author" content="Nick Stuivenberg">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../../../../dist/reset.css">
+    <link rel="stylesheet" href="../../../../dist/reveal.css">
+    <link rel="stylesheet" href="../../../../dist/theme/white.css" id="theme">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="../../../../plugin/highlight/monokai.css" id="highlight-theme">
+
+    <!-- kleuren:
+    #f5f1b5
+    #b5533c
+    #4d7e65
+    #002b36 -->
+    <!--
+    pdf
+    decktape -s 1920x1080  automatic http://localhost:8000/curriculum/frontend/webdevelopment/slides/4.html#/ 4.pdf
+    -->
+    <style>
+        .container{
+            display: flex;
+        }
+        .col{
+            flex: 1;
+        }
+    </style>
+
+</head>
+<body>
+
+<div class="reveal">
+    <div class="slides">
+        <section>
+            <section>
+                <h1>Java Programmeren</h1>
+                <p>Les 6 - Maven & Junit</p>
+                <aside class="notes">
+                    Notes can be added here
+                </aside>
+            </section>
+            <section>
+                <h3>Inhoud</h3>
+                <ul>
+                    <li>Vragen?</li>
+                    <li>Maven</li>
+                    <li>JUnit</li>
+                </ul>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>Maven</h2>
+                <blockquote>Maven is een project management-tool</blockquote>
+            </section>
+            <section>
+                <ul>
+                    <li>We gebruiken Maven voor een standaard project-structuur</li>
+                    <li>We gebruiken Maven om ons project te bouwen en te deployen</li>
+                </ul>
+                <div class="container">
+                    <div class="col">
+                        <ul>
+                            <li>We gebruiken Maven om dependencies op te halen
+                            <ul>
+                            <li>Dit komt uit de maven central repository</li>
+                            <li><a href="https://mvnrepository.com">mvnrepository.com</a></li>
+                            </ul></li>
+                        </ul>
+                    </div>
+                    <div class="col">
+                        <img src="img/mvn_grafiek.png" alt="Grafiek">
+                    </div>
+                </div>
+            </section>
+        </section>
+
+        <section>
+            <section>
+                <h2>Maven project structuur</h2>
+                <blockquote>Conventie boven configuratie</blockquote>
+            </section>
+            <section>
+                <h3>Folderstructuur</h3>
+                <img src="img/maven_folder_structure.jpg" alt="folder structure" style="height: 500px;">
+            </section>
+            <section>
+                <h3>Folderstructuur - IntelliJ</h3>
+                <img src="img/maven_folder_structure_intellij.png" alt="folder structuur intelij">
+            </section>
+        </section>
+
+        <section>
+            <section>
+                <h2>Maven build lifecycle</h2>
+                <blockquote>
+                    Het proces van bouwen en distribueren is altijd volgens hetzelfde principe
+                </blockquote>
+            </section>
+            <section data-auto-animate>
+                <h3>Lifecycles</h3>
+                <ul>
+                    <li>Default</li>
+                    <li>Clean</li>
+                    <li>Site</li>
+                </ul>
+            </section>
+            <section data-auto-animate>
+                <h3>Lifecycles</h3>
+                <ul>
+                    <li><strong>Default</strong>
+                        <ul>
+                            <li>Project deployment</li>
+                        </ul>
+                    </li>
+                    <li><strong>Clean</strong>
+
+                        <ul>
+                            <li>Project cleaning</li>
+                        </ul>
+                    </li>
+                    <li><strong>Site</strong>
+                        <ul>
+                            <li>Doet de site documentatie</li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+            <section>
+                <h3>Default lifecycle - Phases</h3>
+                <ul>
+                    <li>Validate</li>
+                    <li>Compile</li>
+                    <li>Test</li>
+                    <li>Package</li>
+                    <li>Verify</li>
+                    <li>Install</li>
+                    <li>Deploy</li>
+                </ul>
+            </section>
+            <section>
+                <h3>Default lifecycle - Phases (2)</h3>
+                <ul>
+                    <li><strong>Validate</strong>
+                        <ul>
+                            <li>Is alle informatie aanwezig?</li>
+                        </ul>
+                    </li>
+                    <li><strong>Compile</strong>
+                        <ul>
+                            <li>Compileert de code</li>
+                        </ul>
+                    </li>
+                    <li><strong>Test</strong>
+                        <ul>
+                            <li>Draait Unit-tests</li>
+                        </ul>
+                    </li>
+                    <li><strong>Package</strong>
+                        <ul>
+                            <li>Verpak de code (in JAR/WAR)</li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+            <section>
+                <h3>Default lifecycle - Phases (3)</h3>
+                <ul>
+                    <li><strong>Verify</strong>
+                        <ul>
+                            <li>Is de package compleet?</li>
+                        </ul>
+                    </li>
+                    <li><strong>Install</strong>
+                        <ul>
+                            <li>Installeert package in local repository</li>
+                        </ul>
+                    </li>
+                    <li><strong>Deploy</strong>
+                        <ul>
+                            <li>Deploy de applicatie naar een remote repository (bijvoorbeeld mvncentral)</li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+            <section>
+                <h3>Clean lifecycle - phases</h3>
+                <ul>
+                    <li>Ruimt alles op van de vorige build</li>
+                    <li><em>Bijvoorbeeld:</em> de target folder</li>
+                </ul>
+            </section>
+            <section>
+                <h3>Site lifecycle - phases</h3>
+                <ul>
+                    <li>
+                        site
+                        <ul>
+                            <li>Genereert de site-documentatie.</li>
+                        </ul>
+                    </li>
+                    <li>
+                        site-deploy
+                        <ul>
+                            <li>Deployt naar gespecificieerde webserver.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+            <section>
+                <h3>Hoe gebruik je dit?</h3>
+                <ul>
+                    <li>Command line
+                        <ul>
+                            <li>Op de plek waar de pom.xml staat</li>
+                            <li>Moet maven wel los geïnstalleerd zijn</li>
+                        </ul>
+                    </li>
+                    <li>IntelliJ</li>
+                </ul>
+            </section>
+            <section>
+                <h3>Hoe gebruik je dit? (2)</h3>
+                <img src="img/maven_cmd.png" alt="maven">
+            </section>
+            <section>
+                <h3>Hoe gebruik je dit? (3)</h3>
+                <img src="img/maven_clean-install.png" alt="maven">
+            </section>
+            <section>
+                <h3>Hoe gebruik je dit? (4)</h3>
+                <img src="img/maven_intellij.png" alt="maven">
+            </section>
+        </section>
+
+        <section>
+            <section>
+                <h2>Maven - Project aanmaken</h2>
+            </section>
+            <section>
+                <h3>Maven - Project aanmaken</h3>
+                <p>File -> New -> Project...</p>
+                <img src="img/maven_new-project.png" alt="New Maven Project - IntelliJ">
+            </section>
+        </section>
+
+        <section>
+            <section>
+                <h2>Maven - pom.xml</h2>
+                <blockquote>Hier staat de configuratie en kunnen we libraries toevoegen</blockquote>
+            </section>
+            <section>
+                <h3>Maven - pom.xml</h3>
+                <img src="img/maven_pom-xml.png" alt="bare pom example">
+            </section>
+            <section>
+                <h3>Maven - library toevoegen</h3>
+                <ul>
+                    <li>Ga naar https://mvnrepository.com/repos/central</li>
+                    <li>Zoek voor JUnit 5</li>
+                    <li>5 minuten. Probeer deze zelf te vinden</li>
+                </ul>
+            </section>
+            <section>
+                <h3>Maven - JUnit 5 toevoegen</h3>
+                <ul>
+                    <li>Tip: XML en HTML komen redelijk overeen qua gebruik.</li>
+                    <li>Dependencies plaatsen we tussen de &lt;depencies>&lt;/depencies> tags</li>
+                    <li>Voeg deze toe voor &lt;/project></li>
+                    <li>Plaats daartussen de gevonden XML.</li>
+                </ul>
+            </section>
+            <section>
+                <h3>Maven - JUnit 5 toegevoegd</h3>
+                <img src="img/maven_dependencies_dependency_junit-5.png" alt="JUnit 5 in pom">
+            </section>
+            <section>
+                <h3>Maven - Testen of het gelukt is</h3>
+                <ul>
+                    <li>Open: C:\Users\User_Name\.m2 of /Users/user_name/.m2</li>
+                    <li>Run <em>mvn clean install</em> in IntelliJ</li>
+                    <li>Bekijk het resultaat in de .m2 folder.</li>
+                </ul>
+            </section>
+        </section>
+
+        <section data-background-color="#f5f1b5">
+            <h2>Pauze</h2>
+        </section>
+
+        <section>
+            <section>
+                <h2>Unittesten</h2>
+                <blockquote>Waarom zou ik mijn code automatisch willen testen?</blockquote>
+            </section>
+            <section>
+                <h3>Unit testen</h3>
+                <ul>
+                    <li>Valideren dat jouw code werkt</li>
+                    <li>Valideren dat morgen, overmorgen en volgend jaar je code nog steeds werkt</li>
+                    <li>Waarschuwingen ontvangen als onze wijzigingen problemen veroorzaken</li>
+                </ul>
+            </section>
+            <section>
+                <h3>Unittesten in de praktijk</h3>
+                <ul>
+                    <li>Unit testen zijn een belangrijk onderdeel van een programmeurs vaardigheden</li>
+                    <li>Je moet dit dus kunnen schrijven</li>
+                    <li>Je moet klunnen begrijpen waarom ze nodig zijn</li>
+                </ul>
+                <ul>
+                    <li>Hoge codekwaliteit kun je niet bereiken zonder unit-testen</li>
+                    <li>Een goed code reviewer zal je code zonder unit-testen niet goedkeuren</li>
+                </ul>
+            </section>
+            <section>
+                <h3>Unittesten voordelen</h3>
+                <ul>
+                    <li>Je wordt gedwongen na te denken over de functionaliteit</li>
+                    <li>Je kunt je code snel testen</li>
+                    <li>Testen zijn herhaalbaar. Ook door andere</li>
+                    <li>Een goede test documenteert je code</li>
+                    <li>Goede testen maken wijzigingen in de code makkelijker. Waarom?</li>
+                </ul>
+            </section>
+            <section data-background-image="img/bg_wilders.jpg" data-background-position="top right" data-background-size="100px">
+                <h3>Voor<em>OOR</em>delen</h3>
+                <ul>
+                    <li>Unit test is meer code schrijven</li>
+                    <li>Dubbele boekhouding: Wijzigingen in je code dwingen je ertoe de unittesten aan te passen.</li>
+                </ul>
+            </section>
+        </section>
+
+        <section>
+            <section>
+                <h2>Unittesten</h2>
+                <blockquote>Eerst wat theorie</blockquote>
+            </section>
+            <section>
+                <h3>Drie A's</h3>
+                <ul>
+                    <li>
+                        Arrange
+                        <ul><li>Initieer de klasse/code die je nodig hebt</li>
+                            <li>Vul een lijst met data (bijvoorbeeld)</li></ul>
+                    </li>
+                    <li>
+                        Act
+                        <ul><li>Voer de code uit</li>
+                            <li>Verkrijg de uitkomsten van de methodes</li></ul>
+                    </li>
+                    <li>
+                        Assert
+                        <ul><li>Vergelijk de uitkomsten met de verwachte waardes</li></ul>
+                    </li>
+                </ul>
+            </section>
+            <section>
+                <h3>Unittesten - Tips</h3>
+                <ul>
+                    <li>Kleine code, zorgt voor kleine test</li>
+                    <li>Hoe meer verantwoordelijkheden, hoe complexer die code en de test</li>
+                    <li>Gebruik builder (design-pattern) en helper methodes</li>
+                    <li>Voorkom code-duplicatie met BeforeEach</li>
+                    <li>Zorg voor meerdere testen per methode</li>
+                </ul>
+            </section>
+            <section>
+                <h3>Unittesten Assert - tips</h3>
+                <ul>
+                    <li>Makkelijk te begrijpen</li>
+                    <li>Faalt bij onverwachte resultaten</li>
+                    <li>Controleert of de uitkomst de verwachte uitkomst is</li>
+                    <li>Is precies en beschermt tegen neveneffecten</li>
+                </ul>
+            </section>
+        </section>
+
+        <section>
+            <section>
+                <h2>JUnit</h2>
+            </section>
+            <section data-background="img/unittest_aaa.png" data-background-size="95%">
+
+            </section>
+            <section>
+                <h3>Junit 5 - Annotaties</h3>
+                <ul>
+                    <li>@Test</li>
+                    <li>@BeforeEach</li>
+                    <li>@AfterEach</li>
+                    <li>@BeforeAll</li>
+                    <li>@AfterAll</li>
+                    <li>@Disabled</li>
+                </ul>
+            </section>
+            <section>
+                <h3>Voorbeeld</h3>
+                <pre><code class="java" data-line-numbers data-trim>
+                    import static org.junit.jupiter.api.Assertions.*;
+
+                    @Test
+                    public void test_getallenVertalerLaad1getal() {
+                        GetallenVertaler vertaler = new GetallenVertaler();
+                        vertaler.vulGetalMap("één", 1);
+                        assertEquals(1, vertaler.getAantalGetallen());
+                        assertEquals(new Integer(1),
+                            vertaler.vertaalGetal("één"));
+                    }
+                </code></pre>
+            </section>
+            <section>
+                <h3>De Asserts</h3>
+                <div class="container">
+                    <div class="col">
+                        <ul>
+                            <li>assertEquals</li>
+                            <li>assertSame (==)</li>
+                            <li>assertNotSame</li>
+                            <li>assertTrue</li>
+                        </ul>
+                    </div>
+                    <div class="col">
+                        <ul>
+                            <li>assertFalse</li>
+                            <li>assertArrayEquals</li>
+                            <li>assertNull</li>
+                            <li>assertNotNull</li>
+                            <li>fail</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            <section>
+                <h3> JUnit - Codevoorbeeld</h3>
+                <a href="https://github.com/hogeschoolnovi/SD-BE-JP-Unittest-examples">
+                    https://github.com/hogeschoolnovi/SD-BE-JP-Unittest-examples
+                </a>
+            </section>
+        </section>
+
+        <section>
+            <section>
+                <h3>Het is vrijdag vijf uur.</h3>
+                <p>Unit test niet af?</p>
+                <div>
+                    <img alt="example-1" src="img/unittest_example-1.png">
+                </div>
+                <div>
+                    <img alt="example-1" src="img/unittest_result-1.png">
+                </div>
+            </section>
+            <section>
+                <h3>Het is vrijdag vijf uur.</h3>
+                <p>Unit test niet af?</p>
+                <div>
+                    <img alt="example-2" src="img/unittest_example-2.png">
+                </div>
+                <div>
+                    <img alt="example-2" src="img/unittest_result-2.png">
+                </div>
+            </section>
+            <section>
+                <h3>Het is vrijdag vijf uur.</h3>
+                <p>Unit test niet af?</p>
+                <div>
+                    <img alt="example-1" src="img/unittest_example-3.png">
+                </div>
+                <div>
+                    <img alt="example-1" src="img/unittest_result-3.png">
+                </div>
+            </section>
+            <section>
+                <h3>Het is vrijdag vijf uur.</h3>
+                <p>Unit test niet af?</p>
+                <div>
+                    <img alt="example-1" src="img/unittest_example-4.png">
+                </div>
+                <div>
+                    <img alt="example-1" src="img/unittest_result-4.png">
+                </div>
+            </section>
+        </section>
+
+        <section>
+            <section>
+                <h2>Samenvatting</h2>
+                <ul>
+                    <li>Maven is een Project Management Tool</li>
+                    <li>Unittesten zijn een effectieve manier om code te:
+                        <ul>
+                            <li>testen,</li>
+                            <li>documenteren,</li>
+                            <li>kwaliteit te verhogen</li>
+                        </ul></li>
+                    <li>Een test moet klein en ondubbelzinnig zijn.</li>
+                    <li>Test 1 bewerking per unit test</li>
+                    <li>Gebruik @Disabled om Unittesten (kort) uit te zetten </li>
+                </ul>
+            </section>
+            <section>
+                <h2>Zelf aan de slag</h2>
+                <ul>
+                    <li>
+                        <a href="https://github.com/hogeschoolnovi/SD-BE-JP-Maven_and_Unittest-assignment">
+                            https://github.com/hogeschoolnovi/SD-BE-JP-Maven_and_Unittest-assignment
+                        </a>
+                    </li>
+                    <li>
+                        <ul>
+                            <li>Extra: Oefenen met Uncle Bob</li>
+                            <li>Clean code: TDD & Unit testing met Uncle Bob</li>
+                            <li><a href="https://web.microsoftstream.com/video/ef849510-18d7-499d-8d02-543265673f6f">
+                                https://web.microsoftstream.com/video/ef849510-18d7-499d-8d02-543265673f6f
+                            </a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+        </section>
+
+
+    </div>
+</div>
+
+<script src="../../../../dist/reveal.js"></script>
+<script src="../../../../plugin/zoom/zoom.js"></script>
+<script src="../../../../plugin/notes/notes.js"></script>
+<script src="../../../../plugin/search/search.js"></script>
+<script src="../../../../plugin/markdown/markdown.js"></script>
+<script src="../../../../plugin/highlight/highlight.js"></script>
+<script>
+
+    // Also available as an ES module, see:
+    // https://revealjs.com/initialization/
+    Reveal.initialize({
+        controls: true,
+        progress: true,
+        center: true,
+        hash: true,
+
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight ]
+    });
+
+</script>
+</body>
+</html>
