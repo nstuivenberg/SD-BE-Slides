@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Design Patterns & Clean Code - Les 1 & 2</title>
+
+    <meta name="description" content="Slides voor het vak Java Programmeren. Gegeven op Novi Hogeschool">
+    <meta name="author" content="Nick Stuivenberg">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../../../../dist/reset.css">
+    <link rel="stylesheet" href="../../../../dist/reveal.css">
+    <link rel="stylesheet" href="../../../../dist/theme/white.css" id="theme">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="../../../../plugin/highlight/monokai.css" id="highlight-theme">
+
+    <!-- kleuren:
+    #f5f1b5
+    #b5533c
+    #4d7e65
+    #002b36 -->
+    <!--
+    pdf
+    decktape -s 1920x1080  automatic http://localhost:8000/curriculum/backend/dpcc/slides/1.html#/ 1.pdf
+    -->
+    <style>
+        .container-smaller-text {
+            font-size: xx-large;
+        }
+        .code-smaller-text {
+            font-size: smaller;
+        }
+        .container{
+            display: flex;
+        }
+        .col{
+            flex: 1;
+        }
+        .red-emphasis {
+            color:#f00;
+            font-weight: bolder;
+        }
+    </style>
+
+</head>
+<body>
+
+<div class="reveal">
+    <div class="slides">
+        <section>
+        <section>
+            <h1>Design Patterns & Clean Code</h1>
+            <p>Les 1 - Design patterns</p>
+            <aside class="notes">
+                Notes can be added here
+            </aside>
+        </section>
+            <section>
+                <h3>Inhoud</h3>
+                <ul>
+                    <li>Wat zijn Design Patterns?</li>
+                    <li>Soorten Design Patterns</li>
+                    <li>Observer Pattern</li>
+                    <li>Builder Pattern</li>
+                    <li>Opdrachten maken</li>
+                </ul>
+            </section>
+            <section>
+                <h3>H & H</h3>
+                <ul>
+                    <li>Webcam aan</li>
+                    <li>Microfoon uit wanneer anderen spreken</li>
+                    <li>Gaarne hand opsteken</li>
+                </ul>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>Wat zijn Design Patterns?</h2>
+            </section>
+            <section>
+                <h2>Wat zijn Design Patterns?</h2>
+                <blockquote>
+                    Design patterns zijn herhaalbare oplossingen voor vaak voorkomende code-problemen. Dit zijn geen
+                    kant-en-klare oplossingen, maar beschrijvingen van een template voor een oplossing.
+                </blockquote>
+            </section>
+            <section>
+                <h3>Geschiedenis</h3>
+                <img src="img/book.jpg" alt="GoF Book" style="height: 50vh">
+                <aside class="notes">
+                    <ul>
+                        <li>Uitgegeven in 1994</li>
+                        <li>Beschrijven hierin 23 Design patterns</li>
+                    </ul>
+                </aside>
+            </section>
+            <section>
+                <h3>Geschiedenis (2)</h3>
+                <img src="img/book_gof.jpg" alt="GoF Book">
+                <aside class="notes">
+                    <ul>
+                        <li>Gang of four</li>
+                        <li>Vernoemd naar vier mensen uit de Chinese Culturele Revolutie</li>
+                    </ul>
+                </aside>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>Soorten Design Patterns</h2>
+            </section>
+            <section>
+                <h3>Op te delen in drie groepen</h3>
+                <ul>
+                    <li>Creational</li>
+                    <li>Structural</li>
+                    <li>Behavioural</li>
+                </ul>
+            </section>
+            <section>
+                <h3>Creational Design Patterns</h3>
+                <ul>
+                    <li>Hebben iets te maken met object-creatie</li>
+                    <li>Zowel met het object vormgeven als object instantiëren.</li>
+                </ul>
+            </section>
+            <section>
+                <h3>Structural Design Patterns</h3>
+                <ul>
+                    <li>Hebben te maken met relaties tussen klassen</li>
+                    <li>Van meerdere klassen een groter geheel maken</li>
+                </ul>
+            </section>
+            <section>
+                <h3>Behavioural Design Patterns</h3>
+                <ul>
+                    <li>Helpen met communicatie tussen verschillende objecten</li>
+                    <li>Verhogen hierdoor de flexibiliteit van de code. </li>
+                </ul>
+            </section>
+            <section>
+                <h3>De 23 patterns</h3>
+                <div class="container container-smaller-text">
+                    <div class="col">
+                        <strong>Creational</strong>
+                        <ul>
+                            <li>Abstract Factory</li>
+                            <li>Builder</li>
+                            <li>Factory Method</li>
+                            <li>Object Pool</li>
+                            <li>Prototype</li>
+                            <li>Singleton</li>
+                        </ul>
+                    </div>
+                    <div class="col">
+                        <strong>Structural</strong>
+                        <ul>
+                            <li>Adapter</li>
+                            <li>Bridge</li>
+                            <li>Composite</li>
+                            <li>Decorator</li>
+                            <li>Facade</li>
+                            <li>Flyweight</li>
+                            <li>Private Class Data</li>
+                            <li>Proxy</li>
+                        </ul>
+                    </div>
+                    <div class="col">
+                        <strong>Behavioural</strong>
+                        <ul>
+                            <li>Chain of Responsibility</li>
+                            <li>Command</li>
+                            <li>Interpreter</li>
+                            <li>Iterator</li>
+                            <li>Mediator</li>
+                            <li>Memento</li>
+                            <li>Null Object</li>
+                            <li>Observer</li>
+                            <li>State</li>
+                            <li>Strategy</li>
+                            <li>Template Method</li>
+                            <li>Visitor</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            <section>
+                <h3>De 2 patterns</h3>
+                <div class="container container-smaller-text">
+                    <div class="col">
+                        <strong>Creational</strong>
+                        <ul>
+                            <li>Abstract Factory</li>
+                            <li class="red-emphasis">Builder</li>
+                            <li>Factory Method</li>
+                            <li>Object Pool</li>
+                            <li>Prototype</li>
+                            <li>Singleton</li>
+                        </ul>
+                    </div>
+                    <div class="col">
+                        <strong>Structural</strong>
+                        <ul>
+                            <li>Adapter</li>
+                            <li>Bridge</li>
+                            <li>Composite</li>
+                            <li>Decorator</li>
+                            <li>Facade</li>
+                            <li>Flyweight</li>
+                            <li>Private Class Data</li>
+                            <li>Proxy</li>
+                        </ul>
+                    </div>
+                    <div class="col">
+                        <strong>Behavioural</strong>
+                        <ul>
+                            <li>Chain of Responsibility</li>
+                            <li>Command</li>
+                            <li>Interpreter</li>
+                            <li>Iterator</li>
+                            <li>Mediator</li>
+                            <li>Memento</li>
+                            <li>Null Object</li>
+                            <li class="red-emphasis">Observer</li>
+                            <li>State</li>
+                            <li>Strategy</li>
+                            <li>Template Method</li>
+                            <li>Visitor</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>Observer Pattern</h2>
+                <blockquote>
+                    Het observer pattern specificeert communcatie tussen de observer-objecten en het observable
+                    object. Het observable object communiceert aan de observer-objecten wanneer zijn state veranderd.
+                </blockquote>
+            </section>
+            <section>
+                <h3>Voorbeeld (1)</h3>
+                <img src="img/observer_example.jpeg" alt="observer example" style="height: 60vh">
+            </section>
+            <section>
+                <h3>Voorbeeld (2)</h3>
+                <p>Denk aan een abonnementsdienst</p>
+            </section>
+            <section>
+                <h3>UML</h3>
+                <img src="img/UML_DesignPattern.png" alt="UML of Observer pattern">
+            </section>
+            <section>
+                <h3>Voor- en nadelen</h3>
+                <div class="container">
+                <div class="col"><ul>
+                    <li>Loose coupling</li>
+                    <li>Observers kunnen runtime beheerd worden</li>
+                    <li>In de basis houdt het geen rekening of iedereen wel een notificatie mag ontvangen</li>
+                </ul>
+                </div>
+                    <div class="col">
+                        <img src="img/loose_coupling_meme.jpg" alt="meme">
+                    </div>
+                </div>
+            </section>
+            <section>
+                <h3>Voorbeeldcode</h3>
+                <p>Hier te vinden</p>
+                <ul>
+                    <li><a href="https://github.com/hogeschoolnovi/SD-BE-DP-ObserverPattern_MatchExample">
+                        https://github.com/hogeschoolnovi/SD-BE-DP-ObserverPattern_MatchExample</a></li>
+                </ul>
+            </section>
+        </section>
+
+        <section>
+            <section>
+                <h2>Builder Pattern</h2>
+                <blockquote>
+                    Separate the construction of a complex object from its representation so that the same construction
+                    process can create different representations.
+                </blockquote>
+            </section>
+            <section>
+                <h3>Builder Pattern</h3>
+                <blockquote>
+                    Het Builder Pattern wordt gebruikt om de creatie van het object te scheiden in kleine stappen waar
+                    in de laatste stap het gemaakte object wordt gegeven. Deze stappen zijn zo generiek mogelijk opdat
+                    er verschillende invullingen van hetzelfde object gemaakt kunnen worden.
+                </blockquote>
+            </section>
+            <section>
+                <h3>Het Probleem</h3>
+                <p>De klasse moet <strong>immutable zijn:</strong></p>
+                <p>
+                    Stel nou je hebt een <strong>Customer</strong>-object waarin je <strong>firstName</strong>,
+                    <strong>lastName</strong> en <strong>sex</strong> verplicht moet bijhouden, maar jouw applicatie
+                    moet ook <strong>address</strong>, <strong>postalCode</strong> en <strong>phoneNumber</strong>
+                    kunnen bijhouden.  De laatste drie mogen echter leeg zijn.
+                </p>
+            </section>
+            <section>
+                <h3>Denk er even over na</h3>
+            </section>
+            <section>
+                <h3>Probleem - oplossingen</h3>
+                <ul>
+                    <li>8 constructors aanmaken</li>
+                    <li>1 Constructor met null waardes</li>
+                </ul>
+            </section>
+            <section>
+                <h3>Het probleem  (2)</h3>
+                <p>Kijk naar de code op de volgende slide</p>
+            </section>
+            <section>
+                <h3>Wat gaat hier fout?</h3>
+                <pre><code class="java code-smaller-text" data-trim data-line-numbers="">
+                    public class ImmutableBankAccount {
+
+                        private double interest;
+                        private double amount;
+
+                        public ImmutableBankAccount(double interest, double amount) {
+                            this.interest = interest;
+                            this.amount = amount;
+                        }
+                    }
+                </code></pre>
+                <pre><code class="java code-smaller-text" data-trim data-line-numbers="">
+                    public class BankAccountMain {
+                        public static void main(String[] args) {
+                            ImmutableBankAccount bankAccount =
+                                new ImmutableBankAccount(2.5, 100.0);
+                            ImmutableBankAccount anotherBankAccount =
+                                new ImmutableBankAccount(1250.0, 1.0);
+                        }
+                    }
+                </code></pre>
+            </section>
+            <section>
+                <h3>Voor- en nadelen</h3>
+                <ul>
+                    <li>Voegt meer code toe. Je moet voor elke domeinklasse en builder-klasse maken</li>
+                    <li>Wat lastiger te koppelen met JPA-klassen (Spring-boot)</li>
+                    <li>Maakt de code enorm leesbaar</li>
+                </ul>
+            </section>
+            <section>
+                <h3>Voorbeeldcode</h3>
+                <ul>
+                    <li><a href="https://github.com/hogeschoolnovi/SD-BE-DP-BuilderPattern_Examples">
+                        https://github.com/hogeschoolnovi/SD-BE-DP-BuilderPattern_Examples</a></li>
+                </ul>
+            </section>
+            <section>
+                <h3>Nog even dit</h3>
+                <ul>
+                    <li>Voorbeelden wijken af van het <em>officiële</em> builder-pattern</li>
+                    <li>Je komt ook vaak voorbeelden tegen met een inner-class en een private constructor</li>
+                </ul>
+            </section>
+        </section>
+        <section>
+            <h3>Design patterns in de praktijk</h3>
+            <ul>
+                <li>Wanneer je ergens een pattern gebruikt, weten andere programmeurs direct hoe de code eruit ziet.</li>
+                <li>Het gebruiken van patterns is een hulpmiddel, geen doel.</li>
+                <li>Vaak bedenken de architecten welke patterns gebruikt moeten worden.</li>
+                <li>Zorg eerst voor werkende code, voordat je over patterns gaat nadenken.</li>
+            </ul>
+        </section>
+        <section>
+            <section>
+                <h3>Verder studeren (1)</h3>
+                <ul>
+                    <li>Twee behandeld</li>
+                    <li>Nog heel veel meer.</li>
+                </ul>
+            </section>
+            <section>
+                <h3>Websites:</h3>
+                <ul>
+                    <li>https://howtodoinjava.com/gang-of-four-java-design-patterns/</li>
+                    <li>https://refactoring.guru/design-patterns</li>
+                    <li>https://sourcemaking.com/design_patterns</li>
+                    <li>Google: Design Pattern + naam + Java</li>
+                </ul>
+            </section>
+            <section>
+                <h3>Boeken</h3>
+                <ul>
+                    <li>Head First: Design Patterns</li>
+                    <li>Patterns of Enterprise Application Architecture (outdated)</li>
+                    <li>Java Design Patterns (lekker dun)</li>
+                    <li>GoF boek (C++)
+                    <ul><li>Design patterns: Elements of Reusable Object-Oriented Software</li></ul></li>
+                </ul>
+            </section>
+        </section>
+        <section>
+            <h3>Opdrachten (voor in de les)</h3>
+            <span><strong>Observer</strong></span>
+            <ul><li><a href="https://github.com/hogeschoolnovi/SD-BE-DP-ObserverPattern_MatchExample">https://github.com/hogeschoolnovi/SD-BE-DP-ObserverPattern_MatchExample</a></li></ul>
+            <hr>
+            <span><strong>Builder</strong></span>
+            <ul>
+                <li><a href="https://github.com/hogeschoolnovi/SD-BE-DP-BuilderPattern_AssOne">https://github.com/hogeschoolnovi/SD-BE-DP-BuilderPattern_AssOne</a></li>
+                <li><a href="https://github.com/hogeschoolnovi/SD-BE-DP-BuilderPattern_AssTwo">https://github.com/hogeschoolnovi/SD-BE-DP-BuilderPattern_AssTwo</a></li>
+                <li><a href="https://github.com/hogeschoolnovi/SD-BE-DP-BuilderPattern_AssThree">https://github.com/hogeschoolnovi/SD-BE-DP-BuilderPattern_AssThree</a></li>
+            </ul>
+        </section>
+
+
+
+
+    </div>
+</div>
+
+<script src="../../../../dist/reveal.js"></script>
+<script src="../../../../plugin/zoom/zoom.js"></script>
+<script src="../../../../plugin/notes/notes.js"></script>
+<script src="../../../../plugin/search/search.js"></script>
+<script src="../../../../plugin/markdown/markdown.js"></script>
+<script src="../../../../plugin/highlight/highlight.js"></script>
+<script>
+
+    // Also available as an ES module, see:
+    // https://revealjs.com/initialization/
+    Reveal.initialize({
+        controls: true,
+        progress: true,
+        center: true,
+        hash: true,
+
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight ]
+    });
+
+</script>
+</body>
+</html>
