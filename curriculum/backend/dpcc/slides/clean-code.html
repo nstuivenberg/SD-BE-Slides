@@ -1,0 +1,182 @@
+<section>
+    <section>
+        <h2>Introductie Clean Code</h2>
+        <ul>
+            <li>Waarom Clean Code?</li>
+            <li>Naamgeving</li>
+            <li>Nette Methodes</li>
+            <li>Commentaar</li>
+        </ul>
+    </section>
+</section>
+<section>
+    <section>
+        <h2>Waarom Clean Code?</h2>
+        <blockquote>Niet alleen voor een hoger cijfer.</blockquote>
+    </section>
+    <section>
+        <h2>Waarom Clean Code?</h2>
+        <ul>
+            <li>Code schrijven bestaat vooral uit (andermans) code lezen</li>
+            <li>Een project bevindt zich 80% van de tijd in de onderhouds fase.</li>
+            <li>Je bent nooit de enige programmeur die aan een project werkt.</li>
+            <li>Verhoogt onderhoudbaarheid en uitbreidbaarheid van de applicatie.</li>
+            <li>Voorkomt een complete stilstand van nieuwe features.</li>
+        </ul>
+    </section>
+</section>
+<section>
+    <section>
+        <h2>Naamgeving</h2>
+        <h3>Hoe noem ik mijn packages, klassen, methodes en variabelen?</h3>
+    </section>
+    <section>
+        <h3>Naamgeving (1)</h3>
+        <ul>
+            <li>Klasse en packages zijn <em>zelfstandige naamwoorden;</em></li>
+            <li>Klasse-, tabel- en packagenamen zijn altijd enkelvoud;</li>
+            <li>Methode-namen zijn <em>werkwoorden</em> (+ lijdend voorwerp)</li>
+            <li>Alle namen moeten niet <em>ambigious</em> zijn;</li>
+            <li>Namen moeten uitleggen of verklaren wat de inhoud is.</li>
+        </ul>
+    </section>
+    <section>
+        <h3>Naamgeving (2)</h3>
+        <ul>
+            <li>Gebruik de Java Code Conventions</li>
+            <li><a href="https://www.oracle.com/java/technologies/javase/codeconventions-introduction.html">
+                https://www.oracle.com/java/technologies/javase/codeconventions-introduction.html
+            </a> </li>
+            <li>Blader het eens door.</li>
+            <li>Hoofdstuk 9 is onderdeel van eindtoets beoordeling.</li>
+        </ul>
+    </section>
+    <section>
+        <h3>Naamgeving (3)</h3>
+        <ul>
+            <li>Wees niet grappig</li>
+            <li>Gebruik geen generieke namen, zoals Manager, Processor, Data etc.</li>
+            <li>Gebruik Computer-Science terminologie</li>
+            <li>Voeg geen prefix toe aan klassenamen.</li>
+            <li>Gebruik geen (absoluut geen) Hongaarse notatie.</li>
+        </ul>
+    </section>
+</section>
+<section>
+    <section>
+        <h2>Nette Methodes</h2>
+        <p>Meer dan een werkwoord + lijdend voorwerp</p>
+    </section>
+    <section>
+        <h3>Regels</h3>
+        <ul>
+            <li> Houd je methodes klein!</li>
+            <li style="font-size: xx-small;">Houd je methodes nog kleiner dan regel 1</li>
+        </ul>
+    </section>
+    <section>
+        <h3>Regels - SRP</h3>
+        <blockquote>
+            Methodes moeten één ding doen. Dit moeten ze goed doen en ze moeten alleen dat doen.
+        </blockquote>
+    </section>
+    <section>
+        <h3>Regels - Stepdown Rule</h3>
+        <p>Zorg ervoor dat een methode die een andere methode aanroept boven de aangeroepte methode staat.</p>
+        <p>We zijn getraind om van boven naar beneden te lezen.</p>
+    </section>
+    <section>
+        <h3>Regels - Aantal argumenten</h3>
+        <ul>
+            <li>Probeer het aantal argumenten zo klein mogelijk te houden.</li>
+            <li>Ideaal is nul. </li>
+            <li>Vier of meer is te veel</li>
+            <li>Gebruik builder of factory patterns.</li>
+        </ul>
+    </section>
+    <section>
+        <h3>Regels - Geen flag arguments</h3>
+        <ul>
+            <li>Maak geen  methodes die iets doen op basis van een te ontvangen boolean - argument.</li>
+            <li>Maak liever twee methodes.</li>
+        </ul>
+    </section>
+    <section>
+        <h3>Command Query Seperation</h3>
+        <ul>
+            <li>Weer SRP!</li>
+            <li>Een methode moet een antwoord geven óf</li>
+            <li>Een methode moet data wijzigen</li>
+            <li>Niet allebei tegelijk!</li>
+        </ul>
+    </section>
+    <section>
+        <h3>CQRS - Voorbeeld (1)</h3>
+        <pre><code class="java" data-trim data-line-numbers>
+                public boolean set(String attribute, String value) {
+                    // ...
+                }
+
+                if(set("city","Utrecht")) {
+                    //...
+                }
+            </code></pre>
+    </section>
+    <section>
+        <h3>CQRS - Voorbeeld (2)</h3>
+        <p>Maak er twee methodes van.</p>
+        <pre><code class="java" data-trim data-line-numbers>
+            if(attributeExists("city")) {
+                setAttribute("city", "Utrecht");
+            }
+        </code></pre>
+    </section>
+</section>
+<section>
+    <section>
+        <h2>Commentaar</h2>
+        <blockquote>Don't comment bad code. Rewrite it.</blockquote>
+    </section>
+    <section>
+        <h3>Commentaar - wanneer niet?</h3>
+        <p>Gebruik methode- en variabelenamen om je code begrijpbaar te maken</p>
+        <pre><code class="java" data-trim data-line-numbers>
+        // Check to see if employee is eligible for full benefits
+        if ((employee.flags & HOURLY_FLAG) && (employee.age > 65)) {
+            // ...
+        }
+        // Of
+        if (employee.isEligibleForFullBenefits()) {
+            // ..
+        }
+        </code></pre>
+    </section>
+    <section>
+        <h3>Commentaar - Wanneer niet?</h3>
+        <ul>
+            <li>Overtollig commentaar</li>
+            <li>Onbedoeld misleidend commentaar</li>
+            <li>Bij sluit accolades plaatsen</li>
+            <li>Uitgecommentarieerde code</li>
+            <li><em>Journal</em>-commentaar</li>
+            <li>Positie-markering</li>
+        </ul>
+    </section>
+    <section>
+        <h3>Commentaar - Wanneer dan wel?</h3>
+        <ul>
+            <li>Public API - JavaDoc</li>
+            <li>Legal comments wanneer erom gevraagd wordt.</li>
+            <li>JavaDoc intern (wanneer de opdrachtgever daarom vraagt)</li>
+            <li>Verduidelijking of verantwoording</li>
+            <li>Als waarschuwing.</li>
+            <li>TODO comments (Het verschilt per team of dit ook in master-branches mag zitten.)</li>
+        </ul>
+    </section>
+</section>
+<section>
+    <h2>Boy Scout Rule</h2>
+    <blockquote>
+        Leave the campground cleaner than you found it.
+    </blockquote>
+</section>

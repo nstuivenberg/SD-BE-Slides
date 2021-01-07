@@ -1,0 +1,119 @@
+<section>
+    <section>
+        <h2>Design Principles</h2>
+        <h3>S.O.L.I.D.</h3>
+        <ul>
+            <li>Design Principles</li>
+            <li>SOLID</li>
+        </ul>
+        <aside class="notes">
+            Notes can be added here
+        </aside>
+    </section>
+</section>
+<section>
+    <section>
+        <h3>Verschillende Design Principes</h3>
+        <ul>
+            <li>KISS - <em>Keep it simple, stupid</em></li>
+            <li>MVP - <em>Minimal Viable Product</em></li>
+            <li>YAGNI - <em>You ain't gonna need it</em></li>
+            <li>DRY - <em>Don't Repeat Yourself</em></li>
+        </ul>
+    </section>
+</section>
+<section>
+    <section>
+        <h3>SOLID (1)</h3>
+        <ul>
+            <li>The first five principles of Object Oriented Design</li>
+            <li>Bedacht door Robert C. Martin</li>
+            <li>Acroniem door Michael Feathers</li>
+        </ul>
+    </section>
+    <section>
+        <h3>SOLID (2)</h3>
+        <ul>
+            <li>Single-responsibility principle (SRP)</li>
+            <li>Open–closed principle</li>
+            <li>Liskov substitution principle (LSP)</li>
+            <li>Interface segregation principle (ISP)</li>
+            <li>Dependency inversion principle (DIP)</li>
+        </ul>
+    </section>
+    <section>
+        <h2>Single Responsibility Principle</h2>
+        <blockquote>
+            "A class should be having one and only one responsibility."
+        </blockquote>
+        <aside class="notes">
+            <p>Class A:</p>
+            <ul>
+                <li>Open a database connection</li>
+                <li>Fetch data from database</li>
+                <li>Write the data in an external file</li>
+            </ul>
+            <p>Klasse zou veranderd moeten worden bij een nieuwe database, het invoegen van Spring of het
+                veranderen van de output.</p>
+        </aside>
+    </section>
+    <section>
+        <h2>Open/Closed Principle</h2>
+        <blockquote>
+            "Classes should be open for extension but closed for modification."
+        </blockquote>
+        <aside class="notes">
+            <p>
+                Als je een klasse hebt gemaakt en iemand anders wil deze gebruiken of aanpassen, dan moet dat kunnen
+                zonder dat de klasse wordt aangepast. De klasse zou moeten kunnen worden extend en de methodes
+                zouden overriden moeten kunnen worden.
+            </p>
+        </aside>
+    </section>
+    <section>
+        <h2>Liskov’s Substitution Principle</h2>
+        <blockquote>
+            "Parent classes should be easily substituted with their child classes without blowing up the
+            application."
+        </blockquote>
+        <aside class="notes">
+            Stel je voor je hebt een Animal class en die wordt extend door Dog en je wilt vervolgens een Cat
+            toevoegen, dan mogen er geen methodes inzitten, dat als de parent class wordt aangeroepen dat de
+            applicatie dan crasht.
+        </aside>
+    </section>
+    <section>
+        <h2>Interface Segregation Principle</h2>
+        <blockquote>
+            "Many client specific interfaces are better than one general interface."
+        </blockquote>
+        <aside class="notes">
+            Je wilt je interfaces zo klein mogelijk houden om te voorkomen dat je nutteloze methodes moet
+            implementeren.
+        </aside>
+    </section>
+    <section>
+        <h2>Dependency Inversion Principle</h2>
+        <blockquote>
+            "Classes should depend on abstraction but not on concretion."
+        </blockquote>
+        <aside class="notes">
+            <p>Dit is de reden dat je me altijd tegen List ziet aan programmeren en niet tegen ArrayList.</p>
+            <p>Dit zorgt ervoor dat de implementatie van Klasse A wordt 'verstopt' voor klasse B. Dit heeft als
+                voordel dat als A verandert, dan hoeft B dat niet te weten of er rekening mee te houden.</p>
+            <p>Dit hangt samen met loose- en tight coupling</p>
+
+        </aside>
+    </section>
+    <section>
+        <h2>Zelfstudie SOLID</h2>
+        <ul>
+            <li><a href="https://medium.com/mindorks/solid-principles-explained-with-examples-79d1ce114ace"
+                   target="_blank">https://medium.com/mindorks/solid-principles-explained-with-examples-79d1ce114ace</a>
+            </li>
+            <li><a href="https://howtodoinjava.com/best-practices/5-class-design-principles-solid-in-java/"
+                   target="_blank">https://howtodoinjava.com/best-practices/5-class-design-principles-solid-in-java/</a>
+            </li>
+        </ul>
+    </section>
+</section>
