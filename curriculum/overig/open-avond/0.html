@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Openavond - Software Development</title>
+
+    <meta name="description" content="Slides voor het vak Inleiding Programmeren. Gegeven op Novi Hogeschool">
+    <meta name="author" content="Nick Stuivenberg">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../../../../dist/reset.css">
+    <link rel="stylesheet" href="../../../../dist/reveal.css">
+    <link rel="stylesheet" href="../../../../dist/theme/white.css" id="theme">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="../../../../plugin/highlight/monokai.css" id="highlight-theme">
+
+    <!-- kleuren:
+    #f5f1b5
+    #b5533c
+    #4d7e65
+    #002b36 -->
+    <!--
+    pdf
+    decktape -s 1920x1080  automatic http://localhost:8000/overig/open-avond/0.html#/ 0.pdf
+    -->
+    <style>
+        .container{
+            display: flex;
+        }
+        .col{
+            flex: 1;
+            padding: 5px;
+        }
+        .fat-border {
+            border-radius: 25px;
+            border: 10px solid rgb(247, 202, 98);
+        }
+    </style>
+
+</head>
+<body>
+
+<div class="reveal">
+    <div class="slides">
+        <section data-background-color="#f5f1b5">
+        <section>
+            <h1>NOVI</h1>
+            <p>HBO SD en Bootcamp FSD</p>
+            <aside class="notes">
+                Notes can be added here
+            </aside>
+        </section>
+            <section>
+                <h3>Inhoud</h3>
+                <ul>
+                    <li>Wie ben ik?</li>
+                    <li>De opleiding</li>
+                    <li>Vragen</li>
+                </ul>
+            </section>
+        </section>
+        <section data-background-color="#f5f1b5">
+            <section>
+                <h2>Wie ben ik</h2>
+                <div class="container">
+                    <div class="col">
+                        <ul>
+                            <li>Hoofddocent Software Development</li>
+                            <li>Verantwoordelijk voor de backend leerlijn</li>
+                        </ul>
+                    </div>
+                    <div class="col">
+                        <ul>
+                            <li>Java backend Developer</li>
+                            <li>Eerste website toen ik elf was</li>
+                            <li>Wordt blij van mooie en schone code</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            <section data-background-image="img/ugly.png">
+
+            </section>
+            <section>
+                <h2>Wie ben ik</h2>
+                <div class="container">
+                    <div class="col">
+                        <ul>
+                            <li>Hoofddocent Software Development</li>
+                            <li>Verantwoordelijk voor de backend leerlijn</li>
+                        </ul>
+                    </div>
+                    <div class="col">
+                        <ul>
+                            <li>Java backend Developer</li>
+                            <li>Eerste website toen ik elf was</li>
+                            <li>Ik word blij van mooie en schone code</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </section>
+
+        <section data-background-color="#f5f1b5">
+            <section>
+                <h2>De opleiding</h2>
+                <div class="col fat-border" style="margin-bottom: 5px;">
+                    <h5>Foundation</h5>
+                </div>
+                <div class="container">
+                    <div class="col fat-border" style="margin-right:5px;">
+                    <h5>Frontend</h5>
+                        <ul>
+                            <li>Website bouwen</li>
+                            <li>Websites stylen</li>
+                            <li>Websites interactief maken</li>
+                        </ul>
+                    </div>
+                    <div class="col fat-border">
+                    <h5>Backend</h5>
+                        <ul>
+                            <li>Communceren met databases</li>
+                            <li>Verzoeken afhandelen</li>
+                            <li>Data beveiligen</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </section>
+            <section>
+                <div class="col fat-border" style="margin-bottom: 5px;">
+                     <h5>Foundation</h5>
+                    <img src="img/java.png" style="margin-top:-50px;" height="100px">
+                </div>
+                <div class="container">
+                    <div class="col fat-border" style="margin-right:5px;">
+                        <h5>Frontend</h5>
+
+                            <img src="https://www.w3.org/html/logo/badge/html5-badge-h-solo.png" width="128" height="128" alt="HTML5 Powered" title="HTML5 Powered">
+                            <img src="img/css3.png" width="128" height="128"><br>
+                            <img src="img/js.png" width="128" height="128">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/512px-React-icon.svg.png" height="128">
+
+                    </div>
+                    <div class="col fat-border">
+                        <h5>Backend</h5>
+                        <img src="img/java.png" style="margin-top:-50px;" height="100px">
+                        <img src="img/psql.png" height="64">
+                        <img src="https://images.g2crowd.com/uploads/product/image/large_detail/large_detail_5b9d2c5176ad8f918a0ad84241ab9673/junit.png" height="64">
+                        <br><img src="http://supsys.us/images/spring-boot-logo.png">
+                    </div>
+                </div>
+            </section>
+        </section>
+
+
+    </div>
+</div>
+
+<script src="../../../../dist/reveal.js"></script>
+<script src="../../../../plugin/zoom/zoom.js"></script>
+<script src="../../../../plugin/notes/notes.js"></script>
+<script src="../../../../plugin/search/search.js"></script>
+<script src="../../../../plugin/markdown/markdown.js"></script>
+<script src="../../../../plugin/highlight/highlight.js"></script>
+<script>
+
+    // Also available as an ES module, see:
+    // https://revealjs.com/initialization/
+    Reveal.initialize({
+        controls: true,
+        progress: true,
+        center: true,
+        hash: true,
+
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight ]
+    });
+
+</script>
+</body>
+</html>
