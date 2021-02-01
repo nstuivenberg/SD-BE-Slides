@@ -45,7 +45,7 @@
         <section>
             <section>
                 <h1>Cursusnaam</h1>
-                <p>Lesonderwerp(en)/p>
+                <p>Lesonderwerp(en)</p>
                 <aside class="notes">
                     Notes can be added here
                 </aside>
@@ -84,6 +84,7 @@
 <script src="../../../../plugin/search/search.js"></script>
 <script src="../../../../plugin/markdown/markdown.js"></script>
 <script src="../../../../plugin/highlight/highlight.js"></script>
+
 <script>
 
     // Also available as an ES module, see:
@@ -95,7 +96,15 @@
         hash: true,
 
         // Learn about plugins: https://revealjs.com/plugins/
-        plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight ]
+        plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight ],
+        dependencies : [
+            {
+                src: '../../../../plugin/external/external.js',
+                condition: function() {
+                    return !!document.querySelector( '[data-external],[data-external-replace]' );
+                }
+            },
+        ]
     });
 
 </script>
