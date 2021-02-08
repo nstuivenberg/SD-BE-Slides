@@ -1,0 +1,90 @@
+<section>
+    <section>
+        <h2>CREATE table</h2>
+        <h3>Een tabel maken om data in op te slaan.</h3>
+        <ul>
+            <li>Wat is SQL?</li>
+            <li>Het CREATE-statement</li>
+            <li>Datatypes</li>
+            <li>Constraints</li>
+            <li>Primary Key</li>
+        </ul>
+        <aside class="notes">
+            Notes can be added here
+        </aside>
+    </section>
+</section>
+
+<section>
+    <section>
+        <h4>Wat is SQL </h4>
+        <ul>
+            <li>SQL is een <strong>D</strong>ata <strong>M</strong>anipulation <strong>L</strong>anguage.</li>
+            <li>Verschillende dialecten. In de basis hetzelfde.</li>
+            <li>Daarmee kun je CRUD-operaties op je dataset doen.</li>
+            <li>Die data moet wel ergens in opgeslagen worden!</li>
+        </ul>
+    </section>
+</section>
+<section>
+    <section>
+        <h3>Tabellen</h3>
+        <ul>
+            <li>Een tabel bestaat uit rijen en kolommen.</li>
+            <li>Een database heeft vaak meerdere tabellen.</li>
+            <li>Elke kolom heeft zijn eigen datatype</li>
+            <li>Elke rij is een opgeslagen entiteit.</li>
+        </ul>
+    </section>
+    <section>
+        <h4>Een tabel maken</h4>
+        <pre>
+            <code class="sql" data-trim data-line-numbers>
+                CREATE TABLE [IF NOT EXISTS] table_name (
+                    column1 datatype(length) column_contraint,
+                    column2 datatype(length) column_contraint,
+                    column3 datatype(length) column_contraint,
+                    table_constraints
+                    );
+            </code>
+        </pre>
+        <aside class="notes">
+            <ul>
+                <li>table_name is tabelnaam</li>
+                <li>[IF NOT EXISTS], code wordt alleen uitgevoerd als tabel niet bestaat</li>
+                <li>Komma-opgedeelde opsomming van kolommen.</li>
+                <li>Elk kolom een datatype</li>
+                <li>Zowel kolommen als de gehele tabel kunnen constraints hebben.</li>
+            </ul>
+        </aside>
+    </section>
+</section>
+
+<section>
+    <section>
+        <h3>Datatypes</h3>
+        <div class="container" style="font-size: smaller">
+            <div class="col">
+                <ul>
+                    <li>Numeric
+                        <ul><li>Integers
+                            <ul><li>SMALLINT</li><li>INT</li><li>SERIAL</li></ul>
+                        </li>
+                            <li>Floating-point
+                                <ul><li>float(n)</li><li>real/float8</li><li>numeric(p,s)</li></ul>
+                            </li></ul></li>
+                </ul>
+            </div>
+            <div class="col">
+                <ul>
+                    <li>Character
+                        <ul><li>CHAR(n)</li><li>VARCHAR(n)</li><li>TEXT</li></ul></li>
+                    <li>Datum:
+                        <ul><li>DATE</li><li>TIME</li><li>TIMESTAMP</li><li>INTERVAL</li></ul></li>
+                </ul>
+            </div>
+        </div>
+        <a href="https://www.postgresqltutorial.com/postgresql-data-types/" target="_blank">https://www.postgresqltutorial.com/postgresql-data-types/</a>
+
+    </section>
+</section>

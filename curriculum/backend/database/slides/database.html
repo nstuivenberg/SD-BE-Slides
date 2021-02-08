@@ -37,6 +37,68 @@
         <p><small>https://www.oracle.com/database/what-is-database/</small></p>
     </section>
 </section>
+
+<section>
+    <section>
+        <h3>Waar moet de data aan voldoen?</h3>
+        <p>Dat de data </p>
+        <ul>
+            <li>(eenvoudig) eenvoudig opslaanbaar is;</li>
+            <li>uitgelezen en doorzocht kan worden;</li>
+            <li>bewerkt moet kunnen worden;</li>
+            <li>verwijderd kunnen worden zonder nadelige gevolgen.</li>
+        </ul>
+    </section>
+    <section>
+        <h3>Waar moet de data en de database aan voldoen?</h3>
+        <ul>
+            <li><strong>De data moet consistent zijn.</strong></li>
+            <ul>
+            <li class="fragment fade-up">Sla de data niet dubbel op</li>
+            <li class="fragment fade-up">Relaties moeten blijven knoppen wanneer data verwijderd wordt</li>
+            </ul>
+            <li><strong>Autorisatie/Authenticatie</strong></li>
+            <ul>
+            <li class="fragment fade-up">Geef niet iedereen toegang tot lezen, schrijven en verwijderen.</li>
+            </ul>
+        </ul>
+    </section>
+    <section>
+        <h1>Wat moet een databasetransactie garanderen?</h1>
+        <h2>ACID</h2>
+    </section>
+    <section data-background-image="img/acid.jpg">
+    </section>
+    <section data-background-image="img/acid_explanation.jpeg"></section>
+    <section data-auto-animate>
+        <h3>ACID</h3>
+        <ul>
+            <li>Atomicity</li>
+            <li>Consistency</li>
+            <li>Isolation</li>
+            <li>Durability</li>
+        </ul>
+    </section>
+    <section data-auto-animate>
+        <h3>ACID</h3>
+        <ul>
+            <li>Atomicity
+            <ul><li>CRUD-operaties zijn "all or nothing". Operatie wordt uitgevoerd of niet uitgevoerd. Niet gedeeltelijk.</li></ul></li>
+            <li>Consistency
+            <ul><li>De database verandert alleen in valide states. Dus een aanpassing maakt de database niet kapot</li></ul></li>
+        </ul>
+    </section>
+    <section data-auto-animate>
+        <h3>ACID</h3>
+        <ul>
+            <li>Isolation
+                <ul><li>Bij gelijktijdige operaties moet het resultaat hetzelfde zijn als bij serieële operaties</li></ul></li>
+            <li>Durability
+                <ul><li>Wanneer een transactie is committed (doorgevoerd) dan blijft die ook comitted. Ook bij stroomuitval, crashes of errors.</li></ul></li>
+        </ul>
+    </section>
+</section>
+
 <section>
     <section>
         <h3>Database Management Systeem</h3>
@@ -53,5 +115,16 @@
             <div class="col"><img src="img/mssql.png" alt="mssql" style="height: 200px;"> </div>
             <div class="col"><img src="img/postgresql.svg" alt="postgresql" style="height: 200px;"> </div>
         </div>
+    </section>
+    <section>
+        <h3>Postgresql</h3>
+        <ul>
+            <li>Je zegt: poost-kress-Q-L</li>
+            <li>DBMS met eigen dialect (postgresql)
+                <ul><li>MySql, MSSQL, Oracle, SQLite, DB2</li></ul></li>
+            <li>Gebruiken PGAdmin om database in te richten en data te muteren.</li>
+            <li>PostgreSQL is een relationele database</li>
+            <li>Open Source!</li>
+        </ul>
     </section>
 </section>
