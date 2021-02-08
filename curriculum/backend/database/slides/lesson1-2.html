@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Database Les 01 en Les 02 - Postgresql en SQL</title>
+
+    <meta name="description" content="Slides voor het vak Database. Gegeven op Novi Hogeschool">
+    <meta name="author" content="Nick Stuivenberg">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../../../../dist/reset.css">
+    <link rel="stylesheet" href="../../../../dist/reveal.css">
+    <link rel="stylesheet" href="../../../../dist/theme/white.css" id="theme">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="../../../../plugin/highlight/monokai.css" id="highlight-theme">
+
+    <!-- kleuren:
+    #f5f1b5
+    #b5533c
+    #4d7e65
+    #002b36 -->
+    <!--
+    pdf
+    decktape -s 1920x1080  automatic http://localhost:8000/curriculum/backend/SDP/slides/1.html#/ sdp-1.pdf
+    -->
+    <style>
+        .container{
+            display: flex;
+        }
+        .col{
+            flex: 1;
+        }
+    </style>
+
+</head>
+<body>
+
+<div class="reveal">
+    <div class="slides">
+        <section>
+            <section>
+                <h1>Database</h1>
+                <p>Databases, Postgresql, SQL</p>
+                <aside class="notes">
+                    Notes can be added here
+                </aside>
+            </section>
+            <section>
+                <h3>Inhoud</h3>
+                <ul>
+                    <li>Postgresql</li>
+                    <li>Database</li>
+                    <li>Postgresql</li>
+                    <li>SQL</li>
+                </ul>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h3>Nog niet gedownload en geïnstalleerd?</h3>
+                <a href="https://www.postgresql.org/download/">https://www.postgresql.org/download/</a>
+            </section>
+        </section>
+
+        <!-- modulaire slides -->
+
+        <section data-external-replace="database.html"></section>
+
+        <!-- Lesafsluiter -->
+
+        <section>
+            <section>
+                <h3>H & H</h3>
+                <ul>
+                    <li>Huiswerk: </li>
+                    <li>Punt 2</li>
+                </ul>
+            </section>
+        </section>
+
+    </div>
+</div>
+
+<script src="../../../../dist/reveal.js"></script>
+<script src="../../../../plugin/zoom/zoom.js"></script>
+<script src="../../../../plugin/notes/notes.js"></script>
+<script src="../../../../plugin/search/search.js"></script>
+<script src="../../../../plugin/markdown/markdown.js"></script>
+<script src="../../../../plugin/highlight/highlight.js"></script>
+
+<script>
+
+    // Also available as an ES module, see:
+    // https://revealjs.com/initialization/
+    Reveal.initialize({
+        controls: true,
+        progress: true,
+        center: true,
+        hash: true,
+
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight ],
+        dependencies : [
+            {
+                src: '../../../../plugin/external/external.js',
+                condition: function() {
+                    return !!document.querySelector( '[data-external],[data-external-replace]' );
+                }
+            },
+        ]
+    });
+
+</script>
+</body>
+</html>
