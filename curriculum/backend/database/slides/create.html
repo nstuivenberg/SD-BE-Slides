@@ -88,3 +88,103 @@
 
     </section>
 </section>
+
+<section>
+    <section>
+        <h2>Constraints</h2>
+        <blockquote>Beperkingsregels</blockquote>
+    </section>
+    <section>
+        <h3>Constraints</h3>
+        <p>Zijn beperkingen die je aan je data kunt toevoegen. Dit doe je op kolom-niveau of tabel-niveau in SQL.</p>
+        <ul>
+            <li>NOT NULL</li>
+            <li>CHECK</li>
+            <li>UNIQUE</li>
+            <li>PRIMARY KEY</li>
+        </ul>
+    </section>
+    <section>
+        <h3>Constraints - NOT NULL</h3>
+        <pre><code class="sql" data-trim data-line-numbers>
+                    CREATE TABLE orders(
+                        ord_no integer NOT NULL,
+                        ord_date date NOT NULL,
+                        item_name character(35),
+                        item_grade character(1),
+                        ord_qty numeric NOT NULL,
+                        ord_amount numeric
+                    );
+                </code></pre>
+    </section>
+    <section>
+        <h3>Constraints - CHECK</h3>
+        <pre><code class="sql" data-trim data-line-numbers>
+                    CREATE TABLE orders(
+                        ord_no integer,
+                        ord_date date,
+                        item_name character(35),
+                        item_grade character(1),
+                        ord_qty numeric,
+                        ord_amount numeric CHECK (ord_amount>0)
+                    );
+                </code></pre>
+        <p>Deze is vooral ter informatie.</p>
+    </section>
+    <section>
+        <h3>Constraints - UNIQUE</h3>
+        <p>Een waarde mag maar één keer voorkomen.</p>
+        <pre><code class="sql" data-trim data-line-numbers>
+                CREATE TABLE orders(
+                    ord_no integer UNIQUE,
+                    ord_date date,
+                    item_name character(35),
+                    item_grade character(1),
+                    ord_qty numeric,
+                    ord_amount numeric
+                );
+                </code></pre>
+    </section>
+    <section>
+        <h3>Constraints - Primary Key</h3>
+        <p>Wat was dat ook alweer?</p>
+        <pre><code class="sql" data-trim data-line-numbers>
+                CREATE TABLE orders(
+                    ord_no integer,
+                    ord_date date,
+                    item_name character(35),
+                    item_grade character(1),
+                    ord_qty numeric,
+                    ord_amount numeric,
+                    PRIMARY KEY (ord_no,item_name)
+                );
+                </code></pre>
+    </section>
+    <section>
+        <h3>Primary Key vs Unique</h3>
+        <table>
+            <tr>
+                <th>Primary Key</th><th>Unique</th>
+            </tr>
+            <tr style="font-size: smaller">
+                <td>Wordt gebruikt om een rij te identificeren.</td>
+                <td>Wordt gebruikt om de waarde van een kolom naast de PK uniek te laten zijn.</td>
+            </tr>
+            <tr style="font-size: smaller">
+                <td>Maximaal 1 PK</td>
+                <td>Meerdere mogelijk</td>
+            </tr>
+            <tr style="font-size: smaller">
+                <td>Kan niet NULL zijn</td>
+                <td>Kan NULL zijn</td>
+            </tr>
+            <tr style="font-size: smaller">
+                <td>Wordt vaak geïndexeerd op volgorde.</td>
+                <td>Niet op volgorde. Langzamer om te vinden.</td>
+            </tr>
+        </table>
+    </section>
+    <section>
+        <h3>Tijd voor een opdracht</h3>
+    </section>
+</section>
