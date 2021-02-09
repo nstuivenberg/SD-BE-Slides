@@ -40,7 +40,7 @@
         <h4>Een tabel maken</h4>
         <pre>
             <code class="sql" data-trim data-line-numbers>
-                CREATE TABLE [IF NOT EXISTS] table_name (
+                CREATE TABLE IF NOT EXISTS table_name (
                     column1 datatype(length) column_contraint,
                     column2 datatype(length) column_contraint,
                     column3 datatype(length) column_contraint,
@@ -51,7 +51,8 @@
         <aside class="notes">
             <ul>
                 <li>table_name is tabelnaam</li>
-                <li>[IF NOT EXISTS], code wordt alleen uitgevoerd als tabel niet bestaat</li>
+                <li>IF NOT EXISTS, code wordt alleen uitgevoerd als tabel niet bestaat</li>
+                <li>IF NOT EXISTS is optioneel</li>
                 <li>Komma-opgedeelde opsomming van kolommen.</li>
                 <li>Elk kolom een datatype</li>
                 <li>Zowel kolommen als de gehele tabel kunnen constraints hebben.</li>

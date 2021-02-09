@@ -32,29 +32,290 @@
             <li>Daarmee kun je CRUD-operaties op je dataset doen.</li>
         </ul>
     </section>
+    <section>
+        <h3>Meedoen?</h3>
+        <pre><code class="sql" data-trim data-line-numbers>
+        CREATE TABLE IF NOT EXISTS film (
+            code char(5) PRIMARY KEY,
+            title varchar(40) NOT NULL,
+            length integer NOT NULL,
+            date_prod date,
+            kind varchar(10)
+        );
+        </code></pre>
+    </section>
 </section>
 
 <section>
     <section>
         <h3>INSERT INTO</h3>
+        <p>Het toevoegen van data</p>
+    </section>
+    <section data-auto-animate>
+        <h3>INSERT INTO (2)</h3>
+        <p>Zonder kolomnamen definiëren</p>
+        <table>
+            <tr><td><strong>INSERT INTO</strong></td><td></td></tr>
+            <tr><td><strong>VALUES</strong></td><td>()</td></tr>
+        </table>
+    </section>
+    <section data-auto-animate>
+        <h3>INSERT INTO (3)</h3>
+        <p>Zonder kolomnamen definiëren</p>
+        <table>
+            <tr><td><strong>INSERT INTO</strong></td><td class="color-table-name">film</td></tr>
+            <tr><td><strong>VALUES</strong></td><td>()</td></tr>
+        </table>
+    </section>
+    <section data-auto-animate>
+        <h3>INSERT INTO (4)</h3>
+        <p>Zonder kolomnamen definiëren</p>
+        <table style="font-size: smaller">
+            <tr><td><strong>INSERT INTO</strong></td><td class="color-table-name">film</td></tr>
+            <tr><td><strong>VALUES</strong></td><td>(<span class="color-values">'1-abc', 'The Hobbit', 180, '2020-01-01', 'fantasy'</span>)</td></tr>
+        </table>
+        <p>Op het moment dat je geen kolomnamen definieërt moet je voor elke kolomnaam een waarde meegeven</p>
+    </section>
+    <section>
+        <h3>INSERT INTO (5)</h3>
+        <pre><code class="sql" data-trim data-line-numbers>
+            INSERT INTO film
+            VALUES ('1-abc', 'The Hobbit', 180, '2020-01-01', 'fantasy');
+        </code></pre>
+    </section>
+    <section data-auto-animate>
+        <h3>INSERT INTO (6)</h3>
+        <p>Specifieke kolommen</p>
+        <table>
+            <tr><td><strong>INSERT INTO</strong></td><td class="color-table-name">film</td></tr>
+            <tr><td><strong>VALUES</strong></td><td>()</td></tr>
+        </table>
+    </section>
+    <section data-auto-animate>
+        <h3>INSERT INTO (7)</h3>
+        <p>Specifieke kolommen</p>
+        <table>
+            <tr><td><strong>INSERT INTO</strong></td><td class="color-table-name">film<span class="color-column-name">(code, title, length)</span></td></tr>
+            <tr><td><strong>VALUES</strong></td><td>()</td></tr>
+        </table>
+    </section>
+    <section data-auto-animate>
+        <h3>INSERT INTO (8)</h3>
+        <p>Specifieke kolommen</p>
+        <table>
+            <tr><td><strong>INSERT INTO</strong></td><td class="color-table-name">film<span class="color-column-name">(code, title, length)</span></td></tr>
+            <tr><td><strong>VALUES</strong></td><td>(<span class="color-values">'2-abc', 'The Desolation of Smaug', 181</span>)</td></tr>
+        </table>
+    </section>
+    <section data-auto-animate>
+        <h3>INSERT INTO (9)</h3>
+        <p>Specifieke kolommen</p>
+        <pre><code class="sql" data-trim data-line-numbers>
+            INSERT INTO film(code, title, length)
+            VALUES ('2-abc', 'The Desolation of Smaug', 181);
+        </code></pre>
     </section>
 </section>
 
 <section>
     <section>
         <h3>SELECT</h3>
+        <p>We voegen nog wat extra data toe</p>
+        <pre><code class="sql" data-trim data-line-numbers>
+            INSERT INTO film
+            VALUES ('3-abc', 'The Dobbit', 144, '2020-02-01', 'fantasy');
+            INSERT INTO film
+            VALUES ('4-abc', 'The Wobbit', 121, '2020-03-01', 'fantasy');
+            INSERT INTO film
+            VALUES ('5-abc', 'The Lobbit', 169, null, 'scifi');
+            INSERT INTO film
+            VALUES ('6-abc', 'The Kobbit', 225, '2020-01-01', 'action');
+        </code></pre>
+    </section>
+    <section data-auto-animate>
+        <h3>SELECT</h3>
+        <p>Begin altijd met:</p>
+        <table>
+            <tr><td>SELECT</td><td></td></tr>
+            <tr><td>FROM</td><td></td></tr>
+            <tr><td>WHERE</td><td></td></tr>
+        </table>
+    </section>
+    <section data-auto-animate>
+        <h3>SELECT</h3>
+        <p>Begin altijd met:</p>
+        <table>
+            <tr><td>SELECT</td><td><em>Welke kolommen?</em></td></tr>
+            <tr><td>FROM</td><td><em>Van welke tabel?</em></td></tr>
+            <tr><td>WHERE</td><td><em>Aan welke voorwaarde moet de data voldoen? Bijvoorbeeld alle mannen</em></td></tr>
+        </table>
+    </section>
+    <section data-auto-animate>
+        <h3>SELECT</h3>
+        <p>Selecteer <span class="color-column-name">alle</span> films in de <span class="color-table-name">film</span> tabel van het genre <span class="color-values">fantasy</span>.</p>
+        <table>
+            <tr><td>SELECT</td><td><span class="color-column-name">*</span></td></tr>
+            <tr><td>FROM</td><td><span class="color-table-name">film</span></td></tr>
+            <tr><td>WHERE</td><td><span class="color-values">kind = 'fantasy'</span></td></tr>
+        </table>
+    </section>
+    <section>
+        <h3>SELECT</h3>
+        <p>Selecteer <span class="color-column-name">alle</span> films in de <span class="color-table-name">film</span> tabel van het genre <span class="color-values">fantasy</span>.</p>
+        <pre><code class="sql" data-trim data-line-numbers>
+            SELECT *
+            FROM film
+            WHERE kind = 'fantasy';
+        </code></pre>
+        <img src="img/sql_result_1.png" alt="result 1">
+    </section>
+    <section data-auto-animate>
+        <h3>SELECT</h3>
+        <p>Selecteer <span class="color-column-name">alle</span> films in de <span class="color-table-name">film</span>
+            tabel van het genre.</p>
+        <table>
+            <tr><td>SELECT</td><td><em>Welke kolommen?</em></td></tr>
+            <tr><td>FROM</td><td><em>Van welke tabel?</em></td></tr>
+            <tr><td>WHERE</td><td><em>Aan welke voorwaarde moet de data voldoen? Bijvoorbeeld alle mannen</em></td></tr>
+        </table>
+    </section>
+    <section data-auto-animate>
+        <h3>SELECT</h3>
+        <table>
+            <tr><td>SELECT</td><td><span class="color-column-name">*</span></td></tr>
+            <tr><td>FROM</td><td><span class="color-table-name">film</span></td></tr>
+        </table>
+    </section>
+    <section>
+        <h3>SELECT</h3>
+        <pre><code class="sql" data-trim data-line-numbers>
+            SELECT *
+            FROM film;
+        </code></pre>
+        <img src="img/sql_result_2.png" alt="result 2">
+    </section>
+    <section>
+        <h3>SELECT</h3>
+        <p>Selecteer alle codes en length vann de fantasy films</p>
+        <pre><code class="sql" data-trim data-line-numbers>
+            SELECT code, length
+            FROM film
+            WHERE kind = 'fantasy';
+        </code></pre>
+    </section>
+    <section>
+        <h3>SELECT</h3>
+        <p>Selecteer alle films korter dan 180 minuten</p>
+        <pre><code class="sql" data-trim data-line-numbers>
+            SELECT *
+            FROM film
+            WHERE length < 180;
+        </code></pre>
+    </section>
+    <section>
+        <h3>SELECT</h3>
+        <p>Selecteer alle films na 1 februari 2020</p>
+        <pre><code class="sql" data-trim data-line-numbers>
+            SELECT *
+            FROM film
+            WHERE date_prod < '2020-02-01';
+        </code></pre>
     </section>
 </section>
 
 <section>
+    <section data-auto-animate>
+        <h3>UPDATE</h3>
+        <p>Begin altijd met:</p>
+        <table>
+            <tr><td>UPDATE</td><td></td></tr>
+            <tr><td>SET</td><td></td></tr>
+            <tr><td>WHERE</td><td></td></tr>
+        </table>
+    </section>
+    <section data-auto-animate>
+        <h3>UPDATE</h3>
+        <p>Begin altijd met:</p>
+        <table>
+            <tr><td>UPDATE</td><td><em>tabelnaam</em></td></tr>
+            <tr><td>SET</td><td><em>kolomnamen en nieuwe waardes</em></td></tr>
+            <tr><td>WHERE</td><td>Welke rij?</td></tr>
+        </table>
+    </section>
     <section>
         <h3>UPDATE</h3>
+        <p>Verander de <span class="color-values">titel</span> van de <span class="color-table-name">film</span> met
+            code <span class="color-column-name">3-abc</span> naar <span class="color-values">Die Hard</span>.</p>
+        <table>
+            <tr><td>UPDATE</td><td><span class="color-table-name">film</span></td></tr>
+            <tr><td>SET</td><td><span class="color-values">title = 'Die Hard'</span></td></tr>
+            <tr><td>WHERE</td><td><span class="color-column-name">code = '3-abc'</span></td></tr>
+        </table>
+    </section>
+    <section>
+        <h3>UPDATE</h3>
+        <p>Verander de <span class="color-values">titel</span> van de <span class="color-table-name">film</span> met
+            code <span class="color-column-name">3-abc</span> naar <span class="color-values">Die Hard</span>.</p>
+        <pre><code class="sql" data-trim data-line-numbers>
+            UPDATE	film
+            SET	title = 'Die Hard'
+            WHERE code = '3-abc';
+        </code></pre>
+    </section>
+    <section>
+        <h3>UPDATE</h3>
+        <ul>
+            <li>Verander <em>fantasy</em> naar <em>epic</em></li>
+            <li>Verander length en title van 1-abc</li>
+        </ul>
     </section>
 </section>
 
 <section>
+    <section data-auto-animate>
+        <h3>DELETE</h3>
+        <p>Begin altijd met:</p>
+        <table>
+            <tr><td>DELETE FROM</td><td></td></tr>
+            <tr><td>WHERE</td><td></td></tr>
+        </table>
+    </section>
+    <section data-auto-animate>
+        <h3>DELETE</h3>
+        <p>Begin altijd met:</p>
+        <table>
+            <tr><td>DELETE FROM</td><td><span class="color-table-name">tabelnaam</span></td></tr>
+            <tr><td>WHERE</td><td><span class="color-values">conditie</span></td></tr>
+        </table>
+    </section>
+    <section data-auto-animate>
+        <h3>DELETE</h3>
+        <p>Verwijder de <span class="color-table-name">film</span> met de <span class="color-values">title 'The Hobbit</span>'</p>
+        <table>
+            <tr><td>DELETE FROM</td><td><span class="color-table-name">film</span></td></tr>
+            <tr><td>WHERE</td><td><span class="color-values">title = 'The Hobbit'</span></td></tr>
+        </table>
+    </section>
     <section>
         <h3>DELETE</h3>
+        <p>Verwijder de <span class="color-table-name">film</span> met de <span class="color-values">title 'The Hobbit</span>'</p>
+        <pre><code class="sql" data-trim data-line-numbers>
+            DELETE FROM	film
+            WHERE title = 'The Hobbit';
+        </code></pre>
     </section>
+    <section>
+        <h3>DELETE</h3>
+        <p>Wat gebeurt hier?</p>
+        <pre><code class="sql" data-trim data-line-numbers>
+            DELETE FROM film;
+        </code></pre>
+    </section>
+
+</section>
+
+<section>
+    <h2>Oefenen</h2>
+
 </section>
 
