@@ -24,6 +24,8 @@ Houd rekening met de volgende punten:
 ## Maak de tabel lid
 De tabel lid moet de volgende gegevens kunnen bijhouden:
 1. Geboortedatum lid
+1. voornaam lid
+2. achternaam lid
 1. geslacht lid
 1. Rekeningnummer lid
 1. Telefoonnummer lid

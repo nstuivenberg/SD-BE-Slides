@@ -1,5 +1,4 @@
 # Oefenen met SQL (1)
-
 Voor deze opdracht heb je de tabellen duif, losplaats en lid nodig.
 
 Voor deze opdrachten kun je deze website gebruiken om dingen op te zoeken of verdiepend in te gaan op stof uit de
@@ -82,5 +81,27 @@ Selecteer alle leden geboren voor 1970
 ## SELECT (8) - Zelf uitzoeken
 Selecteer alle leden geboren tussen 1950 en 1960
 
-## SELECT (9) - 
+## SELECT (9) - Zelf uitzoeken
+Selecteer alle voor- en achternamen en het e-mailadres van de leden waarvan we geen geboortedatum hebben.
+
+## SELECT (10) - Zelf uitzoeken
+Selecteer de voor- en achternaam en inschrijvingsdatum gesorteerd op inschrijvingsdatum (aflopend).
+
+## SELECT (11) - Zelf uitzoeken
+Selecteer de voor- en achternaam en inschrijvingsdatum gesorteerd op inschrijvingsdatum (oplopend).
+
+## SELECT (12) - Zelf uitzoeken
+Selecteer de voornaam en het e-mailadres van het langst ingeschreven vrouwelijke lid.
+
+## SELECT (13) - Zelf uitzoeken
+Selecteer alle duivennamen die met Ap beginnen. (Mocht je geen duivennamen bijhouden, doe het dan op de leden tabel)
+
+## SELECT (14) - Zelf uitzoeken
+Tel het aantal doffers in de database
+
+## SELECT (15) - Zelf uitzoeken
+Selecteer het ringnummer van de vijf oudste duivinnen.
+
+## Extra
+Zoek uit hoe je een gehele tabel kunt verwijderen.
 
