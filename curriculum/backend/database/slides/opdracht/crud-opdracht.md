@@ -9,27 +9,27 @@ krijgen bij je SELECT statement. Je kunt dan zelf wat extra (dummy)-data toevoeg
 
 ## INSERT
 Voeg de volgende vijf duiven toe aan je database:
-Bert, NL-21-1234568, Doffer, 2021
-Sjaak, NL-21-1234597, Duivin, 2021
-Henk, NL-21-1234467, Duivin, 2021
-Aart, NL-21-1234367, Doffer, 2021
-Mootje, NL-21-1222456, Duivin, 2021
+* Bert, NL-21-1234568, Doffer, 2021
+* Sjaak, NL-21-1234597, Duivin, 2021
+* Henk, NL-21-1234467, Duivin, 2021
+* Aart, NL-21-1234367, Doffer, 2021
+* Mootje, NL-21-1222456, Duivin, 2021
 
 Het kan zijn dat jouw tabel (geheel logisch) geen namen van duiven kan opslaan. Deze hoef je dan niet toe te voegen.
 ** BONUSopdracht: ** Kijk of je via `ALTER TABLE` de tabel zo kan aanpassen dat ook namen opgeslagen kunnen worden.
 
 ## INSERT (2)
 Voeg de volgende 10 duiven in 1 query aan je database toe. Dus gebruik maak 1 keer `INSERT INTO`
-Pim, NL-19-1234568, Doffer, 2019
-Otis, NL-18-1234597, Duivin, 2018
-Rooie, NL-20-1234467, Duivin, 2020
-Blauwe, NL-16-1234367, Doffer, 2016
-Grijsje, NL-15-1222456, Duivin, 2015
-Adelaartje, NL-14-1222456, Doffer, 2014
-Witte, NL-12-1222456, Duivin, 2012
-Spoetnik, NL-20-1222456, Duivin, 2020
-Apollo, NL-18-1222456, Doffer, 2018
-Kraai, NL-17-1222456, Duivin, 2017
+ * Pim, NL-19-1234568, Doffer, 2019
+* Otis, NL-18-1234597, Duivin, 2018
+* Rooie, NL-20-1234467, Duivin, 2020
+* Blauwe, NL-16-1234367, Doffer, 2016
+* Grijsje, NL-15-1222456, Duivin, 2015
+* Adelaartje, NL-14-1222456, Doffer, 2014
+* Witte, NL-12-1222456, Duivin, 2012
+* Spoetnik, NL-20-1222456, Duivin, 2020
+* Apollo, NL-18-1222456, Doffer, 2018
+* Kraai, NL-17-1222456, Duivin, 2017
 
 ## INSERT (3)
 Voeg de volgende duif toe:
