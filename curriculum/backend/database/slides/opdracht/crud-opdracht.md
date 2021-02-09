@@ -31,6 +31,12 @@ Voeg de volgende 10 duiven in 1 query aan je database toe. Dus gebruik maak 1 ke
 * Apollo, NL-18-1222456, Doffer, 2018
 * Kraai, NL-17-1222456, Duivin, 2017
 
+```sql
+
+```
+
+
+
 ## INSERT (3)
 Voeg de volgende duif toe:
 Haasje, NL-20-1222456, Doffer, 2020
@@ -47,7 +53,7 @@ Voeg vijf personen toe aan de lid database. Zorg dat bij 1 persoon het geslacht 
 ## UPDATE
  * Verander de naam van NL-19-1234568 naar `Pimmetje`
  * Verander de naam van Adelaartje naar Adel
- * Verander het geboortejaar en het ringnummer van Kraai naar: 2018 en NL-18-1222456
+ * Verander het geboortejaar en het ringnummer van Kraai naar: 2018 en NL-18-1333456
  * NL-21-1234367 blijkt een duivin te zijn. Pas dit aan.
 
 ## Delete (1)
