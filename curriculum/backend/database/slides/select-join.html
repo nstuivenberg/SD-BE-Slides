@@ -55,7 +55,7 @@
         <pre><code class="sql" data-trim data-line-numbers>
             SELECT person.first_name, person.last_name, address.city
             FROM address
-            INNER JOIN person ON address.id=person.address_id;
+            INNER JOIN person ON address.id=person.address_id
             WHERE address.city = 'Utrecht';
         </code></pre>
     </section>

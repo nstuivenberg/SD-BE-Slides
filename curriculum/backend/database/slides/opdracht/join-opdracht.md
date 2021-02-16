@@ -5,19 +5,19 @@ Selecteer voor- en achternaam van alle klanten
 Tel het aantal klanten.
 
 #0c. Even inkomen
-Selecteer de titels van alle films van voor 1980
+Selecteer de titels van alle films die korter dan een uur duren
 
 #0d. Even inkomen
-Selecteer de titels van alle films van na 1990
+Selecteer de titels van alle films die drie uur of langer duren
 
 #0e. Even inkomen
-Selecteer de titels van alle films tussen 1930 en 1975
+Selecteer de titels van alle films tussen de 90 minuten en 175 minuten
 
 # 1.
-Selecteer filmtitels in het Japans
+Selecteer filmtitels in het Engels
 
-#2. 
-Selecteer filmtitels in het Italiaans met een G rating
+#2.
+Selecteer filmtitels in het Engels met een G rating
 
 #3.
 Selecteer voor- en achternaam van de acteurs die in Cheaper Clyde hebben gespeeld.
@@ -25,30 +25,28 @@ Selecteer voor- en achternaam van de acteurs die in Cheaper Clyde hebben gespeel
 #4.
 Selecteer alle stadsnamen uit Nederland
 
-#5. 
+#5.
 Selecteer stadsnamen, address, addres2, postal_code uit Nederland
 
-#6. 
+#6.
 Selecteer de titel en rating van alle actie films
 
 #7.
 Selecteer de titel en rating van alle animatiefilms
 
 #8.
-Selecteer de gemiddelde rating van alle actie films.
+Selecteer de gemiddelde rental_rate van alle actie films.
 
 #9.
 Selecteer de titel van alle animatie- en actie films.
 
 #10. Lastig
-Geef de gemiddelde rating van alle genres.
+Geef de gemiddelde lengte van alle genres.
 
 #11. Lastig
 Selecteer alle klanten uit Nederland.
 
 # Theorievragen:
 
- * Hoe zorgen ze ervoor dat een winkel meerdere van dezelfde dvd's kan hebben?
- * Hoe zorgen ze ervoor dat een klant meerdere films kan huren?
-
-
+* Hoe zorgen ze ervoor dat een winkel meerdere van dezelfde dvd's kan hebben?
+* Hoe zorgen ze ervoor dat een klant meerdere films kan huren?

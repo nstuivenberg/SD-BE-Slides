@@ -58,13 +58,13 @@ Bekijk onderstaande tabellen. Pas deze aan met de volgende regels:
 |4| Frederik | de Kleine
 
 ##### Dog
-| id | name | species
-| :--- |:--- | : --- |
-| 1 | Dotje | Terrier
-| 2 | Nelis | Labrador
-| 3 | Bram | Labradoodle
-| 4 | Frank | D. herder
-| 5 | Lassie | Wiener
+| id | name | species | owner_id
+| :--- |:--- | : --- | :---
+| 1 | Dotje | Terrier | 1
+| 2 | Nelis | Labrador | 2
+| 3 | Bram | Labradoodle | 3
+| 4 | Frank | D. herder| 4
+| 5 | Lassie | Wiener | null
 
 ### Jouw uitwerking #1
 
@@ -84,13 +84,13 @@ Bekijk onderstaande tabellen. Pas deze aan met de volgende regels:
 |4| Frederik | de Kleine
 
 ##### Dog
-| id | name | species
-| :--- |:--- | : --- |
-| 1 | Dotje | Terrier
-| 2 | Nelis | Labrador
-| 3 | Bram | Labradoodle
-| 4 | Frank | D. herder
-| 5 | Lassie | Wiener
+| id | name | species | owner_id
+| :--- |:--- | : --- | :---
+| 1 | Dotje | Terrier |
+| 2 | Nelis | Labrador |
+| 3 | Bram | Labradoodle |
+| 4 | Frank | D. herder |
+| 5 | Lassie | Wiener |
 
 ### Jouw uitwerking #2
 
@@ -105,10 +105,10 @@ Bekijk onderstaande tabellen. Pas deze aan met de volgende regels:
 * Een persoon is niet verplicht een adres te hebben.
 
 ##### Person
-| id | first_name | last_name | address_id
-| :--- |:--- | : --- | :---
-|1 | Nick | Stuivenberg | 2
-| 2| Nova | Eeken | null
+| id | first_name | last_name | address_id | company_id
+| :--- |:--- | : --- | :--- | :---
+|1 | Nick | Stuivenberg | 2 | 1
+| 2| Nova | Eeken | null | 1
 |3| Sjaak | Polak | null
 |4| Frederik | de Kleine | null 
 
@@ -134,6 +134,20 @@ Bekijk onderstaande tabellen. Pas deze aan met de volgende regels:
 Bedenk zelf de tabellen met de volgende regels:
 * Een Persoon kan 0 tot meerdere duiven hebben
 * Een duif heeft altijd 1 eigenaar.
+
+### Jouw uitwerking #4
+| id | first_name | last_name | 
+| :--- |:--- | : --- | 
+|1 | Nick | Stuivenberg |
+| 2| Nova | Eeken | 
+|3| Sjaak | Polak | 
+|4| Frederik | de Kleine |
+
+| ringnummer | naam | person_id
+| :--- | :--- | :---
+1 | sjaak | 1
+2 | sjaak | 1
+
 
 ## Opdracht 5 (Doordenkertje)
 Bekijk onderstaande tabellen. Pas deze aan met de volgende regels:
@@ -179,6 +193,18 @@ Bekijk onderstaande tabellen. Pas deze aan met de volgende regels:
 | 4 | Frank | D. herder
 | 5 | Lassie | Wiener
 
+### Uitwerking 6
+
+**PersonDog**
+
+| dog_id | person_id |
+| :--- | :---
+1 | 2
+2 | 3
+1 | 3
+2 | 4
+5 | 1
+
 ## Opdracht 7a
 Bedenk zelf de tabellen met de volgende regels:
 * Een winkel heeft meerdere producten.
@@ -192,7 +218,23 @@ Breidt bovenstaande uitwerking uit:
 
 ### Jouw uitwerking #7a
 
+**ShopProduct**
+
+| shop_id | product_id |
+| :--- | :--- |
+1 | 2
+1 | 3
+4 | 8
+
 ### Jouw uitwerking #7b
+
+**ShopProduct -> Stock**
+
+| shop_id | product_id | amount |
+| :--- | :--- | :--- |
+1 | 2 | 10
+1 | 3 | 100
+4 | 8 | 222
 
 
 ## Opdracht 8 
@@ -222,6 +264,17 @@ Bekijk onderstaande tabellen. Pas deze aan met de volgende regels:
 
 ### Jouw uitwerking #8
 
+**PersonAddress**
+
+Wat is het voordeel van dit zo opslaan?
+
+| person_id | address_id | start_date | end_date |
+| :--- |:---|:---| :---
+| 1 | 1 | 2020-01-01 | 2020-02-01
+| 1 | 2 | 2020-02-01 | 2020-03-01
+| 1 | 3 | 2020-03-01 | null
+
+
 ## Opdracht 9
 Maak de volgende tabellen en relaties.
  * **Factuur:** datum, isBetaald
@@ -230,3 +283,39 @@ Maak de volgende tabellen en relaties.
  * Per factuur wil je ook de hoeveelheid van het product weten.
 
 ### Jouw uitwerking #9
+
+**Order**
+
+| id | date | amount_paid |
+| :--- | :--- | :----
+1 | 2020-01-01 | 0
+2 | 2020-01-01 | 0
+3 | 2020-01-01 | 0
+4 | 2020-01-01 | 0
+5 | 2020-01-01 | 0
+6 | 2020-01-01 | 0
+7 | 2020-01-01 | 0
+8 | 2020-01-01 | 0
+
+**Product**
+
+| id |  name | price |
+| :--- | :--- | :----
+| 1 | Nerf gun | 12.00 |
+| 2 | Nerf Blaster | 13.00 |
+| 3 | Spoedwet | 1.50 |
+| 4 | Avondklok | 685.00 |
+| 5 | Hoger Beroep | 1250.00 |
+| 6 | Coronatest | 50.66 |
+
+**OrderProduct -> OrderLine**
+
+| order_id | product_id | amount
+| :--- | :--- | :----
+1 | 1 | 1
+1 | 2 | 1
+2 | 3 | 1
+2 | 4 | 2
+2 | 5 | 1
+2 | 6 | 100000
+
