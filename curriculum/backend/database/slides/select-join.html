@@ -1,0 +1,70 @@
+<section>
+    <section>
+        <h2>SELECT met JOIN</h2>
+        <h3>Data uit verschillende tabellen combineren</h3>
+        <ul>
+            <li>JOINs</li>
+            <li>Voorbeelden</li>
+            <li>Oefenen</li>
+        </ul>
+        <aside class="notes">
+            Notes can be added here
+        </aside>
+    </section>
+</section>
+<section>
+    <section>
+        <h3>JOINs</h3>
+        <ul>
+            <li>Inner Join;</li>
+            <li>Left Join;</li>
+            <li>Right Join;</li>
+            <li>Full outer join;</li>
+            <li>Cross join;</li>
+            <li>Natural join;</li>
+            <li>Self-join.</li>
+        </ul>
+    </section>
+    <section>
+        <h3>JOINs</h3>
+        <ul>
+            <li><strong>Inner Join;</strong></li>
+            <li><del>Left Join;</del></li>
+            <li><del>Right Join;</del></li>
+            <li><del>Full outer join;</del></li>
+            <li><del>Cross join;</del></li>
+            <li><del>Natural join;</del></li>
+            <li><del>Self-join.</del></li>
+        </ul>
+    </section>
+    <section>
+        <h4>JOINs</h4>
+        <p>Van W3Schools</p>
+        <img src="img/joins.png" alt="explanation join">
+    </section>
+</section>
+
+<section>
+    <section>
+        <h3>Voorbeeld</h3>
+        <img src="img/ERD-uml-person-company-address.png" alt="person-company-address">
+    </section>
+    <section>
+        <h3></h3>
+        <p>Selecteer naam en woonplaats van de personen die in Utrecht wonen.</p>
+        <pre><code class="sql" data-trim data-line-numbers>
+            SELECT person.first_name, person.last_name, address.city
+            FROM address
+            INNER JOIN person ON address.id=person.address_id;
+            WHERE address.city = 'Utrecht';
+        </code></pre>
+    </section>
+</section>
+
+<section>
+    <section>
+        <h3>Oefenen</h3>
+        <p>Algemeen -> Bestanden -> Lesmateriaal -> Database</p>
+        <p></p>
+    </section>
+</section>
