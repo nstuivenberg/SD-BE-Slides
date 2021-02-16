@@ -1,0 +1,130 @@
+<section>
+    <section>
+        <h2>Relaties</h2>
+        <ul>
+            <li>In Java</li>
+            <li>Herhaling</li>
+            <li>UML, Tabel & Oefening</li>
+            <li>In SQL</li>
+            <li>Constraints</li>
+        </ul>
+        <aside class="notes">
+            Notes can be added here
+        </aside>
+    </section>
+</section>
+<section>
+    <section>
+        <h3>Relaties</h3>
+        <ul>
+            <li>Java: Onderlinge verhoudingen tussen objecten
+            <ul><li>Database: Verhoudingen tussen entiteiten</li></ul></li>
+            <li> Has-a relaties en is-a relaties
+                <ul><li><strong>Alleen</strong> has-relaties</li></ul>
+            </li>
+            <li>Relaties worden gemaakt met instantie variabelen
+                <ul><li>Maken gebruik van Foreign Keys en koppeltabellen.</li></ul>
+            </li>
+        </ul>
+    </section>
+    <section>
+        <h3>Voorbeeld 1 tot 1</h3>
+        <pre><code class="java" data-trim data-line-numbers="1-99| 2 | 4-6 | 1-99">
+                public class Person {
+                    private Address address;
+
+                    public Person(Address address) {
+                        this.address = address;
+                    }
+                    // Getters & Setters weggelaten
+                }
+                </code></pre>
+    </section>
+    <section>
+        <h3>Voorbeeld 1 tot N</h3>
+        <pre><code class="java" data-trim data-line-numbers="1-99| 5 | 7-10 | 11-13 | 1-99">
+                public class Company {
+                    private List&lt;Person> employees;
+
+                    public Company(List&lt;Person> employees) {
+                        this.employees = employees;
+                    }
+                    public void addEmployee(Person employee) {
+                        employees.add(employee);
+                    }
+                }
+                </code></pre>
+    </section>
+    <section>
+        <h3>Voorbeeld N tot N</h3>
+        <pre><code class="java" data-trim data-line-numbers="">
+                public class Company {
+                    private List&lt;Person> employees;
+                }
+                public class Person {
+                    private List&lt;Company> companies;
+                }
+                </code></pre>
+    </section>
+</section>
+
+<section>
+    <section>
+        <h3>Herhaling</h3>
+        <p>Dit is alweer acht weken geleden.</p>
+    </section>
+    <section>
+        <h3>Kardinaliteit in Java</h3>
+        <ul>
+            <li>0 tot 1 relatie</li>
+            <li>1 tot 1 relatie</li>
+            <li>0 tot N relatie</li>
+            <li>1 tot N relatie</li>
+            <li>N tot N relatie</li>
+        </ul>
+        <p>Standaard 0, 1 of oneindig!</p>
+    </section>
+    <section>
+        <h3>Kardinaliteit in database</h3>
+        <ul>
+            <li>0 tot 1 relatie</li>
+            <li>1 tot 1 relatie</li>
+            <li>0 tot N relatie</li>
+            <li>1 tot N relatie</li>
+            <li>N tot N relatie</li>
+        </ul>
+        <p class="fragment fade-out">Standaard 0, 1 of oneindig!</p>
+        <p class="fragment fade-up"><del>Standaard</del> 0, 1 of oneindig!</p>
+        <p class="fragment fade-up"><Strong>Altijd</Strong> 0, 1 of oneindig.</p>
+    </section>
+    <section>
+        <h3>Compositie & Aggregatie</h3>
+        <ul>
+            <li>Aggregatie: geen eigenaarschap</li>
+            <li>Aggregatie: objecten kunnen los van elkaar bestaan</li>
+            <li>Compositie: wanneer het object met eigenaarschap wordt verwijderd,
+                verdwijnen de relatie-objecten ook.</li>
+        </ul>
+    </section>
+</section>
+
+<section>
+    <section>
+        <h3>UML, Tabel en oefening</h3>
+    </section>
+    <section>
+        <h4>Person</h4>
+    </section>
+    <section>
+        <h4>Person - Address (1)</h4>
+    </section>
+    <section>
+        <h4>Person - Address (2)</h4>
+    </section>
+    <section>
+        <h4>Person - Dog (1)</h4>
+    </section>
+    <section>
+        <h4>Person - Dog (2)</h4>
+    </section>
+</section>
