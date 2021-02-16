@@ -26,7 +26,7 @@ Selecteer voor- en achternaam van de acteurs die in Cheaper Clyde hebben gespeel
 Selecteer alle stadsnamen uit Nederland
 
 #5.
-Selecteer stadsnamen, address, addres2, postal_code uit Nederland
+Selecteer stadsnamen, district, postal_code uit Nederland
 
 #6.
 Selecteer de titel en rating van alle actie films
@@ -41,7 +41,7 @@ Selecteer de gemiddelde rental_rate van alle actie films.
 Selecteer de titel van alle animatie- en actie films.
 
 #10. Lastig
-Geef de gemiddelde lengte van alle genres.
+Geef de gemiddelde lengte per genres.
 
 #11. Lastig
 Selecteer alle klanten uit Nederland.
