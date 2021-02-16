@@ -114,17 +114,249 @@
     </section>
     <section>
         <h4>Person</h4>
+        <img src="img/ERD-uml-person.png" alt="Person">
     </section>
     <section>
         <h4>Person - Address (1)</h4>
+        <img src="img/ERD-uml-person-address(1).png" alt="Person address">
     </section>
     <section>
         <h4>Person - Address (2)</h4>
+        <img src="img/ERD-uml-person-address(2).png" alt="Person addrss">
     </section>
     <section>
         <h4>Person - Dog (1)</h4>
+        <img src="img/ERD-uml-person-dog(1).png" alt="Person dog">
     </section>
     <section>
         <h4>Person - Dog (2)</h4>
+        <img src="img/ERD-uml-person-dog(2).png" alt="Person dog">
+    </section>
+    <section>
+        <h3>Aan de slag</h3>
+        <p>Maak nu opdracht 1 tot en met 5 van add_foreign_key.md</p>
+    </section>
+</section>
+
+<section>
+    <section>
+        <h3>Meer tot meer relatie</h3>
+        <p>Zoals opdracht vijf</p>
+    </section>
+    <section>
+        <h3>Meer tot meer relatie</h3>
+        <p>Wanneer je een meer op meer relatie hebt, krijg je een koppeltabel. Deze koppeltabel: </p>
+        <ul>
+            <li>bevat 2 Foreign Keys</li>
+            <li>Eén Primary Key op basis van de twee foreign keys.</li>
+        </ul>
+    </section>
+    <section>
+        <h3>Meer tot meer relatie</h3>
+        <img src="img/ERD-uml-person-company.png" alt="ManyToMany">
+    </section>
+    <section>
+        <h3>Aan de slag</h3>
+        <p>Maak nu opdracht 6 tot en met 9 van add_foreign_key.md</p>
+    </section>
+</section>
+
+<section>
+    <section>
+        <h3>Foreign Key in een CREATE (1)</h3>
+        <pre><code class="sql" data-line-numbers data-trim>
+                CREATE TABLE company (
+                   id INT GENERATED ALWAYS AS IDENTITY,
+                   name VARCHAR(255) NOT NULL,
+                   PRIMARY KEY(id)
+                );
+                </code></pre>
+    </section>
+    <section>
+        <h3>Foreign Key in een CREATE (2)</h3>
+        <pre><code class="sql" data-trim data-line-numbers="1-99|3|7|8|9|10|8-10|1-99">
+        CREATE TABLE press_officer(
+            id INT GENERATED ALWAYS AS IDENTITY,
+            company_id INT,
+            full_name VARCHAR(255) NOT NULL,
+            phone VARCHAR(15),
+            email VARCHAR(100),
+            PRIMARY KEY(id),
+            CONSTRAINT fk_company
+                FOREIGN KEY(company_id)
+                    REFERENCES company(id)
+        );
+        </code></pre>
+    </section>
+    <section>
+        <h3>Foreign Key in een CREATE (3)</h3>
+                <pre><code class="sql" data-line-numbers data-trim>
+                CREATE TABLE company (
+                   id INT GENERATED ALWAYS AS IDENTITY,
+                   name VARCHAR(255) NOT NULL,
+                   PRIMARY KEY(id)
+                );
+                </code></pre>
+
+                <pre><code class="sql" data-trim data-line-numbers>
+                    CREATE TABLE press_officer(
+                        id INT GENERATED ALWAYS AS IDENTITY,
+                        company_id INT,
+                        full_name VARCHAR(255) NOT NULL,
+                        phone VARCHAR(15),
+                        email VARCHAR(100),
+                        PRIMARY KEY(id),
+                        CONSTRAINT fk_company
+                            FOREIGN KEY(company_id)
+                                REFERENCES company(id)
+                    );
+                </code></pre>
+    </section>
+</section>
+
+<section>
+    <section>
+        <h3>Constraints</h3>
+        <p>Zijn beperkingen die je aan je data kunt toevoegen. Dit doe je op kolom-niveau of tabel-niveau in SQL.</p>
+        <ul>
+            <li>NOT NULL</li>
+            <li>CHECK</li>
+            <li>UNIQUE</li>
+            <li>PRIMARY KEY</li>
+            <li><strong>FOREIGN KEY</strong></li>
+        </ul>
+    </section>
+    <section>
+        <h3>Constraints</h3>
+        <p>Je moet rekening houden met wat er moet gebeuren wanneer data met een relatie verwijderd wordt.</p>
+        <ul>
+            <li>RESTRICT</li>
+            <li>NO ACTION</li>
+            <li>SET NULL</li>
+            <li>SET DEFAULT</li>
+            <li>CASCADE</li>
+        </ul>
+    </section>
+    <section>
+        <h3>Constraints - NO ACTION & RESTRICT (1)</h3>
+        <p>Dit is de default waarde. Je kunt geen data verwijderen zolang er een relatie is.</p>
+        <pre><code class="sql" data-trim data-line-numbers>
+                    CREATE TABLE press_officer (
+                        id INT GENERATED ALWAYS AS IDENTITY,
+                        company_id INT,
+                        full_name VARCHAR(255) NOT NULL,
+                        phone VARCHAR(15),
+                        email VARCHAR(100),
+                        PRIMARY KEY(id),
+                        CONSTRAINT fk_company
+                            FOREIGN KEY(company_id)
+                                REFERENCES company(id)
+                    );
+        </code></pre>
+    </section>
+    <section>
+        <h3>Constraints - NO ACTION & RESTRICT (2)</h3>
+        <p>Je kunt de default waarde ook uitgeschreven.</p>
+        <pre><code class="sql" data-trim data-line-numbers>
+                    CREATE TABLE press_officer(
+                        id INT GENERATED ALWAYS AS IDENTITY,
+                        company_id INT,
+                        full_name VARCHAR(255) NOT NULL,
+                        phone VARCHAR(15),
+                        email VARCHAR(100),
+                        PRIMARY KEY(id),
+                        CONSTRAINT fk_company
+                            FOREIGN KEY(company_id)
+                                REFERENCES company(id)
+                                ON DELETE NO ACTION
+                    );
+        </code></pre>
+    </section>
+    <section>
+        <h3>Constraints - NO ACTION & RESTRICT (3)</h3>
+        <p>NO ACTION en RESTRICHT hebben soortgelijk gedrag.</p>
+        <pre><code class="sql" data-trim data-line-numbers>
+                    CREATE TABLE press_officer(
+                        id INT GENERATED ALWAYS AS IDENTITY,
+                        company_id INT,
+                        full_name VARCHAR(255) NOT NULL,
+                        phone VARCHAR(15),
+                        email VARCHAR(100),
+                        PRIMARY KEY(id),
+                        CONSTRAINT fk_company
+                            FOREIGN KEY(company_id)
+                                REFERENCES company(id)
+                                ON DELETE RESTRICT
+                    );
+        </code></pre>
+    </section>
+    <section>
+        <h3>Constraints - NO ACTION & RESTRICT (4)</h3>
+        <img src="img/ERD-uml-person-dog(2).png" alt="person-dog-relation">
+    </section>
+
+    <section>
+        <h3>Constraints - SET NULL</h3>
+        <p>De waarde van de foreign key wordt op NULL gezet.</p>
+        <pre><code class="sql" data-trim data-line-numbers>
+                    CREATE TABLE press_officer(
+                        id INT GENERATED ALWAYS AS IDENTITY,
+                        company_id INT,
+                        full_name VARCHAR(255) NOT NULL,
+                        phone VARCHAR(15),
+                        email VARCHAR(100),
+                        PRIMARY KEY(id),
+                        CONSTRAINT fk_company
+                            FOREIGN KEY(company_id)
+                                REFERENCES company(id)
+                                ON DELETE SET NULL
+                    );
+        </code></pre>
+    </section>
+    <section>
+        <h3>Constraints - SET DEFAULT</h3>
+        <p>Zet de waarde van de foreign-key naar een ingestelde default waarde.</p>
+        <pre><code class="sql" data-trim data-line-numbers>
+                    CREATE TABLE press_officer(
+                        id INT GENERATED ALWAYS AS IDENTITY,
+                        company_id INT,
+                        -- overige weggelaten.
+                        PRIMARY KEY(id),
+                        CONSTRAINT fk_company
+                            FOREIGN KEY(company_id)
+                                REFERENCES company(id)
+                                ON DELETE SET DEFAULT
+                    );
+        </code></pre>
+    </section>
+    <section>
+        <h3>Constraints - CASCADE</h3>
+        <p>Deze is belangrijk! Wanneer je een rij uit de hoofdtabel verwijderd, worden alle relaties ook verwijderd!</p>
+        <pre><code class="sql" data-trim data-line-numbers>
+                    CREATE TABLE press_officer(
+                        id INT GENERATED ALWAYS AS IDENTITY,
+                        company_id INT,
+                        -- overige weggelaten.
+                        PRIMARY KEY(id),
+                        CONSTRAINT fk_company
+                            FOREIGN KEY(company_id)
+                                REFERENCES company(id)
+                                ON DELETE CASCADE
+                    );
+        </code></pre>
+    </section>
+    <section>
+        <h3>Constraints - NO ACTION & RESTRICT (4)</h3>
+        <img src="img/ERD-uml-person-dog(2).png" alt="person-dog-relation">
+    </section>
+
+    <section>
+        <h3>Met ALTER table</h3>
+        <pre><code class="sql" data-trim data-line-numbers>
+            ALTER TABLE child_table
+                ADD CONSTRAINT constraint_name
+                FOREIGN KEY (fk_columns)
+                REFERENCES parent_table (parent_key_colWumns);
+        </code></pre>
     </section>
 </section>
