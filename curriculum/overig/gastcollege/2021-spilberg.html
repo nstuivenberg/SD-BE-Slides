@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Course Les XX - Subjects</title>
+
+    <meta name="description" content="Slides voor het vak XXXXX. Gegeven op Novi Hogeschool">
+    <meta name="author" content="Nick Stuivenberg">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../../../../dist/reset.css">
+    <link rel="stylesheet" href="../../../../dist/reveal.css">
+    <link rel="stylesheet" href="../../../../dist/theme/white.css" id="theme">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="../../../../plugin/highlight/monokai.css" id="highlight-theme">
+
+    <!-- kleuren:
+    #f5f1b5
+    #b5533c
+    #4d7e65
+    #002b36 -->
+    <!--
+    pdf
+    decktape -s 1920x1080  automatic http://localhost:8000/curriculum/backend/SDP/slides/1.html#/ sdp-1.pdf
+    -->
+    <style>
+        .container{
+            display: flex;
+        }
+        .col{
+            flex: 1;
+        }
+    </style>
+
+</head>
+<body>
+
+<div class="reveal">
+    <div class="slides">
+        <section>
+            <section>
+                <h1>Gastcollege</h1>
+                <p>De wondere wereld van Java</p>
+                <aside class="notes">
+                    Notes can be added here
+                </aside>
+            </section>
+            <section>
+                <h3>Inhoud</h3>
+                <ul>
+                    <li>Wie ben ik?</li>
+                    <li>Java</li> <!-- sept 2021 LTS versie. In 2021 minder Java 8 (streams en lambda). Is EOL. Veel overstap naar 11 wordt verwacht dit jaar. Framework defaults gaaat naar 11. -->
+                    <!-- Java 9: modules system -->
+                    <!-- Java is meer dan alleen een taal. Het is een platform of eco-systeem -->
+                    <li>JVM/Java eco systeem</li> <!-- Groovy, scala en kotlin -->
+                    <li>Het Java landschap</li> <!-- Tools/IDE, frameworks en libraries -->
+                    <li>De werkvloer (Agile/scrum)</li>
+                    <li>De cloud</li>
+                    <li>Containerization</li>
+                    <li>Toekomst</li> <!-- Reactive Programming, Cloud Native (Quarkus (RedHat/IBM)/Micronaut) naast Spring-boot. Veel security praatjes (vanwege spelen in Media).-->
+                    <li>De ontwikkelaar</li>
+                </ul>
+            </section>
+        </section>
+
+        <!--- tools
+
+        ·         Vaak krijg ik te horen dat het “niet zoveel uitmaakt in welke taal je programmeert, het ligt aan het vraag stuk”. Hoe zit dat?
+        ·         Hoe kan je toch een senior java developer zijn maar geen ervaring hebben met Springboot?
+        ·         Hoe belangrijk is Springboot voor een Java developer?
+        ·         Wat zijn de belangrijkste kenmerken van een goede Java developer?
+        ·         Op welke manier wordt programmeren in java gecombineerd met cloud technologieën?
+        ·         Wat voor gevolgen heeft het voor een organisatie als deze richting de cloud gaat?
+
+        ·         Wat zijn frameworks
+        ·         Wat zijn tools
+        ·         Wat zijn libraries
+
+        ·         Wat is DevOps
+        ·         Wat is Scrum
+        ·         Wat is agile
+        ·         Wat is containerization?
+        ·         Wat is docker?
+
+        ·         Wat is het verschil tussen alle edities?
+        ·         Waarom noemt men het ook wel JVM?
+        ·         Waarom kiezen de meeste mensen om in Java te gaan werken?
+        ·         Als je Java ontleed, waar bestaat het dan uit? DONE
+        ·         Wat zijn de belangrijkste zaken ten aanzien van Java, waardoor ik professioneler over kom naar de klant?
+
+        -->
+
+        <!-- modulaire slides -->
+
+        <!--<section data-external-replace="installatiehandleiding.html"></section> -->
+
+        <!-- Lesafsluiter -->
+
+        <section>
+            <section>
+                <h3>H & H</h3>
+                <ul>
+                    <li>Huiswerk: </li>
+                    <li>Punt 2</li>
+                </ul>
+            </section>
+        </section>
+
+    </div>
+</div>
+
+<script src="../../../../dist/reveal.js"></script>
+<script src="../../../../plugin/zoom/zoom.js"></script>
+<script src="../../../../plugin/notes/notes.js"></script>
+<script src="../../../../plugin/search/search.js"></script>
+<script src="../../../../plugin/markdown/markdown.js"></script>
+<script src="../../../../plugin/highlight/highlight.js"></script>
+
+<script>
+
+    // Also available as an ES module, see:
+    // https://revealjs.com/initialization/
+    Reveal.initialize({
+        controls: true,
+        progress: true,
+        center: true,
+        hash: true,
+
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight ],
+        dependencies : [
+            {
+                src: '../../../../plugin/external/external.js',
+                condition: function() {
+                    return !!document.querySelector( '[data-external],[data-external-replace]' );
+                }
+            },
+        ]
+    });
+
+</script>
+</body>
+</html>
