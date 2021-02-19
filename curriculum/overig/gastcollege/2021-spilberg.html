@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Course Les XX - Subjects</title>
+    <title>Gastcollege - SPILBERG</title>
 
-    <meta name="description" content="Slides voor het vak XXXXX. Gegeven op Novi Hogeschool">
+    <meta name="description" content="Slides voor het een gastcollege. Gegeven op NOVI Hogeschool">
     <meta name="author" content="Nick Stuivenberg">
 
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -14,7 +14,7 @@
 
     <link rel="stylesheet" href="../../../../dist/reset.css">
     <link rel="stylesheet" href="../../../../dist/reveal.css">
-    <link rel="stylesheet" href="../../../../dist/theme/white.css" id="theme">
+    <link rel="stylesheet" href="../../../../dist/theme/black.css" id="theme">
 
     <!-- Theme used for syntax highlighting of code -->
     <link rel="stylesheet" href="../../../../plugin/highlight/monokai.css" id="highlight-theme">
@@ -45,46 +45,42 @@
         <section>
             <section>
                 <h1>Gastcollege</h1>
-                <p>De wondere wereld van Java</p>
+                <p>Het Java landschap</p>
                 <aside class="notes">
                     Notes can be added here
                 </aside>
             </section>
+
+            <section>
+                <h2>Wie ben ik?</h2>
+                <div class="container">
+                    <div class="col"><img style="height: 400px;" src="img/nick.jpg" alt="nick"> </div>
+                    <div class="col">
+                        <ul>
+                            <li class="fragment fade-up">Nick Stuivenberg</li>
+                            <li class="fragment fade-up">Software Engineer</li>
+                            <li class="fragment fade-up">Java</li>
+                            <li class="fragment fade-up">Hoofddocent NOVI Hogeschool</li>
+                            <li class="fragment fade-up">Bordspellen</li>
+                            <li class="fragment fade-up">Klassieke oudheid</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
             <section>
                 <h3>Inhoud</h3>
                 <ul>
-                    <li>Wie ben ik?</li>
                     <li>Java</li>
                     <!-- Wat is Java? -->
                     <!-- sept 2021 LTS versie. In 2021 minder Java 8 (streams en lambda). Is EOL. Veel overstap naar 11 wordt verwacht dit jaar. Framework defaults gaaat naar 11. -->
                     <!-- Java 9: modules system -->
                     <!-- Java is meer dan alleen een taal. Het is een platform of eco-systeem -->
-                    <li>JVM/Java eco systeem</li> <!-- JVM, Groovy, scala en kotlin -->
-                    <li>Het Java landschap</li> <!-- Tools(Git)/IDE, frameworks en libraries -->
+                    <li>JVM & Java ecosysteem</li> <!-- JVM, Groovy, scala en kotlin -->
                     <li>De werkvloer (Agile/scrum)</li>
-                    <li>De cloud</li>
-                    <li>Containerization</li>
+                    <li>De cloud & containerization</li>
                     <li>Toekomst</li> <!-- Reactive Programming, Cloud Native (Quarkus (RedHat/IBM)/Micronaut) naast Spring-boot. Veel security praatjes (vanwege spelen in Media).-->
                     <li>De ontwikkelaar</li>
-                </ul>
-            </section>
-        </section>
-
-        <section>
-            <section>
-                <h2>Wie ben ik?</h2>
-                <ul>
-                    <li class="fragment fade-up">Nick Stuivenberg</li>
-                    <li class="fragment fade-up">Software Engineer</li>
-                    <li class="fragment fade-up">Java</li>
-                    <li class="fragment fade-up">Hoofddocent NOVI Hogeschool</li>
-                </ul>
-            </section>
-            <section>
-                <h2>Wie ben ik?</h2>
-                <ul>
-                    <li class="fragment fade-up">Bordspellen</li>
-                    <li class="fragment fade-up">Klassieke oudheid</li>
                 </ul>
             </section>
         </section>
@@ -205,49 +201,173 @@
                     <li class="fragment fade-up">Frameworks & libraries</li>
                 </ul>
             </section>
+            <section>
+                <h3>Java Virtual Machine</h3>
+                <p>Na het schrijven van de Java-code is deze niet direct overal uitvoerbaar.</p>
+                <ul>
+                    <li>De code moet gecompileerd worden naar Java-bytecode</li>
+                    <li><em>Iets</em> moet deze bytecode kunnen uitvoeren.</li>
+                    <li class="fragment fade-up">Dat is de Java Virtual Machine</li>
+                    <li class="fragment fade-up">JVM emuleert een computer systeem en geeft instructies aan de hardware</li>
+                </ul>
+            </section>
+            <section>
+                <h3>Java Virtual Machine</h3>
+                <p>Niet alleen Java-code kan gecompileerd worden, maar ook:</p>
+                <ul>
+                    <li class="fragment fade">Kotlin - <em>Android development</em></li>
+                    <li class="fragment fade">Scala - <em>combineert OOP met Functioneel programmeren.</em></li>
+                    <li class="fragment fade">Groovy - <em>Lijkt meer op Python syntax</em></li>
+                    <li class="fragment fade">Clojure - <em>Lijkt op LISP. Functioneel programmeren.</em></li>
+                </ul>
+            </section>
+            <section>
+                <h3>Tools</h3>
+                <ul>
+                    <li>Ontwikkeltool (IDE)</li>
+                    <li>Build en dependency Management - Tool</li>
+                    <li>Versiebeheer</li>
+                    <li>Deploy-tool</li>
+                </ul>
+            </section>
+            <section>
+                <h3>Integrated Development Environment</h3>
+                <img src="img/favourite-ide.png" alt="IDE" height="400">
+            </section>
+            <section>
+                <h3>Build en dependency manager</h3>
+                <img src="img/build-tools.png" alt="build-tools" height="400">
+            </section>
+            <section>
+                <h3>Versiebeheer</h3>
+                <ul>
+                    <li>Git</li>
+                    <li>SVN</li>
+                </ul>
+            </section>
+            <section>
+                <h3>Versiebeheer</h3>
+                <img src="img/gitflow.svg" alt="Git Flow" height="400">
+            </section>
+            <section>
+                <h3>Deploy tool</h3>
+                <img src="img/jenkins.png" alt="Jenkins">
+            </section>
+            <section>
+                <img src="img/ci-cd.png" alt="ci-cd">
+            </section>
         </section>
 
-        <!--- tools
+        <section>
+            <section data-auto-animate>
+            <h3>Libaries en Frameworks</h3>
+            <div class="container">
+                <div class="col" style="border-right: 1px solid white">
+                    <strong>Libraries zijn</strong> stukjes code die door jezelf of andere zijn geschreven en die je
+                    kunt importeren en gebruiken in je code.
+                </div>
+                <div class="col">
+                    <strong>Frameworks zijn</strong> een collectie van libraries, die je kunt gebruiken plus een set van
+                    regels en instructies om met het framework te werken. Conventie boven configuratie.
+                </div>
+            </div>
+            </section>
+            <section data-auto-animate>
+                <h3>Libraries en Frameworks</h3>
+                <div class="container">
+                    <div class="col" style="border-right: 1px solid white">
 
-        ·         Vaak krijg ik te horen dat het “niet zoveel uitmaakt in welke taal je programmeert, het ligt aan het vraag stuk”. Hoe zit dat?
-        ·         Hoe kan je toch een senior java developer zijn maar geen ervaring hebben met Springboot?
-        ·         Hoe belangrijk is Springboot voor een Java developer?
-        ·         Wat zijn de belangrijkste kenmerken van een goede Java developer?
-        ·         Op welke manier wordt programmeren in java gecombineerd met cloud technologieën?
-        ·         Wat voor gevolgen heeft het voor een organisatie als deze richting de cloud gaat?
+                        <img src="img/junit5-logo.png"  height="100">
+                        <img src="img/mockito.png" height="100">
+                        JPA
+                        <img src="img/hibernate.jpg" height="100">
+                    </div>
+                    <div class="col">
+                        <img src="img/jakartaee.png" height="100">
+                        <img src="img/micronaut.png" height="100">
+                        <img src="img/spring-framework.png" height="100">
+                        <img src="img/spring-boot.png" height="100">
+                    </div>
+                </div>
+            </section>
+            <section>
+                <h3>Java backend frameworks</h3>
+                <img src="img/backend-frameworks.png" height="400">
+            </section>
+            <section>
+                <h1 class="r-fit-text">Vragen?</h1>
+                <ul>
+                    <li>Hoe belangrijk is Spring Boot voor een Java developer?</li>
+                    <li>Hoe kan je toch een senior java developer zijn maar geen ervaring hebben met Spring Boot?</li>
+                </ul>
+            </section>
+        </section>
 
-        ·         Wat zijn frameworks
-        ·         Wat zijn tools
-        ·         Wat zijn libraries
 
-        ·         Wat is DevOps
-        ·         Wat is Scrum
-        ·         Wat is agile
-        ·         Wat is containerization?
-        ·         Wat is docker?
-
-        ·         Wat is het verschil tussen alle edities?
-        ·         Waarom noemt men het ook wel JVM?
-        ·         Waarom kiezen de meeste mensen om in Java te gaan werken?
-        ·         Als je Java ontleed, waar bestaat het dan uit? DONE
-        ·         Wat zijn de belangrijkste zaken ten aanzien van Java, waardoor ik professioneler over kom naar de klant?
-
-        -->
-
-        <!-- modulaire slides -->
-
-        <!--<section data-external-replace="installatiehandleiding.html"></section> -->
-
-        <!-- Lesafsluiter -->
+        <section>
+            <section data-background-iframe="https://agilemanifesto.org/">
+            </section>
+            <section>
+                <h3>Scrum is een agile methode</h3>
+                <img alt="sprint" src="img/sprint.jpg">
+                <p>Stand-up, Backlog refinement, Sprint planning, Sprint Review, Retrospective (als team)</p>
+            </section>
+        </section>
 
         <section>
             <section>
-                <h3>H & H</h3>
+                <h2>De cloud</h2>
+                <blockquote>
+                    De cloud staat voor een netwerk dat met al de computers die erop aangesloten zijn
+                    een soort 'wolk van computers' vormt, waarbij de eindgebruiker niet weet op hoeveel of welke
+                    computer(s) de software draait of waar die computers precies staan.
+                </blockquote>
+            </section>
+            <section>
+                <h3>De cloud - spelers</h3>
+                <p>Drie grote spelers</p>
+                <div class="container">
+                    <div class="col">
+                        <img src="img/aws.png" height="120"><br>
+                        <img src="img/azure.png" height="120"><br>
+                        <img src="img/google-cloud.png" height="120">
+                    </div>
+                </div>
+            </section>
+            <section>
+                <h3>Cloud en docker</h3>
+                <p>In de cloud heb je dus een stukje server tot je beschikking waar je jouw applicatie +
+                    afhankelijkheden op kunt installeren.</p>
+                <p>Zou het niet fijn zijn om dat als één pakketje te kunnen doen?</p>
+            </section>
+            <section>
+                <h3>Cloud en docker</h3>
+                <img src="img/docker.png" alt="docker">
+            </section>
+            <section>
+                <h3>Docker - voordelen</h3>
                 <ul>
-                    <li>Huiswerk: </li>
-                    <li>Punt 2</li>
+                    <li class="fragment fade">De applicatie zal op elke Linux machine draaien</li>
+                    <li class="fragment fade">De applicatie zal op elke Linux machine draaien</li>
+                    <li class="fragment fade">De applicatie zal op elke Linux machine draaien</li>
+                    <li class="fragment fade">Docker is sneller en kleiner dan een gehele virtual machine</li>
                 </ul>
             </section>
+        </section>
+
+        <section>
+            <h2>Java - de toekomst</h2>
+            <p>Java blijft nog wel even bestaan, maar in het landschap verwachten we de volgende focussen</p>
+            <ul>
+                <li>Cloud technologie: Micronaut en Quarkus naast Spring-boot</li>
+                <li>Reactive Programming</li>
+                <li>Meer focus op security</li>
+            </ul>
+        </section>
+
+        <section>
+            <h3>De java ontwikkelaar</h3>
+            <p>Waar moet die aan voldoen?</p>
         </section>
 
     </div>
