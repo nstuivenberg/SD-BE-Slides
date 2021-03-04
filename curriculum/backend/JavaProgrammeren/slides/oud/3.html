@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Java Programmeren - Les 3</title>
+
+    <meta name="description" content="Slides voor het vak Java Programmeren. Gegeven op Novi Hogeschool">
+    <meta name="author" content="Nick Stuivenberg">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../../../../../dist/reset.css">
+    <link rel="stylesheet" href="../../../../../dist/reveal.css">
+    <link rel="stylesheet" href="../../../../../dist/theme/white.css" id="theme">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="../../../../../plugin/highlight/monokai.css" id="highlight-theme">
+
+    <!-- kleuren:
+    #f5f1b5
+    #b5533c
+    #4d7e65
+    #002b36 -->
+    <!--
+    pdf
+    decktape -s 1920x1080  automatic http://localhost:8000/curriculum/backend/JavaProgrammeren/slides/3.html 3.pdf
+    -->
+    <style>
+        .container{
+            display: flex;
+        }
+        .col{
+            flex: 1;
+        }
+    </style>
+
+</head>
+<body>
+
+<div class="reveal">
+    <div class="slides">
+        <section>
+        <section>
+            <h1>Java Programmeren</h1>
+            <p>Les 3 - Abstractie & Methodes</p>
+            <aside class="notes">
+                Notes can be added here
+            </aside>
+        </section>
+            <section>
+                <h3>Inhoud van de dag</h3>
+                <ul>
+                    <li>Java Programmeren - Abstractie & Methodes</li>
+                    <li>1800 uur: Werken met Git</li>
+                </ul>
+            </section>
+            <section>
+                <h3>Deze les</h3>
+                <ul>
+                    <li>Huiswerkopdrachten</li>
+                    <li>Dingen die me opvallen</li>
+                    <li>Overerving</li>
+                    <li>Abstractie (Polymorfisme)</li>
+                </ul>
+            </section>
+            <section>
+                <h3>Tijd over?</h3>
+                <ul>
+                    <ul>
+                        <li>Static methods</li>
+                        <li>Scope</li>
+                        <li>Access modifiers</li>
+                        <li>Keywords</li>
+                        <li>Overloading</li>
+                    </ul>
+                </ul>
+            </section>
+            <section>
+                <h3>Maak het leuk</h3>
+                <ul>
+                    <li class="fragment fade-down">Webcam aan</li>
+                    <li class="fragment fade-left">Microfoon uit wanneer anderen spreken</li>
+                    <li  class="fragment fade-right">Gaarne hand opsteken</li>
+                </ul>
+            </section>
+        </section>
+
+        <section>
+            <section>
+                <h2>Huiswerk bespreken</h2>
+            </section>
+        </section>
+
+        <section>
+            <section>
+                <h2>Overerving & Abstractie</h2>
+                <ul>
+                    <li>Super- en subklassen</li>
+                    <li>Override</li>
+                    <li>Werken met super()</li>
+                </ul>
+            </section>
+            <section>
+                <h3>Overerving</h3>
+                <blockquote>
+                    In Java kun een klasse extenden. Hierdoor erft de onderliggende de eigenschappen van de superklasse.
+                    Dit kun je doen als je de klassen een is-a relatie hebben.
+                </blockquote>
+            </section>
+            <section>
+                <h3>Voorbeeld superklasse</h3>
+                <pre><code class="java" data-trim data-line-numbers="1-99">
+                public class Vehicle {
+                    private String licensePlate;
+
+                    public String getLicensePlate() {
+                        return licensePlate;
+                    }
+
+                    public void setLicensePlate(String licensePlate) {
+                        this.licensePlate = licensePlate;
+                    }
+
+                    public void move() {
+                        System.out.println("I move 10 meters");
+                    }
+                }
+                </code></pre>
+            </section>
+            <section>
+                <h3>Voorbeeld subklasse</h3>
+                <pre><code class="java" data-trim data-line-numbers="1-99 | 1 | 2-11 | 1-99">
+                public class Bus extends Vehicle {
+                    public int amountOfPassengers;
+
+                    public int getAmountOfPassengers() {
+                        return amountOfPassengers;
+                    }
+
+                    public void setAmountOfPassengers(int amountOfPassengers) {
+                        this.amountOfPassengers = amountOfPassengers;
+                    }
+                }
+                </code></pre>
+            </section>
+            <section>
+                <h3>Voorbeeld gebruik methode superklasse</h3>
+                <pre><code class="java" data-trim data-line-numbers="1-99 | 3 | 4 | 1-99">
+                public class MainBus {
+                    public static void main(String[] args) {
+                        Bus connexion = new Bus();
+                        connexion.move();
+                    }
+                }
+                </code></pre>
+                <h5>OUTPUT</h5>
+                <img src="img/stirngpng.png" alt="something">
+            </section>
+            <section>
+                <h3>Override</h3>
+                <p>Wat nou als een bus niet 10 meter moet bewegen, maar 20 meter?</p>
+                <p>Dan gebruiken we @Override</p>
+            </section>
+            <section>
+                <h3>Override - move</h3>
+                <pre><code class="java" data-trim data-line-numbers="1-99 | 6 | 6-9 | 1-99">
+                public class Bus extends Vehicle {
+                    public int amountOfPassengers;
+
+                    // Getters en setters even weggelaten.
+
+                    @Override
+                    public void move() {
+                        System.out.println("I move 20 meters");
+                    }
+                }
+                </code></pre>
+            </section>
+            <section>
+                Override - nieuwe output
+                <pre><code class="java" data-trim data-line-numbers="1-99 | 3 | 4 | 1-99">
+                public class MainBus {
+                    public static void main(String[] args) {
+                        Bus connexion = new Bus();
+                        connexion.move();
+                    }
+                }
+                </code></pre>
+                <h5>OUTPUT</h5>
+                <img src="img/move_20_meters.png" alt="something">
+            </section>
+            <section>
+                <h3>Dus:</h3>
+                <blockquote>
+                    Override gebruik je als je de inhoud van de methode wilt overschrijven.
+                </blockquote>
+            </section>
+            <section>
+                <h3>Super</h3>
+                <ul>
+                    <li>Wat als je een methode niet wilt overschrijven, maar deze wilt uitbreiden?</li>
+                    <li>Dan gebruiken we super()!</li>
+                    <li>Stel dat we willen zeggen: I move 10 meters and I used 1 ltr of fuel.</li>
+                    <li>Dan willen we de code niet overschrijven, maar gebruiken én uitbreiden.</li>
+                </ul>
+            </section>
+            <section>
+                <h3>Super() voorbeeld</h3>
+                <pre><code class="java" data-trim data-line-numbers="1-99 | 8 | 6-10 | 1-99">
+                public class Bus extends Vehicle {
+                    public int amountOfPassengers;
+
+                   // Getters en setters weggelaten
+
+                    @Override
+                    public void move() {
+                        super.move();
+                        System.out.println("And I used 1 ltr of fuel.");
+                    }
+                }
+                </code></pre>
+            </section>
+            <section>
+                <h3>Super() - nieuwe output</h3>
+                <pre><code class="java" data-trim data-line-numbers="1-99 | 3 | 4 | 1-99">
+                public class MainBus {
+                    public static void main(String[] args) {
+                        Bus connexion = new Bus();
+                        connexion.move();
+                    }
+                }
+                </code></pre>
+                <h5>OUTPUT</h5>
+                <img src="img/fuel.png" alt="something">
+            </section>
+            <section>
+                <h3>Nog een paar dingen</h3>
+                <ul>
+                    <li>Je kunt een klasse extenden, die een andere klasse extend</li>
+                    <li>Extend alleen als je is-a over de relatie kunt zeggen</li>
+                    <li>Je kunt altijd maar 1 klasse extenden</li>
+                </ul>
+            </section>
+            <section>
+                <h3>Aan de slag</h3>
+                <ul>
+                    <li>Kies een breakout-room<ul><li>
+                        Bootcampers kunnen eigen studiegroep gebruiken</li></ul>
+                    </li>
+                    <li>Maak inheritance-opdracht 1a, b en c </li>
+                    <li>Backend -> Algemeen/General -> Bestanden/Files ->
+                        <ul><li>lesmateriaal -> Java Programmeren -> Les 03 -> </li>
+                            <li>Download zip-bestanden of ga naar repo's</li></ul></li>
+                </ul>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>Polymorfisme</h2>
+                <blockquote>
+                    Wanneer je een superklasse definieert, kan elke subklasse vervangen worden door zijn supertype
+                </blockquote>
+                <h3>Dit ga je zometeen snappen</h3>
+            </section>
+            <section>
+                <h3>Stel je voor, je hebt deze code</h3>
+                <pre><code class="java" data-trim data-line-numbers="1-99">
+                public class Person
+                </code></pre>
+                <pre><code class="java" data-trim data-line-numbers="1-99">
+                public class FamilyDoctor extends Person
+                </code></pre>
+                <pre><code class="java" data-trim data-line-numbers="1-99">
+                Person person = new Person();
+                FamilyDoctor familyDoctor = new FamilyDoctor();
+                </code></pre>
+
+            </section>
+            <section>
+                <h3>Maar FamilyDoctor extends Person</h3>
+                <pre><code class="java" data-trim data-line-numbers="1-99">
+                Person familyDoctor = new FamilyDoctor();
+                </code></pre>
+
+                <pre><code class="java" data-trim data-line-numbers="1-99">
+                List&lt;Person> persons = new ArrayList&lt;>();
+                persons.add(familyDoctor);
+                </code></pre>
+            </section>
+            <section>
+                <h3>Praktijkvoorbeeldje</h3>
+                <ul>
+                    <li>Constructors beide klasen</li>
+                    <li>Wanneer welke methodes?</li>
+                    <li>Oplossing hiervoor?</li>
+                </ul>
+            </section>
+        </section>
+
+        <section>
+            <section>
+                <h2>Abstracte klassen</h2>
+            </section>
+            <section>
+                <h3>Abstracte klassen</h3>
+                <ul>
+                    <li>Abstracte klassen kunnen niet geinstantieerd worden</li>
+                    <li>Kunnen abstracte methodes bevatten</li>
+                    <li>Mag gewone methodes bevatten!</li>
+                </ul>
+                <pre><code class="java" data-trim data-line-numbers="1-99">
+                public abstract class Person
+                </code></pre>
+            </section>
+            <section>
+                <h3>Abstracte methodes</h3>
+                <ul>
+                    <li>Hebben geen body</li>
+                    <li>Moeten geïmplementeerd worden in concrete subklassen.</li>
+                    <li>Gebruik @Override annotatie</li>
+                </ul>
+            </section>
+            <section>
+                <h3>Abstracte methode - code</h3>
+                <pre><code class="java" data-trim data-line-numbers="1-99">
+                void work();
+                String encryptPassword(String password);
+                </code></pre>
+                <pre><code class="java" data-trim data-line-numbers="1-99">
+                @Override
+                public void work() {
+                    System.out.println("Ja");
+                }
+                @Override
+                String encryptPassword(String password) {
+                    return password + "encrypted";
+                }
+                </code></pre>
+            </section>
+            <section>
+                <h3>Praktijkvoorbeeldje</h3>
+                <ul>
+                    <li>Abstracte en concrete klasse</li>
+                    <li>Met abstracte en concrete methodes</li>
+                </ul>
+            </section>
+        </section>
+
+        <section>
+            <h3>Lesopdracht 2</h3>
+            <ul>
+                <li>Kies een breakout-room<ul><li>
+                    Bootcampers kunnen eigen studiegroep gebruiken</li></ul>
+                </li>
+                <li>Maak inheritance-opdracht 2 </li>
+                <li>Backend -> Algemeen/General -> Bestanden/Files ->
+                    <ul><li>lesmateriaal -> Java Programmeren -> Les 03 -> </li>
+                        <li>Download zip-bestanden of ga naar repo's</li></ul></li>
+            </ul>
+        </section>
+
+        <section>
+            <section>
+                <h2>H & H</h2>
+                <ul>
+                    <li>Maak huiswerkopdracht: Overerving_opdracht01</li>
+                    <li>Maak overige klassikale opdrachten (indien niet af)</li>
+                    <li>Lees en bestudeer H5 & H6</li>
+                </ul>
+            </section>
+        </section>
+
+
+    </div>
+</div>
+
+<script src="../../../../../dist/reveal.js"></script>
+<script src="../../../../../plugin/zoom/zoom.js"></script>
+<script src="../../../../../plugin/notes/notes.js"></script>
+<script src="../../../../../plugin/search/search.js"></script>
+<script src="../../../../../plugin/markdown/markdown.js"></script>
+<script src="../../../../../plugin/highlight/highlight.js"></script>
+<script>
+
+    // Also available as an ES module, see:
+    // https://revealjs.com/initialization/
+    Reveal.initialize({
+        controls: true,
+        progress: true,
+        center: true,
+        hash: true,
+
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight ]
+    });
+
+</script>
+</body>
+</html>
