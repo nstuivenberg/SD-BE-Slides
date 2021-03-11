@@ -1,0 +1,106 @@
+<section>
+    <section>
+        <h2>Methodes</h2>
+        <h3>Stukjes herbruikbare code</h3>
+        <ul>
+            <li>Wat is een methode?</li>
+            <li>Voorbeeldcode</li>
+        </ul>
+        <aside class="notes">
+            Notes can be added here
+        </aside>
+    </section>
+</section>
+
+<section>
+    <section>
+        <h3>Methodes</h3>
+        <blockquote>Een methode is een blok code in Java die alleen draait, wanneer deze aangeroepen wordt. Met een
+            methode kun je een stukje code definiëren, die je maar één keer hoeft te schrijven en meerdere keren kan
+            aanroepen.</blockquote>
+        <p>-<em>EdHub</em> (2020)</p>
+    </section>
+    <section>
+        <h4>Methodes</h4>
+        <ul>
+            <li>Een methode heeft een naam (beginnend met een kleine letter)</li>
+            <li>Een methode kan parameters ontvangen.</li>
+            <li>Een methode kan 'iets'  teruggeven.</li>
+            <li>Een methode kan bovenstaande combineren.</li>
+            <li>Wanneer je een methode aanroept en een waarde meegeeft, zijn die waardes <em>argumenten.</em></li>
+        </ul>
+    </section>
+</section>
+
+<section>
+    <section>
+        <h3>Codevoorbeelden</h3>
+        <p>Let op. Alle methodes worden direct vanuit de main-methode aangeroepen. De main-methode is een static
+            methode. Een static-methode mag alleen andere static methodes aanroepen. Vandaar dat je overal static ziet.
+        </p>
+    </section>
+    <section>
+        <h3>Methodes - De simpelste</h3>
+        <pre><code class="java" data-trim data-line-numbers="1-99">
+            public class Main {
+                public static void main(String[] args) {
+                    study();
+                }
+                public static void study() {
+                    System.out.println("I study.");
+                }
+            }
+                </code></pre>
+    </section>
+    <section>
+        <h3>Methodes - Let op</h3>
+        <p>Vanaf nu laten de slides alleen het aanroepen en de methode zien. Dus geen klasse- en packagenamen meer.</p>
+    </section>
+    <section>
+        <h3>Methodes - Input parameters</h3>
+        <pre><code class="java" data-trim data-line-numbers="1-99">
+        public static void main(String[] args) {
+            doubleAndPrint(10);
+        }
+        public static void doubleAndPrint(int number) {
+            int result = number * 2;
+            System.out.println("The result is:" + result);
+        }
+        </code></pre>
+    </section>
+    <section>
+        <h3>Methodes - Parameters en argument</h3>
+        <img src="onderwerpen/img/argument_parameter.png" alt="argument en parameters">
+    </section>
+    <section>
+        <h3>Methodes -  return</h3>
+        <pre><code class="java" data-trim data-line-numbers="1-99">
+        public static void main(String[] args) {
+            int dayOfMonth = getDayOfCurrentMonth();
+            System.out.println("Het is vandaag de " + dayOfMonth);
+        }
+        public static int getDayOfCurrentMonth() {
+            int currentDayOfMonth =
+                Calendar.getInstance().get(Calendar.DAY_OF_MONTH);
+            return currentDayOfMonth;
+        }
+        </code></pre>
+        <p>void verander je in het datatype dat je teruggeeft!</p>
+    </section>
+    <section>
+        <h3>Methodes - Return & parameters</h3>
+        <pre><code class="java" data-trim data-line-numbers="1-99" style="font-size: smaller">
+        public static void main(String[] args) {
+            String name = "nick";
+            String nameWithCapitalizedFirstLetter = capitalizeFirstLetter(name);
+            System.out.println("Naam met hoofdletter: "
+                + nameWithCapitalizedFirstLetter);
+        }
+        public static String capitalizeFirstLetter(String uncapitalizedName) {
+            String capitalizedName = uncapitalizedName.substring(0, 1).toUpperCase()
+                                + uncapitalizedName.substring(1);
+            return capitalizedName;
+        }
+        </code></pre>
+    </section>
+</section>
