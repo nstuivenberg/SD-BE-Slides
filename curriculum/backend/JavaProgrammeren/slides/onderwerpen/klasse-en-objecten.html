@@ -1,10 +1,13 @@
 <section>
 <section>
-        <h2>Onderwerp</h2>
-        <h3>subtitel</h3>
+        <h2>Klasse en Objecten</h2>
+        <h3>Werken met klassen en objecten</h3>
         <ul>
-            <li>Inhoud #1</li>
-            <li>Inhoud #2</li>
+            <li>Het probleem</li>
+            <li>Theorie</li>
+            <li>Jouw eerste klasse</li>
+            <li>De constructor</li>
+            <li>Methodes in klassen</li>
         </ul>
         <aside class="notes">
             Notes can be added here
@@ -13,11 +16,241 @@
 </section>
 <section>
     <section>
-        <h3>Inhoud #1</h3>
-
+        <h3>Het probleem</h3>
+        <p>Stel je wilt van 10 <strong>personen</strong> de <strong>voornaam</strong>, <strong>achternaam</strong> en
+            <strong>leeftijd</strong> bijhouden. Hoe ga je dat doen?</p>
+        <p class="fragment">Dertig variabele met namen als name1, lastname1, age1 is erg onhandig!</p>
+        <p class="fragment">Java heeft klassen (class) om data te groeperen!</p>
     </section>
     <section>
-        <h4>Inhoud #1.1</h4>
-        <p>Text</p>
+        <h3>Theorie - Algemeen</h3>
+        <ul>
+            <li>Java is object-georiënteerd.</li>
+            <li>Een object gebruikt een klasse als blauwdruk</li>
+            <li>Van één klasse kun je dus meerdere objecten maken.</li>
+        </ul>
     </section>
+    <section>
+        <h3>Theorie - Klasse (1)</h3>
+        <ul>
+            <li>Zo'n klasse is dus een blauwdruk van een object</li>
+            <li>Het definieert welke data een object kan bevatten en welk gedrag een object kan doen</li>
+            <li>De data die het kan bevatten noemen we <em>instantie variabelen</em> (instance variables)</li>
+            <li>Het gedrag schrijven we in methodes</li>
+        </ul>
+    </section>
+    <section>
+        <h3>Theorie - Klasse (2)</h3>
+        <ul>
+            <li><strong>Klassenaam is dezelfde als bestandsnaam</strong></li>
+            <li>Klassenaam begint met een hoofdletter</li>
+            <li>Instance variable-namen beginnen met een kleine letter</li>
+            <li>Methodes beginnen met een kleine letter</li>
+        </ul>
+    </section>
+</section>
+
+<section>
+    <section>
+        <h3>Klasse - code (1)</h3>
+        <img src="onderwerpen/img/klasse-aanmaken-intellij.png" alt="klasse aanmaken in IntelliJ">
+        <ul>
+            <li>Maak een klasse aan. Noem deze Person</li>
+        </ul>
+        <pre><code class="java" data-trim data-line-numbers="1-99|1|2-4|1-99">
+        public class Person {
+            public String firstName;
+            public String lastName;
+            public int age;
+        }
+        </code></pre>
+        <p>Normaliter zijn instance-variables <em>private</em>, maar voor het voorbeeld nu even niet.</p>
+    </section>
+    <section>
+        <h3>Klasse - Object maken!</h3>
+        <p>Dit doen we in de main-methode.</p>
+        <pre><code class="java" data-trim data-line-numbers="1-99|2|3-5|7-8|1-99">
+        public static void main(String[] args) {
+            Person aPerson = new Person();
+            aPerson.firstName = "Karel";
+            aPerson.lastName = "de Grote";
+            aPerson.age = 538;
+
+            System.out.println("Persoon: "+ aPerson.firstName + " "
+                + aPerson.lastName + " is " + aPerson.age);
+        }
+        </code></pre>
+    </section>
+</section>
+
+<section>
+    <section>
+        <h3>De constructor - Theorie</h3>
+        <ul>
+            <li class="fragment">Om van een klasse een object te maken gebruik je altijd de constuctor</li>
+            <li class="fragment">De constructor wordt aangeroepen met het <em>new</em> keyword</li>
+            <li class="fragment">Wanneer je geen constructor aan een klasse toevoegt, voegt Java automatisch een lege
+                constructor toe.</li>
+        </ul>
+    </section>
+    <section>
+            <h3>De constructor - Theorie (2)</h3>
+        <ul>
+            <li class="fragment">Een constructor lijkt op een methode, maar is het niet.</li>
+            <li class="fragment">Een constructor heeft bijvoorbeeld geen return-type</li>
+            <li class="fragment">Dus ook geen void</li>
+            <li class="fragment">De constructor heeft dezelfde naam als de klasse!</li>
+        </ul>
+    </section>
+    <section>
+        <h3>De constructor - Lege constructor</h3>
+        <pre><code class="java" data-trim data-line-numbers="1-99|6-7|1-99">
+        public class Person {
+            public String firstName;
+            public String lastName;
+            public int age;
+
+            public Person() {
+            }
+        }
+        </code></pre>
+    </section>
+    <section>
+        <h3>Constructor - Alle parameters</h3>
+        <pre><code class="java" data-trim data-line-numbers="1-99|6-10|1-99">
+        public class Person {
+            public String firstName;
+            public String lastName;
+            public int age;
+
+            public Person(String firstName, String lastName, int age) {
+                this.firstName = firstName;
+                this.lastName = lastName;
+                this.age = age;
+            }
+        }
+        </code></pre>
+    </section>
+    <section>
+        <h3>Object aanmaken - Constructor met parameters</h3>
+        <pre><code class="java" data-trim data-line-numbers="1-99">
+        Person anotherPerson = new Person("Filips", "De Tweede", 496);
+
+        System.out.println("Persoon: "+ anotherPerson.firstName + " "
+            + anotherPerson.lastName + " is " + anotherPerson.age);
+        </code></pre>
+    </section>
+
+    <section>
+        <h3>Constructors - dit moet je weten</h3>
+        <ul>
+            <li class="fragment">Je maakt van een klasse een object met een constructor</li>
+            <li class="fragment">Wanneer je geen constructor toevoegt, voegt Java een lege constructor toe.</li>
+            <li class="fragment">Een klasse kan meerdere constructor hebben, zolang de datatypes van de parameters maar verschillen.</li>
+            <li class="fragment">Een constructor is bijna altijd public</li>
+            <li class="fragment">Constructor-naam is dezelfde als klasse-naam</li>
+            <li class="fragment">Geen return-type en void.</li>
+        </ul>
+    </section>
+    <section>
+        <h3>Constructors - Volledige Main</h3>
+        <pre><code class="java" data-trim data-line-numbers="1-99" style="font-size: smaller">
+        public static void main(String[] args) {
+            Person aPerson = new Person();
+            aPerson.firstName = "Karel";
+            aPerson.lastName = "de Grote";
+            aPerson.age = 538;
+
+            System.out.println("Persoon: "+ aPerson.firstName + " "
+                + aPerson.lastName + " is " + aPerson.age);
+
+            Person anotherPerson = new Person("Filips", "De Tweede", 496);
+            System.out.println("Persoon: "+ anotherPerson.firstName + " "
+                + anotherPerson.lastName + " is " + anotherPerson.age);
+            }
+        </code></pre>
+    </section>
+</section>
+
+<section>
+    <section>
+        <h3>Methodes</h3>
+        <ul>
+            <li>Getters en Setters</li>
+            <li>Andere methodes</li>
+        </ul>
+    </section>
+    <section>
+        <h3>Getters & Setters</h3>
+        <ul>
+            <li>In de regel zijn instance variables altijd <em>private</em></li>
+            <li>Private variables en methodes kunnen alleen binnen de klasse zelf aangeroepen worden</li>
+            <li>I.a.w: Een main-methode kan dan dus niets doen.</li>
+            <li>Daarom maken we <em>public</em> methodes, die instance variables kunnen uitlezen en aanpassen.</li>
+            <li>Uitlezen is: get</li>
+            <li>Aanpassen is: set</li>
+        </ul>
+    </section>
+    <section>
+        <h3>Getters & Setters (2)</h3>
+        <ul>
+            <li>Een get methode heet: getNaamVanVariable()</li>
+            <li>Een set methode heet: setNaamVanVariable()</li>
+        </ul>
+    </section>
+    <section>
+        <h3>Getters & Setters (3)</h3>
+        <pre><code class="java" data-trim data-line-numbers="1-99" style="font-size: smaller">
+            public class Person {
+                private String firstName;
+                private String lastName;
+                private int age;
+
+                public String getFirstName() {
+                    return firstName;
+                }
+                public void setFirstName(String firstName) {
+                    this.firstName = firstName;
+                }
+            }
+        </code></pre>
+        <p>Voeg zelf de getter en setter van lastName en Age toe.</p>
+    </section>
+    <section>
+        <h3>Getters & Setters - Gebruiken</h3>
+        <pre><code class="java" data-trim data-line-numbers="1-99" style="font-size: smaller">
+        public class MainMethods {
+            public static void main(String[] args) {
+                Person p = new Person();
+
+                p.setFirstName("Willem");
+                p.setLastName("van Oranje");
+                p.setAge(512);
+
+                System.out.println("Persoon: "+ p.getFirstName() + " "
+                    + p.getLastName() + " is " + p.getAge());
+                }
+        }
+        </code></pre>
+    </section>
+    <section>
+        <h3>Andere methodes -  Zelf proberen</h3>
+        <p>Schrijf een methode die de leeftijd met 1 verhoogt, wanneer aangeroepen.</p>
+    </section>
+    <section>
+        <h3>Andere methodes - antwoord</h3>
+        <pre><code class="java" data-trim data-line-numbers="1-99" style="font-size: smaller">
+        public class Person {
+            private String firstName;
+            private String lastName;
+            private int age;
+
+            // Getters, setters en constructors weggelaten
+            public void age() {
+                this.age = this.age + 1;
+            }
+        }
+        </code></pre>
+    </section>
+
 </section>
