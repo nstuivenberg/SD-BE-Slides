@@ -1,10 +1,10 @@
 <section>
     <section>
-        <h2>Onderwerp</h2>
-        <h3>subtitel</h3>
+        <h2>Collecties</h2>
+        <h3>Het opslaan van meerdere waardes in één variabele</h3>
         <ul>
-            <li>Inhoud #1</li>
-            <li>Inhoud #2</li>
+            <li>Array</li>
+            <li>List (ArrayList)</li>
         </ul>
         <aside class="notes">
             Notes can be added here
@@ -13,11 +13,179 @@
 </section>
 <section>
     <section>
-        <h3>Inhoud #1</h3>
-
+        <h3>Array - Het probleem</h3>
+        <p>Stel je voor: Je wilt de 11 namen van de opstelling bijhouden. Hoe doet je dat?</p>
+        <p>En wat als je twee teams hebt?</p>
     </section>
     <section>
-        <h4>Inhoud #1.1</h4>
-        <p>Text</p>
+        <h3>Array - Oplossing zonder Array (1)</h3>
+        <pre><code class="java" data-trim data-line-numbers="1-99">
+            public static void main(String[] args) {
+                String playerNameOne = "Edwin vd Sar";
+                String playerNameTwo = "Wim Jonk";
+                String playerNameThree = "Wim Zuurbier";
+                String playerNameFour = "Sjaak Polak";
+                String playerNameFive = "Daley Blind";
+                String playerNameSix = "Nikos Machlas";
+                String playerNameSeven = "Dennis Bergkamp";
+                String playerNameEight = "Ronald de Boer";
+                String playerNameNine = "Lionel Messi";
+                String playerNameTen = "Robin van Persie";
+                String playerNameEleven = "Willy van de Kerkhof";
+            }
+        </code></pre>
+    </section>
+
+    <section>
+        <h3>Array - Oplossing zonder Array (2)</h3>
+        <pre><code class="java" data-trim data-line-numbers="1-99">
+            public static void main(String[] args) {
+                // Team twee
+                String playerNameFiveTeamTwo = "Danny Blind";
+                String playerNameSixTeamTwo = "Brian Laudrup";
+                String playerNameSevenTeamTwo = "Michael Laudrup";
+                String playerNameEightTeamTwo = "Frank de Boer";
+                String playerNameNineTeamTwo = "CR7";
+                String playerNameTenTeamTwo = "Thierry Henry";
+                String playerNameElevenTeamTwo = "René van de Kerkhof";
+            }
+        </code></pre>
+    </section>
+    <section>
+        <h3>Array - Oplossing met Array (1)</h3>
+        <pre><code class="java" data-trim data-line-numbers="1-99">
+            public static void main(String[] args) {
+                String playerNamesTeamOne[] = new String[11];
+                playerNamesTeamOne[0] = "Edwin vd Sar";
+                playerNamesTeamOne[1] = "Wim Jonk";
+                playerNamesTeamOne[2] = "Wim Zuurbier";
+                playerNamesTeamOne[3] = "Sjaak Polak";
+                // Enzovoorts
+            }
+        </code></pre>
+        <p>LET OP: Je begint op 0 met tellen!</p>
+    </section>
+    <section>
+        <h3>Array - Oplossing met Array (2)</h3>
+        <p>Of je doet alle namen in één keer:</p>
+        <pre><code class="java" data-trim data-line-numbers="1-99" style="font-size: smaller">
+            public static void main(String[] args) {
+                String[] playerNamesTeamTwo = {"Sjaak 1", "Sjaak 2", "Sjaak 3", "Sjaak 4",
+                    "Sjaak 5", "Sjaak 6", "Sjaak 7", "Sjaak 8", "Sjaak 9", "Sjaak 10",
+                    "Sjaak 11"}
+            }
+        </code></pre>
+        <p>LET OP: Je begint op 0 met tellen!</p>
+    </section>
+    <section>
+        <h3>Array - Gebruiksaanwijzing</h3>
+        <ul>
+            <li class="fragment">Een Array heeft een vaste grootte. Deze kun je niet uitbreiden</li>
+            <li class="fragment">Bij instantiatie moet je of de grootte meegeven of de array direct vullen.</li>
+            <li class="fragment">Je kunt een Array maken van primitieve datatypen en Objecten.</li>
+            <li class="fragment">Meest voorkomende exceptie: <em>ArrayIndexOutOfBoundsException</em></li>
+        </ul>
+    </section>
+    <section>
+        <h3>Array - uitprinten</h3>
+        <pre><code class="java" data-trim data-line-numbers="1-99">
+            System.out.println(playerNamesTeamTwo[0]);
+        </code></pre>
+        <p>Je geeft de positie aan tussen de blokhaken.</p>
+    </section>
+    <section>
+        <h3>Array - aanpassen</h3>
+        <pre><code class="java" data-trim data-line-numbers="1-99">
+            playerNamesTeamTwo[0] = "New Player Frank";
+        </code></pre>
+        <p>Je geeft de positie aan tussen de blokhaken.</p>
+    </section>
+
+    <section>
+        <h3>Array - Lengte opvragen</h3>
+        <pre><code class="java" data-trim data-line-numbers="1-99">
+            System.out.println(playerNamesTeamTwo.length);
+        </code></pre>
+        <p>Print de waarde van de Array uit.</p>
+    </section>
+
+    <section>
+        <h3>Array - ALle waardes uitprinten met foreach</h3>
+        <pre><code class="java" data-trim data-line-numbers="1-99">
+            for(String name : playerNamesTeamTwo) {
+                System.out.println(name);
+            }
+        </code></pre>
+    </section>
+</section>
+
+<section>
+    <section>
+        <h3>ArrayList</h3>
+        <p>Wat nou als je van tevoren niet de grote weet? Je wilt dus een uitbreidbare lijst hebben.</p>
+        <p>ArrayList to the Rescue!</p>
+    </section>
+    <section>
+        <h3>ArrayList - voorbeeld met toevoegen</h3>
+        <pre><code class="java" data-trim data-line-numbers="1-99">
+            List&lt;String> playerNames = new ArrayList<>();
+            playerNames.add("Player Uno");
+            playerNames.add("Player Duo");
+            playerNames.add("Player Tres");
+        </code></pre>
+        <p>Neem deze code over in IntelliJ. Wat gebeurt er?</p>
+    </section>
+    <section>
+        <h3>ArrayList - packages</h3>
+        <ul>
+        <li class="fragment">De code om met ArrayListen te werken, moet je importen.</li>
+        <li class="fragment">Die doe je met <em>Alt</em> + <em>Enter</em>.</li>
+        </ul>
+        <pre class="fragment"><code class="java" data-trim data-line-numbers="1-99">
+            import java.util.ArrayList;
+            import java.util.List;
+        </code></pre>
+    </section>
+
+    <section>
+        <h3>ArrayList - Mogelijkheden</h3>
+        <pre><code class="java" data-trim data-line-numbers="1-99" style="font-size: smaller">
+            System.out.println("Eerste positie: " + playerNames.get(0));
+            System.out.println("Grootte: " + playerNames.size());
+            playerNames.remove(0); // Verwijderd Player Uno
+            playerNames.set(1, "Ik ben aangepast"); // Past de waarde op positie 1 aan.
+        </code></pre>
+    </section>
+
+    <section>
+        <h3>ArrayList - Loopen met een For-lus</h3>
+        <pre><code class="java" data-trim data-line-numbers="1-99">
+            for(int i = 0; i < playerNames.size(); i++) {
+                System.out.println("Positie: " + i);
+                System.out.println("Naam: " + playerNames.get(i));
+            }
+        </code></pre>
+        <p>In IntelliJ: type <em>fori</em> en druk op <em>Enter</em></p>
+    </section>
+</section>
+
+<section>
+    <section>
+        <h3>Verschillen</h3>
+        <ul>
+            <li>Weet je van tevoren de grote niet? ArrayList;</li>
+            <li>ArrayList werkt niet met primitieve datatypen;</li>
+            <li>Vast aantal? Array!</li>
+        </ul>
+    </section>
+    <section>
+        <h3>Good to know</h3>
+        <ul>
+            <li>Java garandeert geen volgorde;</li>
+            <li>Beide mogen <em>null</em>-waardes bevatten;</li>
+            <li>Beide mogen dubbele waardes bevatten.</li>
+            <li>Meerdere collecties: HashMap, LinkedList et cetera.</li>
+            <li>Een Array is altijd sneller dan een ArrayList!</li>
+        </ul>
     </section>
 </section>
