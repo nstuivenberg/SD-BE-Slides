@@ -1,0 +1,207 @@
+<section>
+    <section>
+        <h2>Testen in Spring Boot</h2>
+        <h3>Automatisch testen van je code.</h3>
+        <ul>
+            <li>Waarom testen we ook alweer?</li>
+            <li>Testen van Spring Boot</li>
+        </ul>
+        <aside class="notes">
+            Notes can be added here
+        </aside>
+    </section>
+</section>
+
+<section>
+    <section data-auto-animate>
+        <h2>Waarom testen we?</h2>
+        <ul>
+            <li>Valideren dat jouw code werkt;</li>
+            <li>Valideren dat morgen, overmorgen en volgend jaar je code nog steeds werkt;</li>
+            <li>Waarschuwingen ontvangen als onze wijzigingen problemen veroorzaken.</li>
+        </ul>
+    </section>
+    <section>
+        <h3>In de praktijk</h3>
+        <ul>
+            <li>Unit testen zijn een belangrijk onderdeel van een programmeurs vaardigheden;</li>
+            <li>Je moet dit dus kunnen schrijven;</li>
+            <li>Je moet kunnen begrijpen waarom ze nodig zijn.</li>
+        </ul>
+        <ul>
+            <li>Hoge codekwaliteit kun je niet bereiken zonder unit-testen;</li>
+            <li>Een goed code reviewer zal je code zonder unit-testen niet goedkeuren.</li>
+        </ul>
+    </section>
+    <section>
+        <h3>Voordelen</h3>
+        <ul>
+            <li>Je wordt gedwongen na te denken over de functionaliteit;</li>
+            <li>Je kunt je code snel testen;</li>
+            <li>Testen zijn herhaalbaar. Ook door andere;</li>
+            <li>Een goede test documenteert je code.</li>
+            <li>Goede testen maken wijzigingen in de code makkelijker. Waarom?</li>
+        </ul>
+    </section>
+    <section>
+        <h3>Voor<em>OOR</em>delen</h3>
+        <ul>
+            <li>Unit test is meer code schrijven</li>
+            <li>Dubbele boekhouding. Wijzigingen in je code dwingen je ertoe de unittesten aan te passen.</li>
+        </ul>
+    </section>
+</section>
+
+<section>
+    <section>
+        <h3>Testen van Spring Boot</h3>
+        <p>Doorgaan op wat we geleerd hebben.</p>
+    </section>
+    <section>
+        <h3>Wat hebben we al gehad (1)?</h3>
+        <ul>
+            <li>We hebben JUnit nodig;</li>
+            <li>We gebruiken Maven om de library te importeren;</li>
+            <li>De test-klassen staan in src/test/java.</li>
+        </ul>
+    </section>
+    <section>
+        <h3>Wat hebben we al gehad (2)?</h3>
+        <p>De annotaties</p>
+        <ul>
+            <li>@Test</li>
+            <li>@BeforeEach</li>
+            <li>@AfterEach</li>
+            <li>@BeforeAll</li>
+            <li>@AfterAll</li>
+            <li>@Disabled</li>
+        </ul>
+    </section>
+</section>
+
+<section>
+    <section>
+        <h3>Kleine veranderingen</h3>
+        <p>pom.xml</p>
+        <pre><code class="xml" data-line-numbers data-trim>
+        &lt;dependency>
+            &lt;groupId>org.springframework.boot&lt;/groupId>
+            &lt;artifactId>spring-boot-starter-test&lt;/artifactId>
+            &lt;scope>test&lt;/scope>
+            &lt;exclusions>
+                &lt;exclusion>
+                    &lt;groupId>org.junit.vintage&lt;/groupId>
+                    &lt;artifactId>junit-vintage-engine&lt;/artifactId>
+                &lt;/exclusion>
+            &lt;/exclusions>
+        &lt;/dependency>
+        </code></pre>
+    </section>
+    <section>
+        <h3>Kleine veranderingen (2)</h3>
+        <p>Nieuwe annotaties</p>
+        <ul>
+            <li>@ExtendWith(MockitoExtension.class)</li>
+            <li>@InjectMocks</li>
+            <li>@Mock</li>
+            <li>@WebMvcTest</li>
+            <li>@MockBean</li>
+        </ul>
+    </section>
+    <section>
+        <h3>Kleine veranderingen (3.1)</h3>
+        <p>Nieuwe manier van denken</p>
+        <ul>
+            <li>Voorheen waren methodes op zichzelf staand en niet afhankelijk van andere softwarelagen, klassen enmethodes</li>
+            <li>Nu wel. Je code bestaat uit verschillende lagen die met elkaar communiceren.</li>
+        </ul>
+    </section>
+    <section>
+        <h3>Kleine veranderingen (3.2)</h3>
+        <p>Wat nou als je een methode in de service-laag wilt testen die informatie krijgt uit de repository-laag?</p>
+    </section>
+    <section>
+        <h3>Kleine veranderingen (3.3)</h3>
+        <p>Wat nou als je een methode in de service-laag wilt testen die informatie krijgt uit de repository-laag?</p>
+        <p>Dan ga je mocken met de mockito-library</p>
+    </section>
+</section>
+
+<section>
+    <section>
+        <h2>Mockito</h2>
+        <ul>
+            <li>Met Mockito kunnen we een vast antwoord van een methode buiten de test-scope programmeren.</li>
+        </ul>
+    </section>
+    <section>
+        <h3>Mockito - voorbeeld (1)</h3>
+        <pre><code class="java" data-line-numbers data-trim>
+        @Mock
+        private PersonRepository personRepository;
+        </code></pre>
+    </section>
+    <section>
+        <h3>Mockito - voorbeeld (2)</h3>
+        <pre><code class="java" data-line-numbers data-trim style="font-size: smaller">
+            Mockito.when(personRepository.existsByUsername(signupRequest.getUsername()))
+                .thenReturn(true);
+        </code></pre>
+        <p>Is dit in de Arrange, Act of Assert stap?</p>
+    </section>
+    <section>
+        <h3>Aan de slag</h3>
+        <ul>
+            <li>Clone of fork: </li>
+            <li>https://github.com/hogeschoolnovi/SD-BE-SpringBoot-Testen</li>
+            <li>Beantwoord voor elke methode in PersonServiceImplTest.java wat ze doen en wat ze testen.
+                Schrijf je antwoord ergens op.</li>
+        </ul>
+    </section>
+    <section>
+        <h3>Aan de slag (2)</h3>
+        <ul>
+            <li>De methode createResponseObject wordt nog niet getest. Deze is echter private. Hoe zou jij de methode testen?</li>
+            <li>Schrijf je stappenplan uit.</li>
+            <li>Schrijf de unit test.</li>
+        </ul>
+    </section>
+    <section>
+        <h1>BESPREKEN</h1>
+    </section>
+</section>
+
+<section>
+    <section>
+        <h3>Testen van de controller-laag</h3>
+        <ul>
+            <li>De controller-laag doet niet zoveel, maar je kunt wel een paar dingen testen, zoals:</li>
+            <li>Valid annotaties</li>
+            <li>Terugkoppeling correcte error-codes</li>
+            <li>Terugkoppeling correcte foutmelding</li>
+        </ul>
+    </section>
+    <section>
+        <h3>Testen van de controller-laag</h3>
+        <ul>
+            <li>Ga naar de branch: split-unit-tests</li>
+            <li>Open src/test/java/nl/novi/mockitoexample/<br>
+            integration/PersonControllerIntegrationTest.java</li>
+            <li>Bekijk het voorbeeld.</li>
+        </ul>
+    </section>
+    <section>
+        <h3>Testen controller-laag</h3>
+        <p>Aan de slag</p>
+        <ol style="font-size: smaller">
+            <li>Schrijf een test om de foutmelding te checken wanneer de gebruiker geen repeatedPassword invult.</li>
+            <li>Schrijf een test om de foutmelding te checken wanneer de gebruiker geen email invult.</li>
+            <li>Schrijf een test om de foutmelding te checken wanneer de gebruiker geen username invult.</li>
+            <li>Schrijf een test om de foutmelding te checken wanneer de gebruiker geen password en geen repeteated password invult.</li>
+            <li><strong>Uitdagend</strong>: Kun je een test schrijven waar je de getAllUsers()-methode test?</li>
+        </ol>
+    </section>
+    <section>
+        <h1>BESPREKEN</h1>
+    </section>
+</section>
