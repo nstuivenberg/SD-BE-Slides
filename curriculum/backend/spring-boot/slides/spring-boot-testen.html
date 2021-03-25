@@ -136,6 +136,7 @@
     </section>
     <section>
         <h3>Mockito - voorbeeld (1)</h3>
+        <p>We willen in PersonServiceImplTest.java een methode testen die de personRepository klasse aanspreekt.</p>
         <pre><code class="java" data-line-numbers data-trim>
         @Mock
         private PersonRepository personRepository;
@@ -143,6 +144,7 @@
     </section>
     <section>
         <h3>Mockito - voorbeeld (2)</h3>
+        <p>We willen in PersonServiceImplTest.java een methode testen die de personRepository klasse aanspreekt.</p>
         <pre><code class="java" data-line-numbers data-trim style="font-size: smaller">
             Mockito.when(personRepository.existsByUsername(signupRequest.getUsername()))
                 .thenReturn(true);
@@ -156,6 +158,7 @@
             <li>https://github.com/hogeschoolnovi/SD-BE-SpringBoot-Testen</li>
             <li>Beantwoord voor elke methode in PersonServiceImplTest.java wat ze doen en wat ze testen.
                 Schrijf je antwoord ergens op.</li>
+            <li>Tijd: 30 minuten</li>
         </ul>
     </section>
     <section>
@@ -164,6 +167,9 @@
             <li>De methode createResponseObject wordt nog niet getest. Deze is echter private. Hoe zou jij de methode testen?</li>
             <li>Schrijf je stappenplan uit.</li>
             <li>Schrijf de unit test.</li>
+            <li>Werk samen:</li>
+            <li>https://plugins.jetbrains.com/plugin/14896-code-with-me</li>
+            <li>Tijd: 30 minuten</li>
         </ul>
     </section>
     <section>
@@ -192,13 +198,14 @@
     </section>
     <section>
         <h3>Testen controller-laag</h3>
-        <p>Aan de slag</p>
         <ol style="font-size: smaller">
             <li>Schrijf een test om de foutmelding te checken wanneer de gebruiker geen repeatedPassword invult.</li>
             <li>Schrijf een test om de foutmelding te checken wanneer de gebruiker geen email invult.</li>
             <li>Schrijf een test om de foutmelding te checken wanneer de gebruiker geen username invult.</li>
             <li>Schrijf een test om de foutmelding te checken wanneer de gebruiker geen password en geen repeteated password invult.</li>
             <li><strong>Uitdagend</strong>: Kun je een test schrijven waar je de getAllUsers()-methode test?</li>
+            <li>Samen: https://plugins.jetbrains.com/plugin/14896-code-with-me</li>
+            <li>Tijd: 30 min</li>
         </ol>
     </section>
     <section>
