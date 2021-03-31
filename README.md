@@ -19,6 +19,8 @@ De inhoudsopgave voor alle slides zijn na het opstarten te vinden via: http://lo
 
 De java-opdrachten zijn geen onderdeel van de repository. Deze zijn hier te vinden: https://github.com/hogeschoolnovi/backend-assignments/
 
+De oefenen met documentatie opdracht staat hier: `curriculum/backend/JavaProgrammeren/opdrachten/`.
+
 Voor het vak *database* zijn er verschillende opdrachten hier te vinden (in markdown): http://localhost:8000/curriculum/backend/database/slides/opdracht/
 
 ## Meer informatie
